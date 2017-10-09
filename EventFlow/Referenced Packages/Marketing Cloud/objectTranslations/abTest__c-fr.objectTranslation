@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test AB</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tests AB</value>
+    </caseValues>
+    <fields>
+        <label>Créer une charge</label>
+        <name>Create_Payload__c</name>
+    </fields>
+    <fields>
+        <label>Objet personnalisé</label>
+        <name>Custom_Object__c</name>
+    </fields>
+    <fields>
+        <label>Déterminer le vainqueur par</label>
+        <name>Determine_Winner_By__c</name>
+        <picklistValues>
+            <masterLabel>Higher unique click-through rate (CTR)</masterLabel>
+            <translation><!-- Higher unique click-through rate (CTR) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Higher unique open rate</masterLabel>
+            <translation><!-- Higher unique open rate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Type de test</label>
+        <name>Test_Type__c</name>
+        <picklistValues>
+            <masterLabel>Content areas</masterLabel>
+            <translation><!-- Content areas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emails</masterLabel>
+            <translation><!-- Emails --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>From names</masterLabel>
+            <translation><!-- From names --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preheaders</masterLabel>
+            <translation><!-- Preheaders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send dates/times</masterLabel>
+            <translation><!-- Send dates/times --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subject lines</masterLabel>
+            <translation><!-- Subject lines --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>ID d’instance AB</label>
+        <name>abInstanceId__c</name>
+    </fields>
+    <fields>
+        <label>mid</label>
+        <name>mid__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>AB Test Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom de test AB</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

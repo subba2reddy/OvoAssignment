@@ -1,0 +1,262 @@
+<aura:component controller='PerformanceListController' implements='flexipage:availableForAllPageTypes,force:hasRecordId' >
+    
+    <ltng:require scripts="{!$Resource.jQuery}" afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+    <!--ltng:require styles="{!$Resource.Bootstrap}" /-->
+    <!--ltng:require styles="{!$Resource.w3css}" /-->
+    <aura:registerEvent name="savePerformanceEvent" type="c:savePerformanceEvent"/>
+    
+    <aura:attribute name='Performances' type='Performance__c[]'  />
+    <aura:attribute name='deletedPerf' type='Performance__c[]'  />
+    <aura:attribute name='Performance' type='Performance__c' default="{'sobjectType' : 'Performance__c'}"/>
+    <aura:attribute name='event' type='List' />
+    <!-- the following attributes may not be necessary you can set the event object above from the controller and all the fields can be directly accessed -->
+    <aura:attribute name="actions" type="List" />
+    <aura:attribute name="days" type="List" />
+    <aura:attribute name="selectedValue" type="String" default="Choose an Action"/>
+    <aura:attribute name="scrollCheckIntervalId" type="List" />
+    
+    <aura:attribute name="daysPicklistOptions" type="List" />
+    <aura:attribute name="performancePicklistOptions" type="List"	/>
+    <aura:attribute name="changedPerfDates" type="List"	/>
+    <aura:attribute name="evtDateChanged" type="Boolean" default="false"/>
+    
+    <aura:handler name='init' action='{!c.doInit}' value='{!this}' /> 
+    
+    <lightning:card >
+        <div class="slds-grid slds-wrap slds-grid_pull-padded">
+            <div id='dates' class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_5-of-6 slds-large-size_8-of-12">
+                <lightning:layout class='slds-m-xx-large'>
+                    <div class='slds-p-left_large'> From </div>
+                    <div class='slds-p-left_x-small'> 
+                        <ui:inputDate aura:id='startDate'  value='{!v.event[0].Performance_Start_Date__c}' displayDatePicker='true' blur="{!c.onEvtDateChanged}"/>
+                    </div>
+                    <div class='slds-p-left_large'> To </div>
+                    <div class='slds-p-left_x-small'> 
+                        <ui:inputDate aura:id='endDATE'  value='{!v.event[0].Performance_End_Date__c}'  displayDatePicker='true' blur="{!c.onEvtDateChanged}"/>
+                    </div>
+                </lightning:layout>
+            </div>
+            <div class="slds-p-horizontal_small slds-size_1-of-2 slds-medium-size_1-of-6 slds-large-size_4-of-12">
+                <lightning:layout horizontalAlign='end' >
+                    <div style="width: 18rem" class="slds-p-right_small">
+                        <ui:inputSelect aura:id="selectItem" change="{!c.handleActions}">
+                            <ui:inputSelectOption text="Choose an Action" label="Choose an Action" value="true"/>
+                            <ui:inputSelectOption text="Add first Performance" label="Add first Sample Performance"/>
+                            <ui:inputSelectOption text="Make a sample weeks’ worth of performances" label="Make a sample weeks’ worth of performances"/>
+                            <ui:inputSelectOption text="Repeat sample period for production run" label="Repeat sample period for production run"/>
+                            <ui:inputSelectOption text="Delete all rows" label="Delete all rows"/>
+                            <ui:inputSelectOption text="Mark all as sample performances" label="Mark all as sample performances"/>
+                            <ui:inputSelectOption text="Mark all as standard performances" label="Mark all as standard performances"/>
+                        </ui:inputSelect>
+                    </div>
+                    <!--lightning:select name="selectItem"  aura:id="selectItem" value="{!v.selectedValue}" onchange="{!c.handleActions}">
+                        <aura:iteration items="{!v.actions}" var="action">
+                            <option text="{!action.label}" value="{!action.value}" selected="{!action.selected}" />				                                            	
+                        </aura:iteration>
+                    </lightning:select-->
+                </lightning:layout>
+            </div>
+        </div>
+        
+        <!--        <aura:set attribute='title'>
+           {!v.event[0].Name}
+        </aura:set> -->
+        <!--div class='slds-m-horizontal_large'-->
+        <!--lightning:layout horizontalAlign='space'>
+    <lightning:layoutItem flexibility="auto" padding="around-small">
+                    <ui:inputDate aura:id='startDate' label='From' value='{!v.event[0].Start_Date__c}' displayDatePicker='true' />
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto" padding="around-small" class="slds-float_left">
+                    <ui:inputDate aura:id='endDATE' label='To' value='{!v.event[0].End_date__c}'  displayDatePicker='true'/>
+                </lightning:layoutItem>
+                <lightning:layoutItem flexibility="auto" padding="around-small" class="slds-float_right">
+                    <lightning:select name="selectItem" label="Actions" aura:id="selectItem" value="{!v.selectedValue}" onchange="{!c.handleActions}">
+                        <aura:iteration items="{!v.actions}" var="action">
+                            <option text="{!action.label}" value="{!action.value}" selected="{!action.selected}" />				                                            	
+                        </aura:iteration>
+                    </lightning:select>
+                </lightning:layoutItem>
+            </lightning:layout-->
+        <!--/div-->    
+    </lightning:card>
+    
+    <div>
+        <ui:scrollerWrapper class="scrollerSize">
+            <table class='slds-table slds-table_edit slds-table--bordered slds-cell-buffer_left slds-table_fixed-layout slds-table_resizable-cols slds-resizable' role="grid" id="pfmSch">
+                <thead >
+                    <tr style='height:30px'>
+                        <th  class="slds-is-sortable slds-is-resizable" scope='col'><div class='slds-truncate' title='EVENT CODE'>&nbsp; &nbsp;EVENT CODE</div></th>
+                        <th scope='col' ><div class='slds-truncate' title='LINK NEXT'>&nbsp; &nbsp;LINK NEXT</div></th>
+                        <th scope='col' ><div class='slds-truncate' title='LINK PREV'>&nbsp; &nbsp;LINK PREV</div></th>
+                        <th scope='col' ><div class='slds-truncate' title='LINK PREV WEEK'>&nbsp; &nbsp;LINK PREV WEEK</div></th>
+                        <th scope='col' ><div class='slds-truncate' title='DAY'>&nbsp; &nbsp;DAY</div></th>
+                        <th scope='col' style="width:11rem;" ><div class='slds-truncate' title='DATE'>&nbsp; &nbsp;DATE</div></th>
+                        <th scope='col' style="width:9rem;" ><div class='slds-truncate' title='TIME'>&nbsp; &nbsp;TIME</div></th>
+                        <!--th scope='col' style="width: 18rem;"><div class="slds-truncate" title='DATE'>&nbsp; &nbsp; DATE &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; TIME</div></th-->
+                        <th scope='col' ><div class='slds-truncate' title='PERFORMANCE'>&nbsp; &nbsp;PERFORMANCE</div></th>
+                        <th scope='col' style="width: 7rem;"><div class='slds-truncate' title='SUFFIX'>&nbsp; &nbsp;SUFFIX</div></th>
+                        <th scope='col' ><div class='slds-truncate' title='MASTER CHART'>&nbsp; &nbsp;MASTER CHART</div></th>
+                        <th scope='col' style="width: 21rem;"><div class='slds-truncate' title='ACTIONS'></div></th>
+                    </tr>
+                </thead>
+            </table>
+            
+            <div aura:id="scrollableTable" class='slds-table_edit_container slds-is-relative'>
+                
+                <aura:iteration items='{!v.Performances}' var='Performance' indexVar="index">
+                    <div class="{!Performance.Sample__c == 'true'? 'selectedRow' : '' }" >
+                        
+                        <table class='slds-table slds-table_edit slds-cell-buffer_left slds-table_fixed-layout slds-table_resizable-cols slds-resizable' role="grid" >
+                            <thead class='thead'>
+                                <tr class='tr'>
+                                    <th  class="slds-is-sortable slds-is-resizable" scope='col'></th>
+                                    <th scope='col' ></th>
+                                    <th scope='col' ></th>
+                                    <th scope='col' ></th>
+                                    <th scope='col' ></th>
+                                    <th scope='col' style="width:11rem;" ></th>
+                                    <th scope='col' style="width:9rem;" ></th>
+                                    <!--th scope='col' style="width: 18rem;"></th-->
+                                    <th scope='col' ></th>
+                                    <th scope='col' style="width: 7rem;"></th>
+                                    <th scope='col' ></th>
+                                    <th scope='col' style="width: 21rem;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr name="{!index}" class='slds-hint-parent slds-line-height_reset'>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate'>
+                                            <input type="text" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Event_Code__c}" required="true" maxlength="8" style="text-transform:uppercase" />  />
+                                            <!--ui:inputText aura:id="eventCode" value="{!Performance.Event_Code__c}" maxlength="8" required="true"/-->
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate' title='{!Performance.Link_Next__c}'>
+                                            <input type="text" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Link_Next__c}" maxlength="8" style="text-transform:uppercase" />
+                                            <!--ui:inputText value="{!Performance.Link_Next__c}" maxlength="8" /-->
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate'>
+                                            <input type="text" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Link_Prev__c}" maxlength="8" style="text-transform:uppercase"/>
+                                            <!--ui:inputText value="{!Performance.Link_Prev__c}" maxLength="8" /-->
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate'>
+                                            <input type="text" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Link_Prev_Week__c}" maxlength="8" style="text-transform:uppercase"/>
+                                            <!--ui:inputText value="{#Performance.Link_Prev_Week__c}" maxLength="8" /--> 
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate'>
+                                            <select class="slds-input" data-selected-Index="{!index}" onChange="{!c.onDaysChange}">
+                                                <option selected="{!Performance.Day__c == 'MONDAY' ? 'selected' : ''}" value ="MONDAY">MONDAY</option>
+                                                <option selected="{!Performance.Day__c == 'TUESDAY' ? 'selected' : ''}" value ="TUESDAY">TUESDAY</option>
+                                                <option selected="{!Performance.Day__c == 'WEDNESDAY' ? 'selected' : ''}" value ="WEDNESDAY" >WEDNESDAY</option>
+                                                <option selected="{!Performance.Day__c == 'THURSDAY' ? 'selected' : ''}" value ="THURSDAY">THURSDAY</option>
+                                                <option selected="{!Performance.Day__c == 'FRIDAY' ? 'selected' : ''}" value ="FRIDAY">FRIDAY</option>
+                                                <option selected="{!Performance.Day__c == 'SATURDAY' ? 'selected' : ''}" value ="SATURDAY">SATURDAY</option>
+                                                <option selected="{!Performance.Day__c == 'SUNDAY' ? 'selected' : ''}" value ="SUNDAY">SUNDAY</option>
+                                            </select> 
+                                            
+                                            <!--select data-selected-Index="{!index}" change="{!c.onDaysChange}" options="{!v.daysPicklistOptions}" value="{!Performance.Day__c}" /-->
+                                            <!--ui:inputSelect aura:id="days" class="dynamic" change="{!c.onDaysChange}" options="{!v.daysPicklistOptions}" value="{!Performance.Day__c}" /-->
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate'>
+                                            <input type="date" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Date__c}"  onchange="{!c.onDateChange}" onblur="{!c.onDateBlur}"/>
+                                        </div>
+                                    </td>
+                                    <td role="gridcell" class="slds-cell-edit">
+                                        <div class="slds-truncate">
+                                            <input type="time" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Time__c}" oninput="{!c.addPerformanceTime}" required="true"  />
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate'>
+                                            <!--select class="slds-input" data-selected-Index="{!index}" onchange="{!c.onPerformanceChange}" value="{!Performance.Performance__c}">  
+                                                <option value ="MATINEE">MATINEE</option>
+                                                <option value ="EVENING" selected="True">EVENING</option>
+                                                <option value ="EARLY EVENING" >EARLY EVENING</option>
+                                                <option value ="LATE">LATE</option>
+                                                <option value ="AFTERNOON">AFTERNOON</option>
+                                                <option value ="MORNING">MORNING</option>
+                                                <option value ="STANDING">STANDING</option>
+                                                <option value ="NIGHT">NIGHT</option>
+                                                <option value ="DOORS">DOORS</option>
+                                                <option value ="VIP">VIP</option>
+                                                <option value ="GATES">GATES</option>
+                                            </select-->
+                                            <select class="slds-input" data-selected-Index="{!index}" onchange="{!c.onPerformanceChange}" >  
+                                                <option selected="{!Performance.Performance__c == 'MATINEE' ? 'selected' : ''}" value ="MATINEE">MATINEE</option>
+                                                <option selected="{!Performance.Performance__c == 'EVENING' ? 'selected' : ''}" value ="EVENING">EVENING</option>
+                                                <option selected="{!Performance.Performance__c == 'EARLY EVENING' ? 'selected' : ''}" value ="EARLY EVENING">EARLY EVENING</option>
+                                                <option selected="{!Performance.Performance__c == 'LATE' ? 'selected' : ''}" value ="LATE">LATE</option>
+                                                <option selected="{!Performance.Performance__c == 'AFTERNOON' ? 'selected' : ''}" value ="AFTERNOON">AFTERNOON</option>
+                                                <option selected="{!Performance.Performance__c == 'MORNING' ? 'selected' : ''}" value ="MORNING">MORNING</option>
+                                                <option selected="{!Performance.Performance__c == 'STANDING' ? 'selected' : ''}" value ="STANDING">STANDING</option>
+                                                <option selected="{!Performance.Performance__c == 'NIGHT' ? 'selected' : ''}" value ="NIGHT">NIGHT</option>
+                                                <option selected="{!Performance.Performance__c == 'DOORS' ? 'selected' : ''}" value ="DOORS">DOORS</option>
+                                                <option selected="{!Performance.Performance__c == 'VIP' ? 'selected' : ''}" value ="VIP">VIP</option>
+                                                <option selected="{!Performance.Performance__c == 'GATES' ? 'selected' : ''}" value ="GATES">GATES</option>
+                                            </select>
+
+                                            <!--ui:inputSelect aura:id="Performance" class="dynamic" change="{!c.onPerformanceChange}" options="{!v.performancePicklistOptions}" value="{!Performance.Performance__c}" /-->
+                                            <!--ui:inputSelect aura:id="performances" change="{!c.onPerformanceChange}" >
+                                            <aura:iteration items="{!v.performancePicklistOptions}" var="performance">
+                             			        <ui:inputSelectOption text="{!performance.value}" label="{!performance.label}"/>
+                              			   </aura:iteration>
+                                      	   </ui:inputSelect-->
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate' title='{!Performance.Suffix__c}'>
+                                            <ui:inputText aura:id="suffix" value="{!Performance.Suffix__c}" />
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' class='slds-cell-edit'>
+                                        <div class='slds-truncate' title='{!Performance.Master_Chart__c}'>
+                                            <input type="text" class="slds-input" data-selected-Index="{!index}" value="{!Performance.Master_Chart__c}" 
+                                                   onchange="{!c.addMasterChart}" required="required" style="text-transform:uppercase" maxlength='8' size='8' /> />
+                                        </div>
+                                    </td>
+                                    <td role='gridcell' >
+                                        <div class="unstyled">
+                                            <lightning:layout horizontalAlign="center">
+                                                <!--button class="btn btn-lg btn-primary btn-circle" data-selected-Index="{!index}" onclick="{!c.deletePerformance}" >
+                                                <i class="fa fa-plus"></i>
+                                                <lightning:icon class="slds-button__icon_smal" iconName="action:delete" title="Delete Performance" size="small"/>
+	                                            </button-->
+                                                <lightning:button variant="bare" onclick="{!c.deletePerformance}" value="{!index}">
+                                                    <lightning:icon iconName="utility:delete" title="Delete Performance" size="small"/>
+                                                </lightning:button>
+                                                <lightning:button variant="base" onclick="{!c.clonePerformance}" name="{!index}" value="{!Performance}">
+                                                    <lightning:icon iconName="utility:add" title="Clone Performance" size="small"/>
+                                                </lightning:button>
+                                                <lightning:button label="Sample" value="{!index}" onclick="{!c.markSample}" class="buttonStyle">
+                                                </lightning:button>
+                                                <lightning:button label="Standard" onclick="{!c.markStandard}" value="{!index}" class="buttonStyle">
+                                                </lightning:button>
+                                            </lightning:layout>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </aura:iteration>
+                
+            </div>
+        </ui:scrollerWrapper>
+    </div>
+    <lightning:card >
+        <div class="slds-card__footer">
+            <lightning:button label='Make Links' onclick="{!c.makeLinks}" />
+            <lightning:button variant='brand' label='Save' onclick="{!c.onSave}" />            
+        </div> 
+    </lightning:card>    
+</aura:component>

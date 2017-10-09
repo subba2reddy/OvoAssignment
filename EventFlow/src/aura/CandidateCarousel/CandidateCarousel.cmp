@@ -1,0 +1,30 @@
+<aura:component controller="CandidateController" implements="force:appHostable">
+
+<!--    <ltng:require styles="/resource/recruiting/slick/slick.css,/resource/recruiting/slick/slick-theme.css"	
+                  scripts="/resource/recruiting/jquery/jquery.js,/resource/recruiting/slick/slick.min.js"
+        afterScriptsLoaded="{!c.doInit}"/> -->
+    
+    <ltng:require scripts="{!$Resource.jQuery}"  />
+    <ltng:require scripts="{!$Resource.Slick_js}" styles="{!join(',',
+   						 $Resource.Slick_css, $Resource.Slick_theme)}" afterScriptsLoaded="{!c.doInit}"/> 
+    
+    
+  
+    
+   <aura:attribute name="blnRendered" type="boolean" default="false"/>
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/> 
+    
+	<aura:attribute name="contacts" type="Contact[]"/>
+
+    <div class="carousel">
+		<aura:iteration items="{!v.contacts}" var="contact">
+            <!--<c:CandidatePage contact="{!contact}"/> -->
+            <div>
+                <lightning:card >
+                <ui:outputText value="{!contact.LastName}"/>
+                    </lightning:card>
+            </div>
+        </aura:iteration> 
+	</div>
+    
+</aura:component>

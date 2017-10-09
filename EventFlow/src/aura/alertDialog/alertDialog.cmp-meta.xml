@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>40.0</apiVersion>
+    <description>Generic Alert Dialog  - can be used by passing the header text and text to be displayed on the alert dialog</description>
+</AuraDefinitionBundle>

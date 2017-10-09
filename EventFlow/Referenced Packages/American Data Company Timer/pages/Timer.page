@@ -1,0 +1,126 @@
+<apex:page id="timer" controller="vftimer.TimerController" showHeader="false" standardStyleSheets="false">
+	<title>Timer | Powered by American Data Company</title>
+	<script type="text/javascript" src="{!URLFOR( $Resource.TimerInterfaceScripts )}"/>
+	<script type="text/javascript" src="{!URLFOR( $Resource.TimerActionScripts )}"/>
+	<script type="text/javascript" src="{!URLFOR( $Resource.TimerPreloads )}"/>
+	<apex:stylesheet value="{!URLFOR( $Resource.vftimer__TimerStyles )}"/>
+	<body onload="init()" style="display:none;">
+		<apex:outputPanel id="pageWrapperOuter" layout="block">
+			<apex:outputPanel id="pageWrapperInner" layout="block">
+				<apex:outputPanel id="header" layout="block">
+					<apex:outputLink id="btnPoweredBy" value="http://www.americandatacompany.com" target="_blank"><apex:image id="logoADC" styleClass="logoADC" url="{!URLFOR( $Resource.vftimer__TimerImages, 'logoADC.gif' )}" alt="Powered by American Data Company"/></apex:outputLink>
+					<apex:outputLink id="btnHelp" value="http://www.americandatacompany.com/services/timer.html" target="_blank">Help</apex:outputLink>
+				</apex:outputPanel>
+				<apex:outputPanel id="timerWrapper" layout="block">
+					<apex:form id="timerForm">
+						<apex:outputPanel id="recordedTimeContent" layout="block">
+							<apex:inputHidden id="timeInMillis" value="{!activeTimerEntry.recordedTimeMilliseconds}"/>
+							<apex:inputText id="recordedTimeDisplay" value="{!activeTimerEntry.recordedTimeDisplay}" onblur="convertFromUserTime();"/>
+							<input type="button" id="buttonStartTimer" value="Start" onclick="startTimer();"/>
+							<apex:commandButton id="buttonStopTimer" action="{!stopTimer}" value="Stop" onclick="stopTimer();" rerender="messageDisplayWrapper,recentItemsContent" status="saveProgressStatus"/>
+						</apex:outputPanel>
+						<apex:outputPanel id="timerEntryRecordActions" layout="block">
+							<apex:commandButton id="buttonNew" action="{!resetTimer}" value="New" oncomplete="resetInterface();" status="saveProgressStatus">
+								<apex:param name="location" value="/apex/Timer"/>
+							</apex:commandButton>
+							<apex:outputPanel id="statusDisplay">
+								<apex:actionStatus id="loadProgressStatus" startText="Loading..." stopText=""/>
+								<apex:actionStatus id="saveProgressStatus" startText="Saving..." stopText=""/>
+								<apex:actionStatus id="searchProgressStatus" startText="Searching..." stopText=""/>
+							</apex:outputPanel>
+						</apex:outputPanel>
+						<apex:outputPanel id="viewstateWrapper" layout="block">
+							<apex:outputLink id="updateViewstate" value="javascript:toggleViewState();">&nbsp;</apex:outputLink>
+						</apex:outputPanel>
+						<apex:outputPanel id="recordTitleWrapper" layout="block">
+							<!-- Record Display -->
+							<apex:outputPanel id="recordLinkWrapper" layout="block">
+								<apex:outputLabel for="recordLink" value="{!activeTimerEntry.parentObjectLabel}:"/>
+								<apex:outputLink id="recordLink" value="/{!activeTimerEntry.recordId}" target="_blank">
+									<apex:outputText value="{!activeTimerEntry.recordName}"/>
+								</apex:outputLink>
+							</apex:outputPanel>
+							<!-- Search -->
+							<apex:outputPanel id="recordSearchWrapper" layout="block">
+								<apex:outputLabel for="recordSearch" value="Record:"/>
+								<apex:inputText id="recordSearch" value="{!searchToken}"/>
+								<apex:commandButton id="btnSearch" action="{!executeSearch}" oncomplete="toggleView( dynamicViews, 'timer:timerForm:searchResultWrapper' );toggleViewstateFull();" value="Go" rerender="searchResultContent,messageDisplayWrapper" status="searchProgressStatus"/>
+							</apex:outputPanel>
+						</apex:outputPanel>
+						<!-- Timer Body Dynamic Content -->
+						<apex:outputPanel id="dynamicContentWrapper" layout="block">
+							<apex:outputPanel id="messageDisplayWrapper" styleClass="error" layout="block">
+								<apex:messages id="messageDisplay"/>
+							</apex:outputPanel>
+							<apex:outputPanel id="dynamicContentInnerWrapper" layout="block">
+								<!-- General Timer Entry Fields -->
+								<apex:outputPanel id="activeTimerEntryContent" layout="block">
+									<apex:outputPanel id="subjectWrapper" rendered="{!IF( timerConfig.showSubject, true, false )}" layout="block">
+										<apex:outputLabel for="subject" value="Subject:"/>
+										<apex:inputText id="subject" value="{!activeTimerEntry.subject}"/>
+									</apex:outputPanel>
+									<apex:outputPanel id="descriptionWrapper" rendered="{!IF( timerConfig.showDescription, true, false )}" layout="block">
+										<apex:outputLabel for="description" value="Description:"/>
+										<apex:inputTextArea id="description" value="{!activeTimerEntry.description}"/>
+									</apex:outputPanel>
+									<apex:outputPanel id="billingTypeWrapper" rendered="{!IF( timerConfig.showBillingType, true, false )}" layout="block">
+										<apex:outputLabel for="billingType" value="Bill Type:"/>
+										<apex:selectList id="billingType" value="{!activeTimerEntry.billingType}" size="1">
+											<apex:selectOptions value="{!billingTypeOptions}"/>
+										</apex:selectList>
+									</apex:outputPanel>
+									<apex:outputPanel id="workTypeWrapper" rendered="{!IF( timerConfig.showWorkType, true, false )}" layout="block">
+										<apex:outputLabel for="workType" value="Work Type:"/>
+										<apex:selectList id="workType" value="{!activeTimerEntry.workType}" size="1">
+											<apex:selectOptions value="{!workTypeOptions}"/>
+										</apex:selectList>
+									</apex:outputPanel>
+									<input type="hidden" id="parentRecordId" value="{!activeTimerEntry.recordId}" onchange="updateButtonAccessibility();"/>
+								</apex:outputPanel>
+								<!-- Search Results -->
+								<apex:outputPanel id="searchResultWrapper" layout="block">
+									<apex:outputPanel id="searchResultContent" layout="block">
+										<apex:outputText id="searchResultEmptyMsg" value="No search results found." rendered="{!IF( OR( searchResults == null, searchResults.size == 0 ), true, false )}"/>
+										<apex:repeat id="searchResultDisplay" value="{!searchResults}" var="searchResultGroup">
+											<p><apex:outputText value="{!searchResultGroup.objectLabel}"/></p>
+											<apex:dataList value="{!searchResultGroup.results}" var="result">
+												<apex:commandLink action="{!updateTimerEntryView}" oncomplete="toggleView( dynamicViews, 'timer:timerForm:activeTimerEntryContent' );toggleView( parentRecordViews, 'timer:timerForm:recordLinkWrapper' );toggleView( actionButtonViews, btnStart );toggleView( hideSearchItems, hideRecentItems );" rerender="recordedTimeContent,recordTitleWrapper,recordLinkWrapper,recordSearchWrapper,activeTimerEntryContent" status="loadProgressStatus">
+													<apex:outputText value="{!result.recordName}"/>
+													<apex:param name="recordId" value="{!result.recordId}"/>
+													<apex:param name="parentObject" value="{!searchResultGroup.objectName}"/>
+													<apex:param name="parentObjectLabel" value="{!searchResultGroup.objectLabel}"/>
+													<apex:param name="recordName" value="{!result.recordName}"/>
+												</apex:commandLink>
+											</apex:dataList>
+										</apex:repeat>
+									</apex:outputPanel>
+								</apex:outputPanel>
+								<!-- Recent Items -->
+								<apex:outputPanel id="recentItemsWrapper" layout="block">
+									<apex:outputPanel id="recentItemsContent" layout="block">
+										<apex:repeat id="recentItemsDisplay" value="{!recentItems}" var="recentItemGroup">
+											<p>Recent Timer Entries</p>
+											<apex:dataList value="{!recentItemGroup.results}" var="item">
+												<apex:commandLink action="{!updateTimerEntryView}" onclick="stopTimer();" oncomplete="toggleView( dynamicViews, 'timer:timerForm:activeTimerEntryContent' );toggleView( parentRecordViews, 'timer:timerForm:recordLinkWrapper' );toggleView( actionButtonViews, btnStart );toggleView( hideRecentItems, hideRecentItems );" rerender="recordedTimeContent,recordTitleWrapper,recordLinkWrapper,recordSearchWrapper,activeTimerEntryContent" status="loadProgressStatus">
+													<apex:outputText value="{!item.recordName}"/>
+													<apex:param name="timerEntryId" value="{!item.recordId}"/>
+												</apex:commandLink>
+											</apex:dataList>
+										</apex:repeat>
+									</apex:outputPanel>
+								</apex:outputPanel>
+							</apex:outputPanel>
+							<apex:outputPanel id="dynamicContentInnerWrapperBottom" layout="block"/>
+						</apex:outputPanel>
+					</apex:form>
+				</apex:outputPanel>
+			</apex:outputPanel>
+			<apex:outputPanel id="bottomNaviLinks" layout="block">
+				<a id="showRecentItems" href="#" onclick="toggleView( dynamicViews, 'timer:timerForm:recentItemsWrapper' );toggleViewstateFull();">Show Today's Items</a>
+				<a id="hideSearchItems" href="#" onclick="toggleView( dynamicViews, 'timer:timerForm:activeTimerEntryContent' );">Hide Search</a>
+				<a id="hideRecentItems" href="#" onclick="toggleView( dynamicViews, 'timer:timerForm:activeTimerEntryContent' );">Hide Today's Items</a>
+			</apex:outputPanel>
+		</apex:outputPanel>
+		<apex:outputPanel id="pageWrapperBottom" layout="block"/>
+	</body>
+</apex:page>

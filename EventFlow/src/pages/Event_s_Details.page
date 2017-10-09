@@ -1,0 +1,51 @@
+<apex:page >
+<!--<apex:page standardController="Event_Costs__c" extensions="calculateCurrency" action="{!listAll}" showHeader="true" sidebar="true" standardStylesheets="true" >
+    <script language="javascript">
+        function confirmClose()
+        {
+            return confirm('All changes will be discarded.  Continue?');
+        }
+    </script>
+    
+    <body class="setupTab"> 
+        <apex:form id="myform" >        
+            <apex:sectionHeader title="Monthly Amount Details" subtitle="Edit Page" />
+            <apex:pageBlock > 
+                <apex:pageMessages > </apex:pageMessages>             
+                <apex:pageBlockButtons >   
+                <div class="pbWizardHeader">
+                    <apex:outputPanel id="topButtonPanel" styleClass="pbTopButtons" style="white-space: nowrap;">
+                        <apex:commandButton styleClass="btn" action="{!cancel}" value="Back" rendered="{!showBack}" style="align:ABSMIDDLE" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<apex:commandButton styleClass="btn" action="{!save}" value="Save" disabled="{!hasErrors}" style="align:ABSMIDDLE" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;<apex:commandButton styleClass="btnCancel" action="{!cancel}" value="Cancel" rendered="{!showCancel}" onclick="return confirmClose();" style="align:ABSMIDDLE"/>
+                    </apex:outputPanel>
+                </div>
+                </apex:pageBlockButtons>                     
+                <div class="pbBody">
+                    <apex:outputPanel id="listPanel" rendered="{!hasNoErrors}" styleClass="listRelatedObject setupBlock" >
+                        <apex:dataTable value="{!monthlyAmountList }" var="monAmount" id="monthlyAmountTable" rowClasses="odd dataCol,even dataCol" styleClass="list" width="100%">
+                            <apex:column width="34%" styleClass="dataCell" headerClass="myHeaderRow1">
+                                <apex:facet name="header">Month</apex:facet>
+                                <apex:outputText value="{!monAmount.Date__c}"/>
+                            </apex:column>
+                            <apex:column width="33%" styleClass="dataCell" headerClass="myHeaderRow1">
+                                <apex:facet name="header">Gross(LC) </apex:facet>
+                                <apex:inputText value="{!monAmount.Gross_LC__c}"/>
+                            </apex:column>
+
+                            <apex:column width="33%" styleClass="dataCell" headerClass="myHeaderRow1">
+                                <apex:facet name="header">Net(LC)</apex:facet>
+                                <apex:inputText value="{!monAmount.Net_LC__c}"/>
+                            </apex:column>
+                            <apex:column width="33%" styleClass="dataCell" headerClass="myHeaderRow1" rendered="{!eventRecordTypeID != '01220000000Pj8TAAS'}">
+                                <apex:facet name="header">Impressions</apex:facet>
+                                <apex:inputText value="{!monAmount.Impressions__c}"/>
+                            </apex:column>
+                         </apex:dataTable>
+                    </apex:outputPanel>
+                </div>                 
+            </apex:pageBlock>
+        </apex:form>
+    </body>
+-->
+</apex:page>

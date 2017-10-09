@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Configuration</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Configurations</value>
+    </caseValues>
+    <fields>
+        <label>Suivi global</label>
+        <name>Aggregate_Tracking__c</name>
+    </fields>
+    <fields>
+        <label>Autoriser les rapports personnels</label>
+        <name>Allow_Personal_Reports__c</name>
+    </fields>
+    <fields>
+        <label>URL d’API d’authentification</label>
+        <name>Auth_API_URL__c</name>
+    </fields>
+    <fields>
+        <label>Unités commerciales en attente</label>
+        <name>AwaitingBusinessUnits__c</name>
+    </fields>
+    <fields>
+        <label>Jours suivis</label>
+        <name>Days_Tracked__c</name>
+    </fields>
+    <fields>
+        <label>Disponibilité de lien profond</label>
+        <name>Deep_Link_Availability__c</name>
+    </fields>
+    <fields>
+        <label>Audience d’exclusion</label>
+        <name>Exclusion_Audience__c</name>
+    </fields>
+    <fields>
+        <label>Fréquence</label>
+        <name>Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hourly</masterLabel>
+            <translation><!-- Hourly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Suivi individuel</label>
+        <name>Individual_Tracking__c</name>
+    </fields>
+    <fields>
+        <label>Type d&apos;intégration</label>
+        <name>Integration_Type__c</name>
+    </fields>
+    <fields>
+        <label>Dernière requête de journal</label>
+        <name>Last_Log_Request__c</name>
+    </fields>
+    <fields>
+        <label>Suivi des détails du lien</label>
+        <name>Link_Detail_Tracking__c</name>
+    </fields>
+    <fields>
+        <label>Autres options d’expéditeur</label>
+        <name>MultiFrom__c</name>
+    </fields>
+    <fields>
+        <label>Autres options d’adresse de réponse</label>
+        <name>MultiReplyTo__c</name>
+    </fields>
+    <fields>
+        <label>MID de compte parent</label>
+        <name>Parent_Account_MID__c</name>
+    </fields>
+    <fields>
+        <label>Mot de passe</label>
+        <name>Password__c</name>
+    </fields>
+    <fields>
+        <label>Limiter l’automatisation</label>
+        <name>Restrict_Automation__c</name>
+    </fields>
+    <fields>
+        <label>Réessayer</label>
+        <name>Retry__c</name>
+    </fields>
+    <fields>
+        <label>URL d’API REST racine</label>
+        <name>Root_Rest_API_URL__c</name>
+    </fields>
+    <fields>
+        <label>URL d’API SOAP racine</label>
+        <name>Root_SOAP_API_URL__c</name>
+    </fields>
+    <fields>
+        <label>Types d’envoi</label>
+        <name>Send_Types__c</name>
+    </fields>
+    <fields>
+        <label>Suivi des événements d’envoi</label>
+        <name>Sent_Events_Tracking__c</name>
+    </fields>
+    <fields>
+        <label>Destinataire du ticket de support</label>
+        <name>Support_Ticket_Recipient__c</name>
+    </fields>
+    <fields>
+        <label>Audience cible</label>
+        <name>Target_Audience__c</name>
+    </fields>
+    <fields>
+        <label>Nom d’utilisateur</label>
+        <name>Username__c</name>
+    </fields>
+    <fields>
+        <label>Objets automatisation activés</label>
+        <name>automationObjects__c</name>
+    </fields>
+    <fields>
+        <label>Options d’adresse de réponse</label>
+        <name>replyToOptions__c</name>
+    </fields>
+    <fields>
+        <label>Partie de l’URL</label>
+        <name>url_part__c</name>
+    </fields>
+    <fields>
+        <label>Racine de l’URL</label>
+        <name>url_root__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Configuration Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Numéro de configuration</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

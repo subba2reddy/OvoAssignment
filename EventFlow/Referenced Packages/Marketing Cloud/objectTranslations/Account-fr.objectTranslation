@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <label>Réabonnement ExactTarget</label>
+        <name>ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label>Désabonnement ExactTarget</label>
+        <name>ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label>Envoyer un e-mail ExactTarget</label>
+        <name>Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label>Afficher les analyses ExactTarget</label>
+        <name>View_ExactTarget_Analytics</name>
+    </webLinks>
+</CustomObjectTranslation>

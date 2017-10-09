@@ -1,0 +1,3322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customLabels>
+        <label>Un problème s&apos;est produit lors de l&apos;analyse du nom de l&apos;expéditeur A. Contactez l&apos;administrateur système pour obtenir une aide.</label>
+        <name>ABTestFromNameAException</name>
+    </customLabels>
+    <customLabels>
+        <label>Un problème s&apos;est produit lors de l&apos;analyse du nom de l&apos;expéditeur. Contactez l&apos;administrateur système pour obtenir une aide.</label>
+        <name>ABTestFromNameException</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;expéditeur A</label>
+        <name>AB_Test_From_Name_A</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;expéditeur B</label>
+        <name>AB_Test_From_Name_B</name>
+    </customLabels>
+    <customLabels>
+        <label>Date d&apos;envoi A</label>
+        <name>AB_Test_Send_Date_A</name>
+    </customLabels>
+    <customLabels>
+        <label>Date d&apos;envoi B</label>
+        <name>AB_Test_Send_Date_B</name>
+    </customLabels>
+    <customLabels>
+        <label>Objet A</label>
+        <name>AB_Test_Subject_A</name>
+    </customLabels>
+    <customLabels>
+        <label>Objet B</label>
+        <name>AB_Test_Subject_B</name>
+    </customLabels>
+    <customLabels>
+        <label>Toutes les dates</label>
+        <name>ALL_DATES</name>
+    </customLabels>
+    <customLabels>
+        <label>Trimestre de l&apos;exercice en cours</label>
+        <name>CURRENT_FISCAL_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label>Exercice en cours</label>
+        <name>CURRENT_FISCAL_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label>Mois en cours</label>
+        <name>CURRENT_MONTH</name>
+    </customLabels>
+    <customLabels>
+        <label>Trimestre en cours</label>
+        <name>CURRENT_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label>Semaine en cours</label>
+        <name>CURRENT_WEEK</name>
+    </customLabels>
+    <customLabels>
+        <label>Année en cours</label>
+        <name>CURRENT_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label>Date personnalisée</label>
+        <name>CUSTOM_DATE</name>
+    </customLabels>
+    <customLabels>
+        <label>Exception d&apos;appel externe : {0} - {1}</label>
+        <name>CalloutException</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi de membre de campagne activé</label>
+        <name>CampaignMemberTrackingEnabled</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi de membre de campagne</label>
+        <name>Campaign_Member_Tracking</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible d&apos;initialiser l&apos;entité de configuration.</label>
+        <name>ConfigurationEntityCannotBeInitialized</name>
+    </customLabels>
+    <customLabels>
+        <label>Configurer</label>
+        <name>Configure</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmer</label>
+        <name>Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label>DÉSACTIVÉ</label>
+        <name>DEACTIVATED</name>
+    </customLabels>
+    <customLabels>
+        <label>Ajustez le type d&apos;aperçu afin d&apos;observer la présentation du contenu sur un ordinateur de bureau ou un appareil mobile.</label>
+        <name>DesktopMobileHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>Ajustez le type d&apos;aperçu afin d&apos;observer la présentation du contenu sans substitution de chaîne de personnalisation (statique) ou restitué tel quel (dynamique). L&apos;aperçu n&apos;émule aucun système d&apos;exploitation, environnement ou client de messagerie particulier de l&apos;abonné.</label>
+        <name>DynamicStaticPreviewHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>[{0} enregistrements sélectionnés]</label>
+        <name>EmailCleanupSelectedCount</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur d&apos;extraction de l&apos;aperçu statique : {0}</label>
+        <name>ErrorFetchingStaticPreview</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur rencontrée une erreur lors de la récupération de l&apos;unité fonctionnelle : {0}</label>
+        <name>ErrorRetrievingBusinessUnit</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur d&apos;extraction de l&apos;aperçu dynamique : {0}</label>
+        <name>GDPErrorFetchingDynamicPreview</name>
+    </customLabels>
+    <customLabels>
+        <label>Obtention d&apos;un aperçu dynamique - ID de destinataire non valide</label>
+        <name>GDPInvalidRecipientId</name>
+    </customLabels>
+    <customLabels>
+        <label>Obtention d&apos;un aperçu dynamique - Données de l&apos;abonné non valides.</label>
+        <name>GDPInvalidSubscriberData</name>
+    </customLabels>
+    <customLabels>
+        <label>Ajustez le type d&apos;aperçu afin d&apos;observer la présentation du contenu pour les utilisateurs qui ont sélectionné la réception d&apos;e-mails HTML (HTML), et pour ceux dont le client de messagerie n&apos;accepte pas ou n&apos;acceptera pas de contenu HTML (Texte uniquement).</label>
+        <name>HTMLTextHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebond définitif</label>
+        <name>Hard_Bounce</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultats au niveau individuel d&apos;un e-mail</label>
+        <name>IERs</name>
+    </customLabels>
+    <customLabels>
+        <label>Immédiatement - Les e-mails restants sont envoyés dès qu&apos;un gagnant est déclaré</label>
+        <name>ImmSend</name>
+    </customLabels>
+    <customLabels>
+        <label>ID de rapport non valide</label>
+        <name>InvalidReportId</name>
+    </customLabels>
+    <customLabels>
+        <label>Corps de requête non valide.</label>
+        <name>InvalidRequestBody</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de jeton non valide. Contactez votre administrateur système.</label>
+        <name>InvalidTokenType</name>
+    </customLabels>
+    <customLabels>
+        <label>120 derniers jours</label>
+        <name>LAST_120_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label>2 derniers exercices</label>
+        <name>LAST_2_FISCAL_YEARS</name>
+    </customLabels>
+    <customLabels>
+        <label>2 dernières années</label>
+        <name>LAST_2_YEARS</name>
+    </customLabels>
+    <customLabels>
+        <label>30 derniers jours</label>
+        <name>LAST_30_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label>60 derniers jours</label>
+        <name>LAST_60_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label>7 derniers jours</label>
+        <name>LAST_7_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label>90 derniers jours</label>
+        <name>LAST_90_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernier trimestre fiscal</label>
+        <name>LAST_FISCAL_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernier exercice</label>
+        <name>LAST_FISCAL_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label>Mois dernier</label>
+        <name>LAST_MONTH</name>
+    </customLabels>
+    <customLabels>
+        <label>Trimestre dernier</label>
+        <name>LAST_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label>Semaine dernière</label>
+        <name>LAST_WEEK</name>
+    </customLabels>
+    <customLabels>
+        <label>Année dernière</label>
+        <name>LAST_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label>Pistes</label>
+        <name>Leads</name>
+    </customLabels>
+    <customLabels>
+        <label>Le pré en-tête de l&apos;e-mail utilisé pour cet envoi. Il peut être modifié dans Marketing Cloud.</label>
+        <name>PreheaderHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>Origine du destinataire</label>
+        <name>RecipientSource</name>
+    </customLabels>
+    <customLabels>
+        <label>À quel emplacement cet abonné réside-t-il dans Salesforce ? Par exemple, il correspond à un Contact ou à une Piste ?</label>
+        <name>RecipientSourceHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>Un champ ID de contact ou ID de piste est manquant dans le rapport &quot;{0}&quot;. Le champ ID de contact ou ID de piste est requis pour l&apos;envoi.</label>
+        <name>ReportMissingContactLeadIdFields</name>
+    </customLabels>
+    <customLabels>
+        <label>Un champ ID de contact ou ID de piste est manquant dans les rapports suivants. Le champ ID de contact ou ID de piste est requis pour l&apos;envoi.</label>
+        <name>ReportMissingContactLeadIdFieldsPluralError</name>
+    </customLabels>
+    <customLabels>
+        <label>Un champ ID de contact ou ID de piste est manquant dans le rapport suivant. Le champ ID de contact ou ID de piste est requis pour l&apos;envoi.</label>
+        <name>ReportMissingContactLeadIdFieldsSingularError</name>
+    </customLabels>
+    <customLabels>
+        <label>Restriction</label>
+        <name>Restriction</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;audience pour laquelle vous souhaitez générer un aperçu. Vous pouvez référencer et prévisualiser un contact unique.</label>
+        <name>SingleContactHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;audience pour laquelle vous souhaitez générer un aperçu. Vous pouvez référencer et prévisualiser une piste unique.</label>
+        <name>SingleLeadHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;audience pour laquelle vous souhaitez générer un aperçu. Vous pouvez prévisualiser un contact ou une piste unique.</label>
+        <name>SingleSubscriberHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de récupération des données de l&apos;abonné : {0}</label>
+        <name>SingleSyncSubscriberError</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoyer les notifications d&apos;erreur à</label>
+        <name>SndNotifTo</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebond temporaire</label>
+        <name>Soft_Bounce</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;objet de l&apos;e-mail utilisé pour cet envoi. Il peut être modifié dans la page Envoi d&apos;e-mail.</label>
+        <name>SubjectHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de générer le jeton. Contactez votre administrateur système.</label>
+        <name>UnableToGenerateToken</name>
+    </customLabels>
+    <customLabels>
+        <label>Désabonné</label>
+        <name>Unsubscribed</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;URL de l&apos;API d&apos;authentification est requise.</label>
+        <name>aauReqd</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;audience qui sera incluse dans le Test A/B (des multiples peuvent être sélectionnés).</label>
+        <name>abAudienceHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Ajustez le curseur pour définir la taille de votre audience test. Si le nombre total de destinataires est un chiffre impair, le système attribue un abonné supplémentaire à la Condition B.</label>
+        <name>abAudienceSizeHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Zone de contenu A</label>
+        <name>abContentAreaA</name>
+    </customLabels>
+    <customLabels>
+        <label>Zone de contenu B</label>
+        <name>abContentAreaB</name>
+    </customLabels>
+    <customLabels>
+        <label>Les noms de la zone de contenu tels que définis dans l&apos;e-mail utilisé pour ce Test A/B. Il indique également la date et l&apos;heure de création et de dernière modification de la zone de contenu.</label>
+        <name>abContentAreaHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez une date et une heure d&apos;envoi pour chaque e-mail afin de déterminer l&apos;heure qui convient le mieux.</label>
+        <name>abDateTimeHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez une date d&apos;envoi au restant</label>
+        <name>abDeclareWinnerSendToRemainder</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez une description pour ce Test A/B.</label>
+        <name>abDescriptionHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez la mesure de suivi qui permet de déterminer un vainqueur (Taux d&apos;ouvertures ou Taux de clics).</label>
+        <name>abDetermineWinnerByHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez cet indicateur pour empêcher la création d&apos;un suivi au niveau abonné pour ce Test A/B.</label>
+        <name>abDisableIndLevelTrackingHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier les détails</label>
+        <name>abEditDetails</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;e-mail utilisé par le Test A/B. Lorsque vous avez sélectionné un e-mail, vous pouvez cliquer sur Modifier l&apos;e-mail pour lui apporter des modifications dans Marketing Cloud.</label>
+        <name>abEmailHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Cochez l&apos;indicateur de chaque situation pour laquelle vous souhaitez recevoir un e-mail lorsqu&apos;elle se produit.</label>
+        <name>abEmailNotificationHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez une adresse e-mail pour recevoir des notifications ainsi que le type de notification que vous souhaitez recevoir pour ce Test A/B.</label>
+        <name>abEmailNotificationsHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Les adresses e-mail qui seront exclues de l&apos;audience cible (plusieurs sources peuvent être sélectionnées). Ces adresses e-mail ne seront pas incluses dans ces envois.</label>
+        <name>abExclusionsHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette valeur est utilisée pour afficher le Nom de l&apos;expéditeur et l&apos;Adresse e-mail de l&apos;expéditeur dans les e-mails envoyés. Elle correspond à l&apos;expéditeur, et elle est renseignée dynamiquement ou définie par une Classification d&apos;envoi.</label>
+        <name>abFromNameAndEmailHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette valeur est utilisée pour afficher le Nom de l&apos;expéditeur et l&apos;Adresse e-mail de l&apos;expéditeur dans les e-mails envoyés. Elle correspond à l&apos;expéditeur, et elle est renseignée dynamiquement ou définie par une Classification d&apos;envoi.</label>
+        <name>abFromNameHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;Unité commerciale Marketing Cloud source de l&apos;envoi. Elle est déterminée par votre rôle et les droits accordés par votre administrateur système.</label>
+        <name>abMrkCloudBUHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez le nom du test A/B.</label>
+        <name>abNameHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Lorsque l&apos;e-mail est envoyé selon des conditions (si la condition est date/heure, la notification est reçue pour chaque date/heure)</label>
+        <name>abNotificationConditions</name>
+    </customLabels>
+    <customLabels>
+        <label>En cas d&apos;erreur</label>
+        <name>abNotificationError</name>
+    </customLabels>
+    <customLabels>
+        <label>Lorsqu&apos;un e-mail est envoyé au restant</label>
+        <name>abNotificationRemainder</name>
+    </customLabels>
+    <customLabels>
+        <label>Lorsqu&apos;un vainqueur est déclaré</label>
+        <name>abNotificationWinner</name>
+    </customLabels>
+    <customLabels>
+        <label>Si vous exécutez un test A/B sur la ligne d&apos;objet, vous pouvez enregistrer la ligne d&apos;objet gagnante dans l&apos;e-mail d&apos;origine.</label>
+        <name>abSaveWinningSubjectHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette valeur détermine la destination des réponses. Les options disponibles sont : Par défaut - (comportement standard, les réponses sont envoyées à l&apos;adresse e-mail de l&apos;expéditeur ou De), l&apos;utilisateur qui procède à l&apos;envoi et les adresses de réponse configurées dans la configuration du connecteur.</label>
+        <name>abSendRepliesToHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoyer au restant</label>
+        <name>abSendToRemainder</name>
+    </customLabels>
+    <customLabels>
+        <label>Déterminez comment envoyer l&apos;e-mail gagnant au restant. Automatiquement signifie que l&apos;e-mail gagnant est envoyé lorsque le système déclare un vainqueur ou à l&apos;heure planifiée. Manuellement signifie que vous devez revenir pour envoyer l&apos;e-mail gagnant.</label>
+        <name>abSendToRemainderHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Pourcentage du groupe test</label>
+        <name>abSliderPct</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection de l&apos;option Immédiatement met le test A/B en file d&apos;attente pour un traitement immédiat. La sélection de l&apos;option Planifier un envoi futur permet de sélectionner la date et l&apos;heure d&apos;envoi des e-mails.</label>
+        <name>abStartTestHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;objet de l&apos;e-mail utilisé pour ce Test A/B. Il peut être modifié et contient des chaînes de personnalisation (c.-à-d. %%firstname%%).</label>
+        <name>abSubjectHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>après l&apos;envoi des e-mails aux divisions A/B.</label>
+        <name>abTestAfterWinner</name>
+    </customLabels>
+    <customLabels>
+        <label>Déclarer un vainqueur</label>
+        <name>abTestDeclareWinner</name>
+    </customLabels>
+    <customLabels>
+        <label>Déterminer le vainqueur par</label>
+        <name>abTestDetermineWinnerBy</name>
+    </customLabels>
+    <customLabels>
+        <label>Spécifiez le délai après lequel le système déclare un vainqueur. Vous pouvez le mesurer en heures ou en jours. Si vous exécutez un test de Date/Heure, la durée du test commence lorsque le système envoie l&apos;e-mail de la Condition B.</label>
+        <name>abTestDurationHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Notifications par e-mail</label>
+        <name>abTestEmailNotifications</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de test A/B</label>
+        <name>abTestType</name>
+    </customLabels>
+    <customLabels>
+        <label>Tests A/B</label>
+        <name>abTests</name>
+    </customLabels>
+    <customLabels>
+        <label>Accepter</label>
+        <name>accept</name>
+    </customLabels>
+    <customLabels>
+        <label>Informations sur le compte</label>
+        <name>acctInform</name>
+    </customLabels>
+    <customLabels>
+        <label>Action</label>
+        <name>action</name>
+    </customLabels>
+    <customLabels>
+        <label>Actif</label>
+        <name>active</name>
+    </customLabels>
+    <customLabels>
+        <label>Activité</label>
+        <name>activity</name>
+    </customLabels>
+    <customLabels>
+        <label>Ajouter</label>
+        <name>add</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisateurs/adresses e-mail supplémentaires</label>
+        <name>addlUsersEmails</name>
+    </customLabels>
+    <customLabels>
+        <label>Admin</label>
+        <name>admin</name>
+    </customLabels>
+    <customLabels>
+        <label>Immédiatement après la déclaration d&apos;un vainqueur</label>
+        <name>afterWinnerIsDeclared</name>
+    </customLabels>
+    <customLabels>
+        <label>Détail au niveau global des liens</label>
+        <name>aggrLnkDet</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi au niveau global</label>
+        <name>aggrLvlTrc</name>
+    </customLabels>
+    <customLabels>
+        <label>global</label>
+        <name>aggrgt</name>
+    </customLabels>
+    <customLabels>
+        <label>Tous</label>
+        <name>all</name>
+    </customLabels>
+    <customLabels>
+        <label>Tous les tests A/B</label>
+        <name>allAbTst</name>
+    </customLabels>
+    <customLabels>
+        <label>Tous les utilisateurs Salesforce actifs</label>
+        <name>allActSFUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Toutes les unités commerciales</label>
+        <name>allBuUnits</name>
+    </customLabels>
+    <customLabels>
+        <label>Autoriser « Mes rapports personnels personnalisés »</label>
+        <name>allowMPCR</name>
+    </customLabels>
+    <customLabels>
+        <label>Autres options « Adresse de réponse »</label>
+        <name>altRTs</name>
+    </customLabels>
+    <customLabels>
+        <label>Analyses pour cet e-mail</label>
+        <name>anytxFTEm</name>
+    </customLabels>
+    <customLabels>
+        <label>Appliquer</label>
+        <name>apply</name>
+    </customLabels>
+    <customLabels>
+        <label>**Notez que l&apos;envoi à des enregistrements existants est déclenché à chaque mise à jour d&apos;un enregistrement, s&apos;il remplit vos critères, ce qui peut entraîner plusieurs envois à la même personne.</label>
+        <name>asTriggerSendWhenExistingRecordUpdated</name>
+    </customLabels>
+    <customLabels>
+        <label>à</label>
+        <name>at_lc</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;envoi déclenché</label>
+        <name>atmName</name>
+    </customLabels>
+    <customLabels>
+        <label>URL d&apos;API d&apos;autorisation</label>
+        <name>authApiUrl</name>
+    </customLabels>
+    <customLabels>
+        <label>jetons d&apos;authentification</label>
+        <name>authTokens</name>
+    </customLabels>
+    <customLabels>
+        <label>Automatiquement</label>
+        <name>automatically</name>
+    </customLabels>
+    <customLabels>
+        <label>Revenir à</label>
+        <name>backTo</name>
+    </customLabels>
+    <customLabels>
+        <label>Autoriser pour les administrateurs et les utilisateurs standard</label>
+        <name>bothAdmUsr</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebondis</label>
+        <name>bounced</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebonds</label>
+        <name>bounces</name>
+    </customLabels>
+    <customLabels>
+        <label>ID d&apos;unité commerciale</label>
+        <name>buId</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion de l&apos;unité commerciale</label>
+        <name>buMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;unité commerciale</label>
+        <name>buName</name>
+    </customLabels>
+    <customLabels>
+        <label>Unité commerciale</label>
+        <name>busUnit</name>
+    </customLabels>
+    <customLabels>
+        <label>Campagnes et rapports</label>
+        <name>campRpts</name>
+    </customLabels>
+    <customLabels>
+        <label>Campagne</label>
+        <name>campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>Le champ Membre de campagne est mis à jour selon une hiérarchie spécifique. Il suit l&apos;ordre dans lequel les événements de suivi sont répertoriés ci-dessus, Désabonné ayant une valeur plus élevée dans la hiérarchie qu&apos;Envoyé. Les mises à jour peuvent se déplacer uniquement plus loin ou plus haut dans la hiérarchie. De plus, lors de l&apos;utilisation du champ Statut, si une valeur n&apos;est pas mappée, Salesforce rétablit la valeur par défaut.</label>
+        <name>campaignMemberSetupMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Campagnes</label>
+        <name>campaigns</name>
+    </customLabels>
+    <customLabels>
+        <label>Annuler</label>
+        <name>cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Annulé</label>
+        <name>canceled</name>
+    </customLabels>
+    <customLabels>
+        <label>Les identifiants utilisateur d&apos;API que vous avez saisis ne peuvent pas être authentifiés. Contacter le support Marketing Cloud de Salesforce.</label>
+        <name>cannotAuth</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible d&apos;annuler l&apos;envoi actuellement.</label>
+        <name>cannotCanc</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier l&apos;utilisateur d&apos;API</label>
+        <name>changeApiU</name>
+    </customLabels>
+    <customLabels>
+        <label>Informations sur l&apos;envoi d&apos;e-mails de mise à jour</label>
+        <name>clEsInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>Effacer</label>
+        <name>clear</name>
+    </customLabels>
+    <customLabels>
+        <label>Cliqués</label>
+        <name>clicked</name>
+    </customLabels>
+    <customLabels>
+        <label>Clics</label>
+        <name>clicks</name>
+    </customLabels>
+    <customLabels>
+        <label>Fermer</label>
+        <name>close</name>
+    </customLabels>
+    <customLabels>
+        <label>Champ Contact/Piste</label>
+        <name>cntcLdFld</name>
+    </customLabels>
+    <customLabels>
+        <label>Commentaire</label>
+        <name>comment</name>
+    </customLabels>
+    <customLabels>
+        <label>terminé</label>
+        <name>complete</name>
+    </customLabels>
+    <customLabels>
+        <label>Terminé</label>
+        <name>completed</name>
+    </customLabels>
+    <customLabels>
+        <label>Condition A</label>
+        <name>condA</name>
+    </customLabels>
+    <customLabels>
+        <label>Condition B</label>
+        <name>condB</name>
+    </customLabels>
+    <customLabels>
+        <label>Configurer le connecteur Marketing Cloud</label>
+        <name>configInt</name>
+    </customLabels>
+    <customLabels>
+        <label>Voulez-vous vraiment annuler le Test AB ?</label>
+        <name>confirmCancel</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de connexion</label>
+        <name>connError</name>
+    </customLabels>
+    <customLabels>
+        <label>Contact</label>
+        <name>contact</name>
+    </customLabels>
+    <customLabels>
+        <label>Contactez le support Marketing Cloud en accédant à help.exacttarget.com, puis en sélectionnant « Salesforce Marketing Cloud Global Support Help » en bas de la page. Veillez à référencer la ou les erreurs &quot;{0}&quot;.</label>
+        <name>contactInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>Si cette erreur persiste, contactez le support Marketing Cloud en accédant à help.exacttarget.com, puis en sélectionnant « Salesforce Marketing Cloud Global Support Help » en bas de la page. Veillez à référencer la ou les erreurs &quot;{0}.&quot;</label>
+        <name>contactInfoContinue</name>
+    </customLabels>
+    <customLabels>
+        <label>Contacts</label>
+        <name>contacts</name>
+    </customLabels>
+    <customLabels>
+        <label>Zone de contenu</label>
+        <name>contentArea</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi de la campagne non activé</label>
+        <name>cpnSdDsbld</name>
+    </customLabels>
+    <customLabels>
+        <label>Créer</label>
+        <name>create</name>
+    </customLabels>
+    <customLabels>
+        <label>Créer un message SMS</label>
+        <name>createMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>Créé</label>
+        <name>created</name>
+    </customLabels>
+    <customLabels>
+        <label>Le contact est désinscrit de l&apos;e-mail.</label>
+        <name>ctOptedOut</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ctOptedOutSMS --></label>
+        <name>ctOptedOutSMS</name>
+    </customLabels>
+    <customLabels>
+        <label>Par jour</label>
+        <name>daily</name>
+    </customLabels>
+    <customLabels>
+        <label>Date de création</label>
+        <name>dateCreate</name>
+    </customLabels>
+    <customLabels>
+        <label>Date d&apos;envoi :</label>
+        <name>dateSent_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Date de désabonnement</label>
+        <name>dateUnsub</name>
+    </customLabels>
+    <customLabels>
+        <label>jour(s)</label>
+        <name>day_s</name>
+    </customLabels>
+    <customLabels>
+        <label>jours</label>
+        <name>days</name>
+    </customLabels>
+    <customLabels>
+        <label>Déclarer un vainqueur</label>
+        <name>declareWinnerA</name>
+    </customLabels>
+    <customLabels>
+        <label>Déclarer un vainqueur B</label>
+        <name>declareWinnerB</name>
+    </customLabels>
+    <customLabels>
+        <label>Dédupliquer les abonnées</label>
+        <name>dedupeSubs</name>
+    </customLabels>
+    <customLabels>
+        <label>Par défaut</label>
+        <name>default</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux de livraison</label>
+        <name>delRate</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux de livraison :</label>
+        <name>delRate_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Différé</label>
+        <name>delayed</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer</label>
+        <name>delete</name>
+    </customLabels>
+    <customLabels>
+        <label>Livré</label>
+        <name>delivered</name>
+    </customLabels>
+    <customLabels>
+        <label>Livré :</label>
+        <name>delivered_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Description</label>
+        <name>description</name>
+    </customLabels>
+    <customLabels>
+        <label>Détails</label>
+        <name>details</name>
+    </customLabels>
+    <customLabels>
+        <label>N&apos;a pas cliqué</label>
+        <name>didntClick</name>
+    </customLabels>
+    <customLabels>
+        <label>N&apos;a pas ouvert</label>
+        <name>didntOpen</name>
+    </customLabels>
+    <customLabels>
+        <label>Unités commerciales désactivées</label>
+        <name>disBUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Désactiver le suivi au niveau individuel</label>
+        <name>disILT</name>
+    </customLabels>
+    <customLabels>
+        <label>Désactivé pour cet envoi</label>
+        <name>disThisSd</name>
+    </customLabels>
+    <customLabels>
+        <label>affichage des Unités commerciales commençant par</label>
+        <name>dispBuBeg</name>
+    </customLabels>
+    <customLabels>
+        <label>affichage des E-mails dont le nom commence par</label>
+        <name>dispEmBeg</name>
+    </customLabels>
+    <customLabels>
+        <label>affichage des utilisateurs dont le nom commence par</label>
+        <name>dispUsBeg</name>
+    </customLabels>
+    <customLabels>
+        <label>Exception de données</label>
+        <name>dmlExcp</name>
+    </customLabels>
+    <customLabels>
+        <label>Terminé</label>
+        <name>done</name>
+    </customLabels>
+    <customLabels>
+        <label>Descendre</label>
+        <name>down</name>
+    </customLabels>
+    <customLabels>
+        <label>Déterminer le vainqueur par</label>
+        <name>dtrmnWinner</name>
+    </customLabels>
+    <customLabels>
+        <label>Aperçu dynamique</label>
+        <name>dynaPrev</name>
+    </customLabels>
+    <customLabels>
+        <label>Dynamique</label>
+        <name>dynamic</name>
+    </customLabels>
+    <customLabels>
+        <label>Mettre à niveau les données de suivi</label>
+        <name>eCleanup</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier</label>
+        <name>edit</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier l&apos;e-mail</label>
+        <name>editEml</name>
+    </customLabels>
+    <customLabels>
+        <label>Modifier l&apos;URL</label>
+        <name>editUrl</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion des liaisons d&apos;e-mails</label>
+        <name>elMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mail envoyé à</label>
+        <name>emSentTo</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mail</label>
+        <name>email</name>
+    </customLabels>
+    <customLabels>
+        <label>Adresse e-mail</label>
+        <name>emailAddr</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;e-mail utilisé par cet envoi. Après avoir sélectionné un e-mail, vous pouvez cliquer sur Aperçu de l&apos;e-mail pour afficher un exemple de contenu statique. Aucune chaîne de personnalisation ne sera substituée.</label>
+        <name>emailHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;e-mail utilisé par cet envoi. Après avoir sélectionné un e-mail, cliquez sur Aperçu de l&apos;e-mail pour prévisualiser le contenu des appareils de bureau et mobiles. Aucune chaîne de personnalisation n&apos;est remplacée par l&apos;aperçu statique. L&apos;aperçu dynamique affiche l&apos;e-mail tel qu&apos;il sera envoyé.</label>
+        <name>emailHelpDynamicPreview</name>
+    </customLabels>
+    <customLabels>
+        <label>ID d’e-mail</label>
+        <name>emailId</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l’e-mail</label>
+        <name>emailName</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi d&apos;e-mail</label>
+        <name>emailSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Envois d&apos;e-mails</label>
+        <name>emailSends</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mail A</label>
+        <name>email_A</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mail B</label>
+        <name>email_B</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mails livrés</label>
+        <name>emailsDeld</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mails envoyés</label>
+        <name>emailsSent</name>
+    </customLabels>
+    <customLabels>
+        <label>Ligne Objet E-mail A</label>
+        <name>emlASub</name>
+    </customLabels>
+    <customLabels>
+        <label>Ligne Objet E-mail B</label>
+        <name>emlBSub</name>
+    </customLabels>
+    <customLabels>
+        <label>Propriétaire de l&apos;envoi de l&apos;e-mail</label>
+        <name>emlSendOwn</name>
+    </customLabels>
+    <customLabels>
+        <label>Vignette d’e-mail</label>
+        <name>emlThmbnl</name>
+    </customLabels>
+    <customLabels>
+        <label>Activer/désactiver des unités commerciales</label>
+        <name>enDsBu</name>
+    </customLabels>
+    <customLabels>
+        <label>Activer/désactiver des liaisons d&apos;e-mails</label>
+        <name>enDsEl</name>
+    </customLabels>
+    <customLabels>
+        <label>Activer/désactiver des utilisateurs du connecteur Marketing Cloud</label>
+        <name>enDsUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Activé</label>
+        <name>enabled</name>
+    </customLabels>
+    <customLabels>
+        <label>Unités commerciales activées</label>
+        <name>enbldBUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Objets activés</label>
+        <name>enbldObjs</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez des utilisateurs/e-mails...</label>
+        <name>entrUsrEmls</name>
+    </customLabels>
+    <customLabels>
+        <label>Environnement</label>
+        <name>envirnmnt</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de création de la synchronisation des données.</label>
+        <name>erCrDaSync</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de création de la définition d&apos;envoi.</label>
+        <name>erCrSndDef</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de création du profil de l&apos;expéditeur.</label>
+        <name>erCrSndPrf</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de mise en file d&apos;attente de l&apos;envoi.</label>
+        <name>erQuSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Au moins une liste de destinataires doit être sélectionnée pour pouvoir initier l&apos;envoi.</label>
+        <name>erQuSendE103</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;utilisateur qui a initié l&apos;envoi n&apos;est pas autorisé à envoyer des e-mails dans Marketing Cloud.</label>
+        <name>erQuSendE104</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;utilisateur qui a initié l&apos;envoi n&apos;est pas autorisé à envoyer des e-mails tests dans Marketing Cloud.</label>
+        <name>erQuSendE112</name>
+    </customLabels>
+    <customLabels>
+        <label>La Règle métier de test optimisée doit être activée pour pouvoir effectuer un envoi test.</label>
+        <name>erQuSendE113</name>
+    </customLabels>
+    <customLabels>
+        <label>Au moins une liste de destinataires doit être sélectionnée pour pouvoir initier l&apos;envoi test.</label>
+        <name>erQuSendE114</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;e-mail utilisé pour cet envoi n&apos;est pas valide. Effectuez toutes les corrections nécessaires dans Marketing Cloud.</label>
+        <name>erQuSendE200</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur de récupération des données.</label>
+        <name>erRtData</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur</label>
+        <name>error</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion des erreurs</label>
+        <name>errorHndlg</name>
+    </customLabels>
+    <customLabels>
+        <label>Consignation des erreurs</label>
+        <name>errorLogng</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de résoudre les erreurs en 12 heures.</label>
+        <name>errorNoRes</name>
+    </customLabels>
+    <customLabels>
+        <label>Erroné</label>
+        <name>errored</name>
+    </customLabels>
+    <customLabels>
+        <label>Établir la connexion</label>
+        <name>estblshCnn</name>
+    </customLabels>
+    <customLabels>
+        <label>Test A/B</label>
+        <name>etAbTest</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de compte Marketing Cloud</label>
+        <name>etAcctType</name>
+    </customLabels>
+    <customLabels>
+        <label>Analyses des e-mails</label>
+        <name>etAnlytcs</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi déclenché</label>
+        <name>etAtmtdSnd</name>
+    </customLabels>
+    <customLabels>
+        <label>Configuration de Marketing Cloud</label>
+        <name>etConfig</name>
+    </customLabels>
+    <customLabels>
+        <label>Connexion de Marketing Cloud</label>
+        <name>etConnectn</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi d&apos;e-mail</label>
+        <name>etEmSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Listes</label>
+        <name>etLists</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi mobile</label>
+        <name>etMoSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Mot de passe Marketing Cloud</label>
+        <name>etPassword</name>
+    </customLabels>
+    <customLabels>
+        <label>Listes d’abonnés</label>
+        <name>etSubLists</name>
+    </customLabels>
+    <customLabels>
+        <label>Requête de support Marketing Cloud</label>
+        <name>etSupReq</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi déclenché</label>
+        <name>etTrigSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom d&apos;utilisateur Marketing Cloud</label>
+        <name>etUsername</name>
+    </customLabels>
+    <customLabels>
+        <label>Audience d&apos;exclusion</label>
+        <name>exclAudnc</name>
+    </customLabels>
+    <customLabels>
+        <label>Campagnes exclues</label>
+        <name>exclCmpns</name>
+    </customLabels>
+    <customLabels>
+        <label>Rapports exclus</label>
+        <name>exclRepts</name>
+    </customLabels>
+    <customLabels>
+        <label>Exclure les envois uniques</label>
+        <name>exclSS</name>
+    </customLabels>
+    <customLabels>
+        <label>Exclusions</label>
+        <name>exclusions</name>
+    </customLabels>
+    <customLabels>
+        <label>échec</label>
+        <name>fail</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de l&apos;obtention des détails d&apos;utilisateur.</label>
+        <name>failObtDet</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de la récupération du profil de l&apos;expéditeur. Contactez votre administrateur système.</label>
+        <name>failRetrieveSenderProfile</name>
+    </customLabels>
+    <customLabels>
+        <label>Échoué</label>
+        <name>failed</name>
+    </customLabels>
+    <customLabels>
+        <label>Critères de champ</label>
+        <name>fieldCriteria</name>
+    </customLabels>
+    <customLabels>
+        <label>Critères de filtrage</label>
+        <name>filterCrit</name>
+    </customLabels>
+    <customLabels>
+        <label>Rechercher</label>
+        <name>find</name>
+    </customLabels>
+    <customLabels>
+        <label>Rechercher un dossier...</label>
+        <name>findFolder</name>
+    </customLabels>
+    <customLabels>
+        <label>Rechercher un message...</label>
+        <name>findMessage</name>
+    </customLabels>
+    <customLabels>
+        <label>Premier e-mail envoyé</label>
+        <name>firstEmSnt</name>
+    </customLabels>
+    <customLabels>
+        <label>dossier</label>
+        <name>folder</name>
+    </customLabels>
+    <customLabels>
+        <label>Transferts</label>
+        <name>forwards</name>
+    </customLabels>
+    <customLabels>
+        <label>Fréquence de suivi</label>
+        <name>frequency</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom convivial</label>
+        <name>friendlyName</name>
+    </customLabels>
+    <customLabels>
+        <label>De</label>
+        <name>from</name>
+    </customLabels>
+    <customLabels>
+        <label>De</label>
+        <name>fromDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;expéditeur</label>
+        <name>fromName</name>
+    </customLabels>
+    <customLabels>
+        <label>Exception générale</label>
+        <name>genExcp</name>
+    </customLabels>
+    <customLabels>
+        <label>Paramètres généraux</label>
+        <name>genSettings</name>
+    </customLabels>
+    <customLabels>
+        <label>Accéder à Configuration</label>
+        <name>goToCf</name>
+    </customLabels>
+    <customLabels>
+        <label>Accéder à Envoi d&apos;e-mail</label>
+        <name>goToES</name>
+    </customLabels>
+    <customLabels>
+        <label>Accéder à Marketing Cloud</label>
+        <name>goToEt</name>
+    </customLabels>
+    <customLabels>
+        <label>Accéder à Envoi mobile</label>
+        <name>goToMS</name>
+    </customLabels>
+    <customLabels>
+        <label>Accéder à Analyses des envois</label>
+        <name>goToSAn</name>
+    </customLabels>
+    <customLabels>
+        <label>Accéder à Envois déclenchés</label>
+        <name>goToSAu</name>
+    </customLabels>
+    <customLabels>
+        <label>aide</label>
+        <name>help</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux de clics uniques le plus élevé</label>
+        <name>highUnqCtr</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux d&apos;ouvertures uniques le plus élevé</label>
+        <name>highUnqOpn</name>
+    </customLabels>
+    <customLabels>
+        <label>Engagement historique</label>
+        <name>histEngt</name>
+    </customLabels>
+    <customLabels>
+        <label>heure(s)</label>
+        <name>hour_s</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebond définitif :</label>
+        <name>hrdBnc_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebond définitif</label>
+        <name>hrdBncd</name>
+    </customLabels>
+    <customLabels>
+        <label>HTML</label>
+        <name>html</name>
+    </customLabels>
+    <customLabels>
+        <label>J&apos;accepte</label>
+        <name>iAgree</name>
+    </customLabels>
+    <customLabels>
+        <label>ID</label>
+        <name>id</name>
+    </customLabels>
+    <customLabels>
+        <label>Immédiat</label>
+        <name>immediate</name>
+    </customLabels>
+    <customLabels>
+        <label>Immédiatement</label>
+        <name>immedtly</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi individuel :</label>
+        <name>indTrk_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi au niveau individuel</label>
+        <name>indlLvlTr</name>
+    </customLabels>
+    <customLabels>
+        <label>Détail au niveau individuel d&apos;un lien</label>
+        <name>indvLnkDet</name>
+    </customLabels>
+    <customLabels>
+        <label>Initier le journal</label>
+        <name>initLog</name>
+    </customLabels>
+    <customLabels>
+        <label>Initié le</label>
+        <name>initiatdOn</name>
+    </customLabels>
+    <customLabels>
+        <label>Autorisations utilisateur insuffisantes</label>
+        <name>insufUsPrm</name>
+    </customLabels>
+    <customLabels>
+        <label>Administrateurs du connecteur</label>
+        <name>intAdmins</name>
+    </customLabels>
+    <customLabels>
+        <label>Connecteur non configuré</label>
+        <name>intNotCnfg</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de compte Marketing Cloud</label>
+        <name>intType</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion des utilisateurs</label>
+        <name>intUsrMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label>MID connecté</label>
+        <name>intgrtdMid</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisateurs connectés</label>
+        <name>intgrtdUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Non valide</label>
+        <name>invalid</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- invalidBoolCriteria --></label>
+        <name>invalidBoolCriteria</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- invalidNameRelationship --></label>
+        <name>invalidNameRelationship</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- invalidNumberCriteria --></label>
+        <name>invalidNumberCriteria</name>
+    </customLabels>
+    <customLabels>
+        <label>Destinataires de la notification d&apos;erreur non valides</label>
+        <name>invalidRecipients</name>
+    </customLabels>
+    <customLabels>
+        <label>ID de tâche :</label>
+        <name>jobId_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Mot-clé</label>
+        <name>keyword</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernier e-mail envoyé</label>
+        <name>lastEmSnt</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernière modification</label>
+        <name>lastModified</name>
+    </customLabels>
+    <customLabels>
+        <label>Dernier envoi</label>
+        <name>lastSent</name>
+    </customLabels>
+    <customLabels>
+        <label>Ultérieurement : les e-mails au restant seront envoyés à la date et à l&apos;heure indiquées</label>
+        <name>laterSend</name>
+    </customLabels>
+    <customLabels>
+        <label>La piste est désinscrite de l&apos;e-mail.</label>
+        <name>ldOptedOut</name>
+    </customLabels>
+    <customLabels>
+        <label>Piste</label>
+        <name>lead</name>
+    </customLabels>
+    <customLabels>
+        <label>Chargement des appels...</label>
+        <name>loadingCal</name>
+    </customLabels>
+    <customLabels>
+        <label>Liste des tests A/B</label>
+        <name>lstAbTests</name>
+    </customLabels>
+    <customLabels>
+        <label>Configuration des liens profonds Marketing Cloud</label>
+        <name>mCDpLnkConfig</name>
+    </customLabels>
+    <customLabels>
+        <label>Gérer</label>
+        <name>manage</name>
+    </customLabels>
+    <customLabels>
+        <label>Gérer les unités commerciales</label>
+        <name>manageBUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Gérer les liaisons d&apos;e-mails</label>
+        <name>manageELs</name>
+    </customLabels>
+    <customLabels>
+        <label>Gérer les utilisateurs</label>
+        <name>manageUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Manuellement</label>
+        <name>manually</name>
+    </customLabels>
+    <customLabels>
+        <label>(Parent)</label>
+        <name>markBUPrnt</name>
+    </customLabels>
+    <customLabels>
+        <label>Message</label>
+        <name>message</name>
+    </customLabels>
+    <customLabels>
+        <label>Mobile</label>
+        <name>mobile</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi mobile</label>
+        <name>mobileSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Par mois</label>
+        <name>monthly</name>
+    </customLabels>
+    <customLabels>
+        <label>Au moins une unité commerciale doit être activée.</label>
+        <name>msg0002</name>
+    </customLabels>
+    <customLabels>
+        <label>Au moins un type d&apos;envoi est requis.</label>
+        <name>msg0003</name>
+    </customLabels>
+    <customLabels>
+        <label>Au moins une audience cible est requise.</label>
+        <name>msg0004</name>
+    </customLabels>
+    <customLabels>
+        <label>Annulé dans l&apos;application Marketing Cloud.</label>
+        <name>msg0005</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez cet indicateur pour empêcher l&apos;envoi de plusieurs e-mails à la même adresse lors de cet envoi.</label>
+        <name>msg0006</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez cet indicateur pour empêcher la création d&apos;un suivi au niveau abonné pour cet envoi.</label>
+        <name>msg0007</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection de cette option permet d&apos;associer un e-mail à une liste donnée de destinataires et d&apos;exclusions. Lors de la création de l&apos;envoi suivant, la sélection de cet e-mail renseigne automatiquement les listes de destinataires et d&apos;exclusions.</label>
+        <name>msg0008</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection de cette option lance la consignation de tous les appels d&apos;API associés à un package et des détails associés. La consignation sera désactivée 60 minutes après son activation.</label>
+        <name>msg0009</name>
+    </customLabels>
+    <customLabels>
+        <label>Paramètre personnalisé manquant</label>
+        <name>msg0010</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;adresse e-mail de la ressource de support Salesforce au sein de votre organisation qui sera notifiée des échecs ou des problèmes rencontrés avec le connecteur.</label>
+        <name>msg0011</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;activation de ce champ permet aux utilisateurs d&apos;envoyer les rapports enregistrés dans le dossier Mes rapports personnels personnalisés. Remarque : Les administrateurs système n&apos;ont pas accès à ce dossier.</label>
+        <name>msg0012</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur : Échec de la vérification du statut du connecteur et d&apos;obtention du code de motif.</label>
+        <name>msg0013</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;Unité commerciale Marketing Cloud source de l&apos;envoi. Elle est déterminée par votre rôle et les droits accordés par votre administrateur système.</label>
+        <name>msg0014</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;ID de compte Marketing Cloud auquel l&apos;organisation Salesforce est connectée</label>
+        <name>msg0015</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;ID de compte Marketing Cloud auquel l&apos;organisation Salesforce de niveau parent est connectée</label>
+        <name>msg0016</name>
+    </customLabels>
+    <customLabels>
+        <label>Le mot de passe de l&apos;utilisateur de l&apos;API ExactTarget qui établit les points de terminaison du connecteur.</label>
+        <name>msg0017</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nom d&apos;utilisateur de l&apos;utilisateur de l&apos;API ExactTarget qui établit les points de terminaison du connecteur.</label>
+        <name>msg0018</name>
+    </customLabels>
+    <customLabels>
+        <label>Le type d&apos;audience qui peut être sélectionné pour l&apos;exclure des audiences ciblées</label>
+        <name>msg0019</name>
+    </customLabels>
+    <customLabels>
+        <label>Une référence de campagne d&apos;exclusion doit être ajoutée ou effacée.</label>
+        <name>msg0020</name>
+    </customLabels>
+    <customLabels>
+        <label>MID Marketing Cloud existant, les unités commerciales disponibles pour utiliser le connecteur, ainsi que les données associées, seront remplacées. Voulez-vous vraiment continuer ?</label>
+        <name>msg0021</name>
+    </customLabels>
+    <customLabels>
+        <label>MID existant, les unités commerciales, ainsi que les données associées, seront remplacées. Cette opération est irréversible. Voulez-vous continuer ?</label>
+        <name>msg0022</name>
+    </customLabels>
+    <customLabels>
+        <label>Générer un e-mail basé sur l’abonné :</label>
+        <name>msg0023</name>
+    </customLabels>
+    <customLabels>
+        <label>L’aperçu HTML n&apos;est pas disponible pour les e-mails en texte seul.</label>
+        <name>msg0024</name>
+    </customLabels>
+    <customLabels>
+        <label>Les adresses e-mail qui seront exclues de l&apos;audience cible (plusieurs sources peuvent être sélectionnées). Ces adresses e-mail ne seront pas incluses dans cet envoi.</label>
+        <name>msg0025</name>
+    </customLabels>
+    <customLabels>
+        <label>La modification des préférences de suivi aura un impact uniquement sur les envois futurs, pas sur les envois passés.</label>
+        <name>msg0026</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune classification d&apos;envoi n&apos;a été trouvée dans Marketing Cloud. Contactez votre administrateur système.</label>
+        <name>msg0027</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune donnée d&apos;abonné trouvée.</label>
+        <name>msg0029</name>
+    </customLabels>
+    <customLabels>
+        <label>Correspond nombre de jours pour lequel les données de suivi sont renvoyées à Salesforce après la date/heure de l&apos;envoi (minimum : 1 jour, maximum : 366 jours). Remarque : Une fois cette période expirée, les données de suivi sont conservées dans Salesforce.</label>
+        <name>msg0030</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre de jours de suivi doit être de 1 à 366.</label>
+        <name>msg0031</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez une adresse e-mail de Destinataire du ticket de support sous un format valide (par exemple utilisateur@nomdomaine.extension).</label>
+        <name>msg0032</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez les identifiants de l&apos;utilisateur de l&apos;API ExactTarget afin d&apos;établir les points de terminaison correspondants pour l&apos;intégration.</label>
+        <name>msg0033</name>
+    </customLabels>
+    <customLabels>
+        <label>Le mot de passe de l&apos;utilisateur de l&apos;API ExactTarget qui établit les points de terminaison du connecteur.</label>
+        <name>msg0034</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez les unités commerciales à utiliser pour les envois. Remarque : Au moins une unité commerciale doit être sélectionnée.</label>
+        <name>msg0035</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez les utilisateurs qui peuvent accéder au Connecteur Marketing Cloud en tant qu&apos;administrateur ou utilisateur. Les utilisateurs non sélectionnés n&apos;ont pas accès au connecteur. Remarque : Au moins un utilisateur doit être défini en tant qu&apos;administrateur.</label>
+        <name>msg0036</name>
+    </customLabels>
+    <customLabels>
+        <label>Une référence de campagne d&apos;exclusion doit être ajoutée ou effacée.</label>
+        <name>msg0037</name>
+    </customLabels>
+    <customLabels>
+        <label>Mémoriser les destinataires et les exclusions pour cet e-mail</label>
+        <name>msg0038</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi d&apos;e-mail pour une requête de support</label>
+        <name>msg0039</name>
+    </customLabels>
+    <customLabels>
+        <label>Spécifiez au moins une adresse e-mail pour l&apos;envoi test.</label>
+        <name>msg0040</name>
+    </customLabels>
+    <customLabels>
+        <label>Le ou les abonnés se sont peut-être désinscrits.</label>
+        <name>msg0041</name>
+    </customLabels>
+    <customLabels>
+        <label>Le commentaire de la requête de support à envoyer par e-mail à l&apos;administrateur système</label>
+        <name>msg0042</name>
+    </customLabels>
+    <customLabels>
+        <label>Les types pris en charge sont Contact, Piste, Campagne et Rapport.</label>
+        <name>msg0043</name>
+    </customLabels>
+    <customLabels>
+        <label>Le type d&apos;audience qui peut être sélectionné pour l&apos;envoi</label>
+        <name>msg0044</name>
+    </customLabels>
+    <customLabels>
+        <label>Les e-mails test seront envoyés au format HTML.</label>
+        <name>msg0045</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;audience qui sera incluse dans l&apos;envoi (plusieurs audiences peuvent être sélectionnées).</label>
+        <name>msg0046</name>
+    </customLabels>
+    <customLabels>
+        <label>La connexion à Marketing Cloud n&apos;est pas disponible actuellement. Renouvelez votre requête ultérieurement. Si le problème persiste, contactez votre administrateur système.</label>
+        <name>msg0047</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection de l&apos;option Immédiatement met l&apos;envoi en file d&apos;attente pour un traitement immédiat. La sélection de l&apos;option Planifier un envoi futur permet de sélectionner la date et l&apos;heure d&apos;envoi de l&apos;e-mail.</label>
+        <name>msg0048</name>
+    </customLabels>
+    <customLabels>
+        <label>Les champs suivants permettent au connecteur de contrôler le niveau des données suivies qui sont renvoyées à Salesforce depuis Marketing Cloud.</label>
+        <name>msg0049</name>
+    </customLabels>
+    <customLabels>
+        <label>Les champs suivants sont requis et doivent être sélectionnés :</label>
+        <name>msg0050</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;objet de l&apos;e-mail utilisé pour cet envoi. Il peut être modifié et contient des chaînes de personnalisation (c.-à-d. %%firstname%%).</label>
+        <name>msg0051</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun e-mail n&apos;existe dans</label>
+        <name>msg0052</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun rapport n&apos;existe dans</label>
+        <name>msg0053</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre dossier « Mes rapports personnels personnalisés » ne contient aucun rapport.</label>
+        <name>msg0054</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun utilisateur n&apos;est mappé pour ce compte Salesforce dans Marketing Cloud. Contactez votre administrateur système.</label>
+        <name>msg0055</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune configuration de connecteur Marketing Cloud n&apos;existe actuellement ou la configuration n&apos;est pas valide. Contactez votre administrateur système.</label>
+        <name>msg0056</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette modification ne peut pas été effectuée, car les envois en attente existent. Voulez-vous accéder aux envois en attente ?</label>
+        <name>msg0057</name>
+    </customLabels>
+    <customLabels>
+        <label>En cochant cette case, vous attestez que ces destinataires ont expressément consenti ou vous ont expressément autorisé(e), ou votre société, d&apos;une façon vérifiable, à leur envoyer des messages.</label>
+        <name>msg0058</name>
+    </customLabels>
+    <customLabels>
+        <label>Ce connecteur Marketing Cloud est manquant dans un Paramètre personnalisé requis. Contactez votre administrateur système.</label>
+        <name>msg0059</name>
+    </customLabels>
+    <customLabels>
+        <label>Le connecteur Marketing Cloud n&apos;est pas configuré pour l&apos;envoi à une campagne. Contactez votre administrateur système.</label>
+        <name>msg0060</name>
+    </customLabels>
+    <customLabels>
+        <label>Correspond à la campagne à laquelle l&apos;e-mail sera envoyé.</label>
+        <name>msg0061</name>
+    </customLabels>
+    <customLabels>
+        <label>Correspond à l&apos;abonné individuel auquel l&apos;e-mail sera envoyé.</label>
+        <name>msg0062</name>
+    </customLabels>
+    <customLabels>
+        <label>Le suivi ne peut pas être demandé pendant les 30 minutes qui suivent la requête précédente.</label>
+        <name>msg0063</name>
+    </customLabels>
+    <customLabels>
+        <label>Des valeurs de suivi ont été demandées. Les enregistrements seront mis à jour d&apos;ici quelques minutes.</label>
+        <name>msg0064</name>
+    </customLabels>
+    <customLabels>
+        <label>Les types d&apos;envoi qui peuvent être effectués à partir du connecteur. La première entrée correspond au paramètre par défaut.</label>
+        <name>msg0065</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de renseigner les données de l&apos;abonné</label>
+        <name>msg0066</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de récupérer les données de l&apos;abonné</label>
+        <name>msg0067</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de récupérer l&apos;aperçu d&apos;envoi de l&apos;abonné.</label>
+        <name>msg0068</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de récupérer le statut de synchronisation de l&apos;abonné.</label>
+        <name>msg0069</name>
+    </customLabels>
+    <customLabels>
+        <label>Impossible de sélectionner l&apos;abonné</label>
+        <name>msg0070</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;URL utilisée pour communiquer avec Marketing Cloud afin d&apos;obtenir des informations sur le connecteur. Vous pouvez modifier cette valeur uniquement si vous y êtes invité(e).</label>
+        <name>msg0072</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;URL utilisée pour effectuer des appels REST à Marketing Cloud. Vous pouvez modifier cette valeur uniquement si vous y êtes invité(e).</label>
+        <name>msg0073</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;URL utilisée pour effectuer des appels SOAP à Marketing Cloud. Vous pouvez modifier cette valeur uniquement si vous y êtes invité(e).</label>
+        <name>msg0074</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisateur non mappé dans Marketing Cloud.</label>
+        <name>msg0075</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous n&apos;avez pas été désigné(e) comme utilisateur du connecteur Marketing Cloud. Contactez votre administrateur système.</label>
+        <name>msg0076</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous devez certifier que toutes ces personnes se sont inscrites.</label>
+        <name>msg0077</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous devez certifier que cette personne s&apos;est inscrite.</label>
+        <name>msg0078</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre compte d&apos;utilisateur Marketing Cloud ne peut pas être vérifié. Contactez votre administrateur système.</label>
+        <name>msg0079</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre compte d&apos;utilisateur Marketing Cloud ne dispose pas de l&apos;accès requis pour effectuer des envois d&apos;e-mails. Contactez votre administrateur système.</label>
+        <name>msg0080</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre compte d&apos;utilisateur Marketing Cloud n&apos;est associé à aucune unité commerciale. Contactez votre administrateur système.</label>
+        <name>msg0081</name>
+    </customLabels>
+    <customLabels>
+        <label>Le connecteur Marketing Cloud doit inclure au moins un administrateur AppExchange. Vos sélections ne seront pas enregistrées.</label>
+        <name>msg0082</name>
+    </customLabels>
+    <customLabels>
+        <label>Une requête de support a été envoyée par e-mail à votre administrateur système.</label>
+        <name>msg0083</name>
+    </customLabels>
+    <customLabels>
+        <label>Saisissez votre nom d&apos;utilisateur et votre mot de passe Marketing Cloud pour terminer votre configuration.</label>
+        <name>msg0084</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;abonné est introuvable dans la liste Tous les abonnés de Marketing Cloud. L&apos;indicateur Désinscription des e-mails ne sera pas mis à jour.</label>
+        <name>msg0085</name>
+    </customLabels>
+    <customLabels>
+        <label>Une erreur inattendue s&apos;est produite. L&apos;indicateur Désinscription des e-mails ne sera pas mis à jour.</label>
+        <name>msg0086</name>
+    </customLabels>
+    <customLabels>
+        <label>Pour pouvoir mettre à jour un abonné Marketing Cloud, vous devez être connecté(e) à Marketing Cloud.</label>
+        <name>msg0087</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette section contient des informations sur la délivrabilité de l&apos;envoi. Elle l&apos;indique le nombre total d&apos;e-mails livrés ainsi que le nombre de rebonds. Les rebonds définitifs correspondent aux e-mails qui n&apos;ont pas été livrés en raison d&apos;erreurs permanentes. Les rebonds temporaires correspondent aux e-mails qui n&apos;ont pas été livrés en raison d&apos;erreurs non permanentes.</label>
+        <name>msg0088</name>
+    </customLabels>
+    <customLabels>
+        <label>La section Performances d&apos;ouverture contient des informations sur les abonnés qui ont ouvert l&apos;envoi. Il indique le nombre total d&apos;ouvertures ainsi que les ouvertures uniques par rapport aux messages livrés. Le Taux d&apos;ouvertures correspond au pourcentage d&apos;e-mails ouverts par rapport aux e-mails envoyés (rebonds exclus)</label>
+        <name>msg0089</name>
+    </customLabels>
+    <customLabels>
+        <label>La section Activité contient des informations sur les ouvertures, les clics et les désabonnements associés à l&apos;envoi. En outre, les Transferts correspondent au nombre total d&apos;abonnés uniques qui ont cliqué sur le lien Transférer</label>
+        <name>msg0090</name>
+    </customLabels>
+    <customLabels>
+        <label>La section Abonnés non engagés contient des informations sur les abonnés qui n&apos;ont pas ouvert ni cliqué sur les informations de l&apos;e-mail</label>
+        <name>msg0091</name>
+    </customLabels>
+    <customLabels>
+        <label>La section Rapports contient des informations détaillées sur cet envoi spécifique. Un clic sur un rapport ouvre la fenêtre Rapports et affiche le résultat de suivi sélectionné</label>
+        <name>msg0092</name>
+    </customLabels>
+    <customLabels>
+        <label>La fréquence à laquelle Salesforce met à jour les données de suivi (toutes les heures ou tous les jours).</label>
+        <name>msg0093</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez les Définitions d’envois d’e-mails à mettre à jour. </label>
+        <name>msg0094</name>
+    </customLabels>
+    <customLabels>
+        <label>Un problème s&apos;est produit dans Marketing Cloud lors d&apos;une tentative d&apos;enregistrement de la configuration. Certaines fonctionnalités risquent de ne pas être totalement disponibles tant que le problème n&apos;est pas corrigé. Contactez le support Marketing Cloud.</label>
+        <name>msg0095</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez un rapport d&apos;analyse. Des informations complémentaires peuvent être demandées, selon le type de rapport sélectionné.</label>
+        <name>msg0096</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez cette option pour exclure les données de suivi d&apos;e-mail pour les envois à des contacts ou à des pistes en utilisant le lien personnalisé Envoyer un e-mail.</label>
+        <name>msg0097</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d&apos;abonnés auxquels des e-mails ont été envoyés.</label>
+        <name>msg0098</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d’e-mails pour lesquels aucune notification de rebond n’a été reçue de l&apos;abonné sélectionné.</label>
+        <name>msg0099</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d&apos;abonnés pour lesquels une notification de rebond temporaire ou définitif a été reçue</label>
+        <name>msg0100</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d’e-mails uniques qui ont été ouverts. Si l&apos;abonné ouvre plusieurs fois un même e-mail, une seule ouverture unique est enregistrée et comptabilisée pour cet envoi.</label>
+        <name>msg0101</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d&apos;événements d&apos;ouverture unique enregistrés sur l&apos;ensemble des envois. Si un abonné ouvre plusieurs fois un même e-mail, un seul événement d&apos;ouverture unique est enregistré et comptabilisé.</label>
+        <name>msg0102</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre cumulé d&apos;ouvertures de tous les e-mails. Si un abonné ouvre plusieurs fois un même e-mail, chaque événement d&apos;ouverture est enregistré et comptabilisé.</label>
+        <name>msg0103</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre cumulé d&apos;ouvertures de cet e-mail sur l&apos;ensemble des envois. Si un abonné ouvre plusieurs fois un même e-mail, chaque événement d&apos;ouverture est enregistré et comptabilisé.</label>
+        <name>msg0104</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d&apos;e-mails dans lesquels l&apos;abonné a exécuté une action (c.-à-d. en cliquant sur un lien). Si un abonné clique sur plusieurs liens ou plusieurs fois sur le même lien, un seul clic unique est enregistré et comptabilisé pour cet envoi.</label>
+        <name>msg0105</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d&apos;événements de clic unique enregistrés sur l&apos;ensemble des envois. Si un abonné clique sur plusieurs liens ou plusieurs fois sur le même lien, un seul clic unique est enregistré et comptabilisé.</label>
+        <name>msg0106</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre cumulé de clics par les abonnés sur l&apos;ensemble des liens de tous les envois. Si un abonné clique sur plusieurs liens ou plusieurs fois sur le même lien, chaque clic est enregistré et comptabilisé.</label>
+        <name>msg0107</name>
+    </customLabels>
+    <customLabels>
+        <label>La date d&apos;envoi du premier e-mail à l&apos;abonné</label>
+        <name>msg0108</name>
+    </customLabels>
+    <customLabels>
+        <label>La date de premier envoi de cet e-mail</label>
+        <name>msg0109</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;heure de dernier envoi d&apos;un e-mail à l&apos;abonné.</label>
+        <name>msg0110</name>
+    </customLabels>
+    <customLabels>
+        <label>La date de la dernière sélection de cet e-mail pour un envoi.</label>
+        <name>msg0111</name>
+    </customLabels>
+    <customLabels>
+        <label>Si l&apos;abonné s&apos;est désinscrit, date et heure de la désinscription.</label>
+        <name>msg0112</name>
+    </customLabels>
+    <customLabels>
+        <label>La date de création de l&apos;abonné dans Salesforce.</label>
+        <name>msg0113</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre total de sélections de l&apos;e-mail spécifié pour un envoi.</label>
+        <name>msg0114</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez une période, ou l&apos;option de personnalisation pour sélectionner une période personnalisée.</label>
+        <name>msg0115</name>
+    </customLabels>
+    <customLabels>
+        <label>Il n&apos;existe aucune donnée à afficher pour la période spécifiée</label>
+        <name>msg0116</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette page fournit des données de suivi d&apos;e-mail pour un contact ou une piste spécifique. Vous pouvez également rechercher un autre abonné pour afficher ses données de suivi.</label>
+        <name>msg0117</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette page fournit les données de suivi d&apos;un e-mail spécifique. Vous pouvez également rechercher un autre e-mail pour afficher les données de suivi correspondantes.</label>
+        <name>msg0118</name>
+    </customLabels>
+    <customLabels>
+        <label>Les Autres options d&apos;adresse de réponse permettent aux utilisateurs du connecteur de sélectionner dans une liste configurable les noms et adresses e-mail auxquels les réponses doivent être envoyées.</label>
+        <name>msg0119</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d’e-mails envoyés à l’abonné sélectionné.</label>
+        <name>msg0119x</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez le type d&apos;information à supprimer</label>
+        <name>msg0120</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre d’abonnés pour lesquels aucune notification de rebond n’a été reçue.</label>
+        <name>msg0120x</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer uniquement les informations de suivi pour les e-mails non ouverts</label>
+        <name>msg0121</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nombre de réceptions de notifications de rebond permanent ou temporaire pour cet abonné.</label>
+        <name>msg0121x</name>
+    </customLabels>
+    <customLabels>
+        <label>Supprimer uniquement les informations de suivi pour les e-mails non cliqués</label>
+        <name>msg0122</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette option permet de stocker dans Salesforce les données de suivi au niveau du résumé (c.-à-d., nombre global d’ouvertures, nombre global de clics, etc.). Elle utilise un espace de stockage Salesforce supplémentaire.</label>
+        <name>msg0122x</name>
+    </customLabels>
+    <customLabels>
+        <label>Non sélectionné (les enregistrements ne seront pas supprimés)</label>
+        <name>msg0123</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette option permet de stocker dans Salesforce les données de suivi au niveau individuel d&apos;un abonné (c.-à-d., lorsque l’abonné a ouvert l’e-mail, a cliqué sur un lien, etc.). Elle utilise un espace de stockage Salesforce supplémentaire.</label>
+        <name>msg0123x</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionné (les enregistrements seront supprimés)</label>
+        <name>msg0124</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette option permet de stocker dans Salesforce les données de suivi de liens au niveau individuel d&apos;un abonné (c.-à-d., liens cliqués, nombre de clics, etc.). Elle utilise un espace de stockage Salesforce supplémentaire.</label>
+        <name>msg0124x</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionné, car le parent est sélectionné (les enregistrements seront supprimés)</label>
+        <name>msg0125</name>
+    </customLabels>
+    <customLabels>
+        <label>Les données de suivi au niveau individuel d&apos;un abonné seront stockées dans Salesforce une fois l’e-mail envoyé au destinataire. Si cette option n’est pas sélectionnée, ces données seront stockées dans Salesforce uniquement après l’action d’un abonné (par exemple, l&apos;ouverture d&apos;un e-mail, un clic sur un lien). Cette option utilise une grande quantité de données.</label>
+        <name>msg0125x</name>
+    </customLabels>
+    <customLabels>
+        <label>Les enregistrements d’envois d’e-mails seront supprimés</label>
+        <name>msg0126</name>
+    </customLabels>
+    <customLabels>
+        <label>Les enregistrements de détail au niveau global des liens seront supprimés</label>
+        <name>msg0127</name>
+    </customLabels>
+    <customLabels>
+        <label>Les enregistrements Résultat au niveau individuel d&apos;un e-mail seront supprimés</label>
+        <name>msg0128</name>
+    </customLabels>
+    <customLabels>
+        <label>Les enregistrements Détail au niveau individuel d&apos;un lien seront supprimés</label>
+        <name>msg0129</name>
+    </customLabels>
+    <customLabels>
+        <label>Correspond à la piste à laquelle l&apos;e-mail sera envoyé</label>
+        <name>msg0130</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette valeur détermine la destination des réponses. Les options disponibles sont : Par défaut - (comportement standard, les réponses sont envoyées à l&apos;adresse e-mail de l&apos;expéditeur ou De), l&apos;utilisateur qui procède à l&apos;envoi et les adresses de réponse configurées dans la configuration du connecteur.</label>
+        <name>msg0132</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;ensemble de résultats est trop important pour l&apos;afficher sur cette page. Utilisez des critères différents pour filtrer les résultats.</label>
+        <name>msg0133</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom du message mobile.</label>
+        <name>msg0134</name>
+    </customLabels>
+    <customLabels>
+        <label>Texte du message à envoyer à l&apos;abonné.</label>
+        <name>msg0135</name>
+    </customLabels>
+    <customLabels>
+        <label>Le mot-clé pour lequel l&apos;audience sélectionnée aura un abonnement créé.</label>
+        <name>msg0136</name>
+    </customLabels>
+    <customLabels>
+        <label>Le code court/long avec lequel le message va être envoyé.</label>
+        <name>msg0137</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;audience qui doit être exclue de l&apos;envoi (plusieurs audiences peuvent être sélectionnées).</label>
+        <name>msg0138</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez cet indicateur pour empêcher l&apos;envoi de plusieurs messages au même numéro mobile lors de cet envoi.</label>
+        <name>msg0139</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection de l&apos;option Immédiatement met l&apos;envoi en file d&apos;attente pour un traitement immédiat.  La sélection de l&apos;option Planifier un envoi futur permet de sélectionner la date et l&apos;heure d&apos;envoi du message.</label>
+        <name>msg0140</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette case est requise avant la soumission de l&apos;envoi.</label>
+        <name>msg0141</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;unité commerciale sélectionnée n&apos;a aucun MobileConnect activé</label>
+        <name>msg0142</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous n&apos;avez pas d&apos;accès pour effectuer un Test A/B via l&apos;unité commerciale sélectionnée</label>
+        <name>msg0143</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom de l&apos;envoi déclenché</label>
+        <name>msg0144</name>
+    </customLabels>
+    <customLabels>
+        <label>Objet sur lequel l&apos;Envoi déclenché est basé</label>
+        <name>msg0145</name>
+    </customLabels>
+    <customLabels>
+        <label>Les critères de champs peuvent être utilisés afin de déterminer si un Envoi déclenché doit être envoyé. Les critères sont évalués lorsque l&apos;Événement objet sélectionné se produit</label>
+        <name>msg0146</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;événement objet qui déclenche l&apos;évaluation de l&apos;Envoi déclenché.  Les options se rapportent à la création d&apos;un enregistrement pour l&apos;objet correspondant, à la mise à jour d&apos;un enregistrement existant, ou à la création et à la mise à jour d&apos;un enregistrement existant</label>
+        <name>msg0147</name>
+    </customLabels>
+    <customLabels>
+        <label>Les Classifications d&apos;envoi sont requises pour les Envois déclenchés, et sont renseignées à partir des Classifications d&apos;envoi créées dans le compte Marketing Cloud connecté.  Les Classifications d&apos;envoi comprennent de Profils d’expéditeur, Profils de livraison et des Classifications CAN-SPAM</label>
+        <name>msg0148</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection d&apos;une option Nom/Adresse e-mail de l&apos;expéditeur remplace le Profil de l&apos;expéditeur défini dans la Classification d&apos;envoi sélectionnée ci-dessus, et utilise l&apos;option sélectionnée ici</label>
+        <name>msg0149</name>
+    </customLabels>
+    <customLabels>
+        <label>Les Envois déclenchés peuvent être envoyés immédiatement, ou après le délai de votre choix suivant l&apos;événement sélectionné ci-dessus dans « Déclencher l&apos;envoi quand »</label>
+        <name>msg0150</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;administration des Envois déclenchés dans le connecteur Marketing Cloud peut être limité aux administrateurs seuls, ou aux administrateurs et aux utilisateurs.  Cela s&apos;applique uniquement à l&apos;administration des Envois déclenchés. Les actions exécutées par des utilisateurs peuvent entraîner l&apos;envoi des Envois déclenchés.</label>
+        <name>msg0151</name>
+    </customLabels>
+    <customLabels>
+        <label>Les objets pour lesquels des Envois déclenchés peuvent être créés dans le connecteur Marketing Cloud.</label>
+        <name>msg0152</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;Envoi déclenché a déjà été activé.</label>
+        <name>msg0153</name>
+    </customLabels>
+    <customLabels>
+        <label>Avant d&apos;activer un Envoi déclenché, le déclencheur Apex approprié doit être créé pour l&apos;objet suivant :</label>
+        <name>msg0154</name>
+    </customLabels>
+    <customLabels>
+        <label>Pour plus d&apos;informations, reportez-vous à l&apos;aide de Marketing Cloud.</label>
+        <name>msg0155</name>
+    </customLabels>
+    <customLabels>
+        <label>Pour effectuer votre mappage d&apos;utilisateurs intégré, accédez à l&apos;onglet Marketing Cloud.</label>
+        <name>msg0156</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de l&apos;activation. Aucun autre Nom/Adresse e-mail de l&apos;expéditeur n&apos;a pas être créé.</label>
+        <name>msg0157</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de l&apos;activation. Impossible de créer une définition d&apos;envoi déclenché. Contactez votre administrateur système.</label>
+        <name>msg0158</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de l&apos;activation. Impossible de s&apos;abonner au suivi. Contactez votre administrateur système.</label>
+        <name>msg0159</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de l&apos;activation. Contactez votre administrateur système.</label>
+        <name>msg0160</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;Envoi déclenché a été activé avec succès.</label>
+        <name>msg0161</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;Envoi déclenché a déjà été désactivé.</label>
+        <name>msg0162</name>
+    </customLabels>
+    <customLabels>
+        <label>Les envois déclenchés doivent être activés avant d&apos;être désactivés.</label>
+        <name>msg0163</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de la désactivation. Contactez votre administrateur système.</label>
+        <name>msg0164</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;Envoi déclenché a été désactivé avec succès.</label>
+        <name>msg0165</name>
+    </customLabels>
+    <customLabels>
+        <label>Le Champ Contact/Piste permet d&apos;identifier le destinataire de l&apos;e-mail. Il doit correspondre à un champ de référence à l&apos;objet Contact ou Piste pour l&apos;objet correspondant utilisé dans la Définition d&apos;envoi déclenché. Si vous créez un Envoi déclenché dans l&apos;objet Contact ou Piste, sélectionnez l&apos;ID de contact ou de piste.</label>
+        <name>msg0166</name>
+    </customLabels>
+    <customLabels>
+        <label>Le champ Contact/Piste que vous avez sélectionné n&apos;est pas une référence à un Contact ou à une Piste. Sélectionnez un autre champ.</label>
+        <name>msg0167</name>
+    </customLabels>
+    <customLabels>
+        <label>Le destinataire sélectionné n&apos;est pas valide.</label>
+        <name>msg0168</name>
+    </customLabels>
+    <customLabels>
+        <label>Le message sélectionné n&apos;est pas valide. Créez un autre message.</label>
+        <name>msg0169</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nom de cet Envoi déclenché existe déjà. Saisissez un nom unique pour l&apos;activer.</label>
+        <name>msg0170</name>
+    </customLabels>
+    <customLabels>
+        <label>Le statut de l&apos;Envoi déclenché n&apos;est pas synchronisé avec Marketing Cloud. Malheureusement, la tentative de synchronisation a échoué. Si le problème persiste, connectez-vous à Marketing Cloud et synchronisez manuellement le statut.</label>
+        <name>msg0171</name>
+    </customLabels>
+    <customLabels>
+        <label>Le statut de l&apos;Envoi déclenché n&apos;était pas synchronisé avec Marketing Cloud. Activez de nouveau l&apos;Envoi déclenché.</label>
+        <name>msg0172</name>
+    </customLabels>
+    <customLabels>
+        <label>Le statut de l&apos;Envoi déclenché n&apos;était pas synchronisé avec Marketing Cloud. Désactivez de nouveau l&apos;Envoi déclenché.</label>
+        <name>msg0173</name>
+    </customLabels>
+    <customLabels>
+        <label>La liste Tous les abonnés n&apos;a pas pu être récupérée. Contactez votre administrateur système.</label>
+        <name>msg0174</name>
+    </customLabels>
+    <customLabels>
+        <label>Les liens profonds Marketing Cloud correspondent aux liens Modifier et Nouvel e-mail, ainsi qu&apos;au lien Accéder à Marketing Cloud, qui connecte automatiquement l&apos;utilisateur à Marketing Cloud pour exécuter ces fonctions. Utilisez ce paramètre de configuration afin d&apos;empêcher l&apos;utilisation de ces liens profonds dans l&apos;installation du connecteur Marketing Cloud.</label>
+        <name>msg0175</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez l&apos;unité fonctionnelle que vous souhaitez utiliser par défaut dans cette intégration. Elle sera utilisée par défaut par les envois de Salesforce, mais elle peut être modifiée lors de l&apos;envoi.</label>
+        <name>msg0176</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;unité fonctionnelle utilisée pour cette intégration Salesforce. Votre unité fonctionnelle par défaut dans Marketing Cloud reste inchangée.</label>
+        <name>msg0177</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;unité fonctionnelle sélectionnée n&apos;est pas intégrée à cette organisation Salesforce et ne peut pas être utilisée pour les envois. Sélectionnez une autre unité fonctionnelle. Pour afficher la liste de toutes les unités fonctionnelles disponibles, sélectionnez le lien « configurer le connecteur Marketing Cloud » en haut de votre écran, puis sélectionnez « Gérer les unités fonctionnelles ». Des droits administratifs sont requis.</label>
+        <name>msg0178</name>
+    </customLabels>
+    <customLabels>
+        <label>REMARQUE : Vous allez être connecté(e) à Marketing Cloud sous l&apos;unité fonctionnelle par défaut attribuée à votre enregistrement utilisateur Marketing Cloud. Notez que votre unité fonctionnelle par défaut peut être différente de celle sélectionnée à l&apos;écran et ne pas être configurée pour cette organisation Salesforce. Une modification des unités fonctionnelles dans Marketing Cloud peut être requise avant d&apos;exécuter l&apos;action souhaitée.</label>
+        <name>msg0179</name>
+    </customLabels>
+    <customLabels>
+        <label>La désactivation de l&apos;enregistrement Envoi déclenché a échoué. Assurez-vous que l&apos;envoi déclenché est correctement configuré, car les exécutions risquent également d&apos;échouer.</label>
+        <name>msg0180</name>
+    </customLabels>
+    <customLabels>
+        <label>Les notifications d&apos;erreur seront envoyées à l&apos;utilisateur Salesforce qui déclenche l&apos;événement. 
+
+Par exemple, Joe est propriétaire d&apos;un envoi déclenché basé sur la mise à jour du Prénom. Si Sue met à jour le Prénom d&apos;un contact, elle reçoit les notifications d&apos;erreur.</label>
+        <name>msg0181</name>
+    </customLabels>
+    <customLabels>
+        <label>Les notifications d&apos;erreur seront envoyées à l&apos;utilisateur Salesforce propriétaire de l&apos;Envoi déclenché au moment de l&apos;envoi.
+
+Par exemple, Joe est propriétaire d&apos;un envoi déclenché basé sur la mise à jour du Prénom. Si Sue met à jour le Prénom d&apos;un contact, Joe reçoit les notifications d&apos;erreur.</label>
+        <name>msg0182</name>
+    </customLabels>
+    <customLabels>
+        <label>Les notifications d&apos;erreurs seront envoyées à toutes les adresses e-mail supplémentaires. Il n&apos;est pas nécessaire qu&apos;elles soient associées à des utilisateurs Salesforce actifs. Par conséquent, vérifiez votre ou vos domaines, ainsi que l&apos;orthographe !
+
+Cliquez sur « x » pour retirer des utilisateurs/adresses e-mail.</label>
+        <name>msg0183</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;unité fonctionnelle utilisée pour cet Envoi déclenché est introuvable. Vérifiez la configuration de votre unité fonctionnelle et assurez-vous qu&apos;une unité fonctionnelle a été sélectionnée lors de la création de l&apos;Envoi déclenché.</label>
+        <name>msg0184</name>
+    </customLabels>
+    <customLabels>
+        <label>Les critères du champ ne sont pas valides. Veuillez les corriger.</label>
+        <name>msg0185</name>
+    </customLabels>
+    <customLabels>
+        <label>La logique de filtrage n&apos;est pas valide. Veuillez la corriger.</label>
+        <name>msg0186</name>
+    </customLabels>
+    <customLabels>
+        <label>Les notifications d&apos;erreur seront envoyées à l&apos;utilisateur Salesforce propriétaire de l&apos;envoi de l&apos;e-mail.</label>
+        <name>msg0187</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que nous avons rencontré un problème lors de l&apos;exécution de votre synchronisation, sans recevoir d&apos;ID pour votre extension de données.</label>
+        <name>msg0188</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom du message</label>
+        <name>msgName</name>
+    </customLabels>
+    <customLabels>
+        <label>Texte du message</label>
+        <name>msgText</name>
+    </customLabels>
+    <customLabels>
+        <label>Mes rapports personnels personnalisés</label>
+        <name>myPCR</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom</label>
+        <name>name</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom :</label>
+        <name>name_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouveau</label>
+        <name>new</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivant</label>
+        <name>next</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre d&apos;envois</label>
+        <name>nmbrSent</name>
+    </customLabels>
+    <customLabels>
+        <label>Non</label>
+        <name>no</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune unité commerciale</label>
+        <name>noBUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune donnée trouvée.</label>
+        <name>noDataFnd</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun e-mail sélectionné</label>
+        <name>noEmailSelected</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous n’êtes pas autorisé(e) à envoyer via l&apos;Unité commerciale sélectionnée.</label>
+        <name>noEmailSendPerm</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune unité commerciale parente trouvée.</label>
+        <name>noPBUFnd</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun résultat à afficher</label>
+        <name>noResult</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucune classification d&apos;envoi</label>
+        <name>noSndClsss</name>
+    </customLabels>
+    <customLabels>
+        <label>Aucun type d&apos;envoi</label>
+        <name>noSndTypes</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous ne pas correctement configuré(e) pour créer des Envois déclenchés pour l&apos;unité commerciale sélectionnée.  Pour plus informations sur la configuration d&apos;actions Créer, Mettre à jour, Interrompre/Reprendre et Publier pour des Envois déclenchés, reportez-vous à l&apos;aide de Marketing Cloud.</label>
+        <name>noTSCreatePerm</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous ne pas correctement configuré(e) pour interrompre/reprendre des Envois déclenchés pour l&apos;unité commerciale sélectionnée.  Pour plus informations sur la configuration d&apos;actions Créer, Mettre à jour, Interrompre/Reprendre et Publier pour des Envois déclenchés, reportez-vous à l&apos;aide de Marketing Cloud.</label>
+        <name>noTSPauseResumePerm</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous ne pas correctement configuré(e) pour publier des Envois déclenchés pour l&apos;unité commerciale sélectionnée.  Pour plus informations sur la configuration d&apos;actions Créer, Mettre à jour, Interrompre/Reprendre et Publier pour des Envois déclenchés, reportez-vous à l&apos;aide de Marketing Cloud.</label>
+        <name>noTSPublishPerm</name>
+    </customLabels>
+    <customLabels>
+        <label>Vous ne pas correctement configuré(e) pour mettre à jour des Envois déclenchés pour l&apos;unité commerciale sélectionnée.  Pour plus informations sur la configuration d&apos;actions Créer, Mettre à jour, Interrompre/Reprendre et Publier pour des Envois déclenchés, reportez-vous à l&apos;aide de Marketing Cloud.</label>
+        <name>noTSUpdatePerm</name>
+    </customLabels>
+    <customLabels>
+        <label>La vignette d&apos;e-mail n&apos;a pas pu être récupérée</label>
+        <name>noThumbnail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- nohtml --></label>
+        <name>nohtml</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- nohtmltext --></label>
+        <name>nohtmltext</name>
+    </customLabels>
+    <customLabels>
+        <label>-- Aucun --</label>
+        <name>none_dashes</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisateurs non connectés</label>
+        <name>nonintUs</name>
+    </customLabels>
+    <customLabels>
+        <label>Non sélectionné</label>
+        <name>notSelectd</name>
+    </customLabels>
+    <customLabels>
+        <label>Note</label>
+        <name>note</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- notext --></label>
+        <name>notext</name>
+    </customLabels>
+    <customLabels>
+        <label>{0} ne peut pas être null.</label>
+        <name>nullParameterError</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de jours de suivi</label>
+        <name>numDaysTrk</name>
+    </customLabels>
+    <customLabels>
+        <label>ID d&apos;objet</label>
+        <name>objId</name>
+    </customLabels>
+    <customLabels>
+        <label>Type d&apos;objet</label>
+        <name>objType</name>
+    </customLabels>
+    <customLabels>
+        <label>Objet</label>
+        <name>object</name>
+    </customLabels>
+    <customLabels>
+        <label>Désactivé</label>
+        <name>off</name>
+    </customLabels>
+    <customLabels>
+        <label>OK</label>
+        <name>ok</name>
+    </customLabels>
+    <customLabels>
+        <label>Datant de plus de (personnalisé)</label>
+        <name>oldrCustom</name>
+    </customLabels>
+    <customLabels>
+        <label>Datant de plus de 90 jours</label>
+        <name>oldrNinety</name>
+    </customLabels>
+    <customLabels>
+        <label>Datant de plus de 180 jours</label>
+        <name>oldrOneEighty</name>
+    </customLabels>
+    <customLabels>
+        <label>Datant de plus de 60 jours</label>
+        <name>oldrSixty</name>
+    </customLabels>
+    <customLabels>
+        <label>Datant de plus de 30 jours</label>
+        <name>oldrThirty</name>
+    </customLabels>
+    <customLabels>
+        <label>Utiliser une ligne d&apos;objet</label>
+        <name>oneSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>Autoriser uniquement pour les administrateurs</label>
+        <name>onlyAdm</name>
+    </customLabels>
+    <customLabels>
+        <label>Performances d&apos;ouverture</label>
+        <name>openPerf</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux d&apos;ouvertures :</label>
+        <name>openRate_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Ouverts</label>
+        <name>opened</name>
+    </customLabels>
+    <customLabels>
+        <label>Ouvertures</label>
+        <name>opens</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux d&apos;ouvertures</label>
+        <name>opnRate</name>
+    </customLabels>
+    <customLabels>
+        <label>Je certifie que toutes ces personnes se sont inscrites</label>
+        <name>optInCrtfy</name>
+    </customLabels>
+    <customLabels>
+        <label>Je certifie que toutes ces personnes se seront inscrites</label>
+        <name>optInCrtfyF</name>
+    </customLabels>
+    <customLabels>
+        <label>Je certifie que cette personne s&apos;est inscrite</label>
+        <name>optInSingle</name>
+    </customLabels>
+    <customLabels>
+        <label>Présentation</label>
+        <name>overview</name>
+    </customLabels>
+    <customLabels>
+        <label>Remplacer le Nom/Adresse e-mail de l&apos;expéditeur</label>
+        <name>ovrridSC</name>
+    </customLabels>
+    <customLabels>
+        <label>sur</label>
+        <name>pageOfOf</name>
+    </customLabels>
+    <customLabels>
+        <label>Page</label>
+        <name>pageOfPg</name>
+    </customLabels>
+    <customLabels>
+        <label>Taille de la page</label>
+        <name>pageSize</name>
+    </customLabels>
+    <customLabels>
+        <label>Téléphone</label>
+        <name>phone</name>
+    </customLabels>
+    <customLabels>
+        <label>Aperçu expiré. Actualisez la page.</label>
+        <name>prevExpd</name>
+    </customLabels>
+    <customLabels>
+        <label>Aperçu de l&apos;e-mail</label>
+        <name>previewEm</name>
+    </customLabels>
+    <customLabels>
+        <label>Précédent</label>
+        <name>previous</name>
+    </customLabels>
+    <customLabels>
+        <label>Pré-header</label>
+        <name>prhdr</name>
+    </customLabels>
+    <customLabels>
+        <label>Traitement des données</label>
+        <name>procData</name>
+    </customLabels>
+    <customLabels>
+        <label>fourni</label>
+        <name>provided</name>
+    </customLabels>
+    <customLabels>
+        <label>La confirmation du mot de passe est requise.</label>
+        <name>pwConfReq</name>
+    </customLabels>
+    <customLabels>
+        <label>Les mots de passe ne correspondent pas.</label>
+        <name>pwNoMatch</name>
+    </customLabels>
+    <customLabels>
+        <label>Un mot de passe est requis.</label>
+        <name>pwReq</name>
+    </customLabels>
+    <customLabels>
+        <label>En file d&apos;attente de traitement</label>
+        <name>queuedFP</name>
+    </customLabels>
+    <customLabels>
+        <label>Plage</label>
+        <name>range</name>
+    </customLabels>
+    <customLabels>
+        <label>Confirmer le mot de passe</label>
+        <name>reEnterPw</name>
+    </customLabels>
+    <customLabels>
+        <label>nouvel enregistrement créé</label>
+        <name>recIns</name>
+    </customLabels>
+    <customLabels>
+        <label>enregistrement existant mis à jour</label>
+        <name>recUpdt</name>
+    </customLabels>
+    <customLabels>
+        <label>un nouvel enregistrement est créé ou un enregistrement existant est mis à jour pour remplir les critères</label>
+        <name>recUpdtSub</name>
+    </customLabels>
+    <customLabels>
+        <label>nouvel enregistrement créé ou enregistrement existant mis à jour</label>
+        <name>recUps</name>
+    </customLabels>
+    <customLabels>
+        <label>Destinataires</label>
+        <name>recipients</name>
+    </customLabels>
+    <customLabels>
+        <label>Propriétaire de l’enregistrement</label>
+        <name>recordOwnr</name>
+    </customLabels>
+    <customLabels>
+        <label>Sources de destinataires</label>
+        <name>recpSourcs</name>
+    </customLabels>
+    <customLabels>
+        <label>Actualiser les données</label>
+        <name>refrshData</name>
+    </customLabels>
+    <customLabels>
+        <label>Rapports sur les résultats d&apos;e-mails individuels associés</label>
+        <name>relIerRep</name>
+    </customLabels>
+    <customLabels>
+        <label>Restant</label>
+        <name>remainder</name>
+    </customLabels>
+    <customLabels>
+        <label>Retirer</label>
+        <name>remove</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion de l&apos;option Adresse de réponse</label>
+        <name>replyToMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label>Adresse de réponse</label>
+        <name>reply_to</name>
+    </customLabels>
+    <customLabels>
+        <label>Rapport</label>
+        <name>report</name>
+    </customLabels>
+    <customLabels>
+        <label>Rapports</label>
+        <name>reports</name>
+    </customLabels>
+    <customLabels>
+        <label>Informations requises</label>
+        <name>reqdInfo</name>
+    </customLabels>
+    <customLabels>
+        <label>Demandé par</label>
+        <name>requestdBy</name>
+    </customLabels>
+    <customLabels>
+        <label>Résultats</label>
+        <name>results</name>
+    </customLabels>
+    <customLabels>
+        <label>Réessayer</label>
+        <name>retry</name>
+    </customLabels>
+    <customLabels>
+        <label>La sélection de cette option indique qu&apos;une nouvelle tentative d&apos;envoi sera effectuée si le système est temporairement indisponible. L&apos;option d&apos;annulation de l&apos;envoi sera fournie pour arrêter les nouvelles tentatives.</label>
+        <name>retryHelp</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisateur actif</label>
+        <name>rnngUsr</name>
+    </customLabels>
+    <customLabels>
+        <label>URL d&apos;API REST racine</label>
+        <name>rootRestAU</name>
+    </customLabels>
+    <customLabels>
+        <label>URL d&apos;API SOAP racine</label>
+        <name>rootSoapAU</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;URL d&apos;API REST racine est requise.</label>
+        <name>rrauReq</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;URL d&apos;API SOAP racine est requise.</label>
+        <name>rsauReq</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle tentative de création de la définition d&apos;envoi effectuée.</label>
+        <name>rtdCrSdDef</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle tentative de création du profil de l&apos;expéditeur effectuée.</label>
+        <name>rtdCrSrPrf</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle tentative de récupération des données effectuée.</label>
+        <name>rtdDataRet</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle tentative de synchronisation des données effectuée.</label>
+        <name>rtdDataSyn</name>
+    </customLabels>
+    <customLabels>
+        <label>Nouvelle tentative de mise en file d&apos;attente de l&apos;envoi effectuée.</label>
+        <name>rtdQueuSnd</name>
+    </customLabels>
+    <customLabels>
+        <label>Le destinataire du ticket de support est requis.</label>
+        <name>sTRReq</name>
+    </customLabels>
+    <customLabels>
+        <label>Enregistrer</label>
+        <name>save</name>
+    </customLabels>
+    <customLabels>
+        <label>Enregistrer l&apos;option gagnante dans l&apos;e-mail d&apos;origine ?</label>
+        <name>saveWinOpt</name>
+    </customLabels>
+    <customLabels>
+        <label>Ligne d&apos;objet</label>
+        <name>sbjctLn</name>
+    </customLabels>
+    <customLabels>
+        <label>Abonné</label>
+        <name>sbscriber</name>
+    </customLabels>
+    <customLabels>
+        <label>La date/heure d&apos;expiration doit être future.</label>
+        <name>schInPast</name>
+    </customLabels>
+    <customLabels>
+        <label>Planifier un envoi futur</label>
+        <name>schedFutSd</name>
+    </customLabels>
+    <customLabels>
+        <label>Planifier ultérieurement</label>
+        <name>scheduleLater</name>
+    </customLabels>
+    <customLabels>
+        <label>Planifier maintenant</label>
+        <name>scheduleNow</name>
+    </customLabels>
+    <customLabels>
+        <label>Planifié</label>
+        <name>scheduled</name>
+    </customLabels>
+    <customLabels>
+        <label>À une heure planifiée</label>
+        <name>scheduledTime</name>
+    </customLabels>
+    <customLabels>
+        <label>Rechercher</label>
+        <name>search</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionnez une autre unité commerciale.</label>
+        <name>selectdifBU</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionné</label>
+        <name>selected</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoyer</label>
+        <name>send</name>
+    </customLabels>
+    <customLabels>
+        <label>Envois déclenchés</label>
+        <name>sendAtmtn</name>
+    </customLabels>
+    <customLabels>
+        <label>Classification d’envoi</label>
+        <name>sendClass</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion des envois</label>
+        <name>sendMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label>Performances des envois</label>
+        <name>sendPerf</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi mis en file d&apos;attente</label>
+        <name>sendQueued</name>
+    </customLabels>
+    <customLabels>
+        <label>Heure d’envoi</label>
+        <name>sendTime</name>
+    </customLabels>
+    <customLabels>
+        <label>Types d&apos;envoi</label>
+        <name>sendTypes</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi d&apos;un e-mail gagnant au restant</label>
+        <name>sendWinToRem</name>
+    </customLabels>
+    <customLabels>
+        <label>Options d’expéditeur</label>
+        <name>senderOpts</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi en cours</label>
+        <name>sending</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoyés</label>
+        <name>sent</name>
+    </customLabels>
+    <customLabels>
+        <label>Séparez les adresses par une virgule.</label>
+        <name>separateWithComma</name>
+    </customLabels>
+    <customLabels>
+        <label>Salesforce ne parvient pas à se connecter à Marketing Cloud. Contactez votre administrateur système pour vous assurer que les identifiants utilisateur d&apos;API sont corrects.</label>
+        <name>sfNoConnct</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebond temporaire :</label>
+        <name>sftBnc_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Rebond temporaire</label>
+        <name>sftBncd</name>
+    </customLabels>
+    <customLabels>
+        <label>Code court/long</label>
+        <name>shortCode</name>
+    </customLabels>
+    <customLabels>
+        <label>Afficher</label>
+        <name>show</name>
+    </customLabels>
+    <customLabels>
+        <label>Afficher les envois d’e-mails</label>
+        <name>shwEmSnds</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionner une unité commerciale</label>
+        <name>slctBU</name>
+    </customLabels>
+    <customLabels>
+        <label>-- Sélectionner --</label>
+        <name>slctChoose</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionner un e-mail</label>
+        <name>slctEmail</name>
+    </customLabels>
+    <customLabels>
+        <label>Sélectionner un abonné</label>
+        <name>slctSbscrbr</name>
+    </customLabels>
+    <customLabels>
+        <label>Avant d&apos;importer des numéros mobiles dans votre application, ou d&apos;utiliser votre application pour envoyer des messages à des numéros mobiles (y compris des SMS), assurez-vous que vous et votre organisation, ou l&apos;agent ou partenaire avec lequel vous envisagez de travailler, avez obtenu le consentement préalable expresse, ou l&apos;autorisation spécifique et informée, des personnes concernées, d&apos;une façon vérifiable, pour leur envoyer des messages à ces numéros mobiles. Ces numéros mobiles sont également appelés « Numéros d&apos;inscription », ce qui signifie que les personnes auxquelles ils sont associés ont accepté de vous autoriser, ou d&apos;autoriser votre organisation, vos agents ou vos partenaires, à leur envoyer des messages mobiles.</label>
+        <name>smsLegal</name>
+    </customLabels>
+    <customLabels>
+        <label>En cochant la case « J&apos;accepte » ci-dessous, ou en continuant d&apos;utiliser notre application, vous et votre organisation, ou vos agents et partenaires, acceptez de vous limiter à l&apos;importation de Numéros d&apos;inscription dans l&apos;application et d&apos;utiliser les Numéros d&apos;inscription uniquement en rapport avec notre application.</label>
+        <name>smsLegal2</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion des envois déclenchés</label>
+        <name>sndAtmMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label>Cette valeur est utilisée pour afficher le Nom de l&apos;expéditeur et l&apos;Adresse e-mail de l&apos;expéditeur dans l&apos;e-mail envoyé. Elle correspond à l&apos;expéditeur, et elle est renseignée dynamiquement ou définie par une Classification d&apos;envoi.</label>
+        <name>sndClasHlp</name>
+    </customLabels>
+    <customLabels>
+        <label>Date et heure d&apos;envoi</label>
+        <name>sndDAndT</name>
+    </customLabels>
+    <customLabels>
+        <label>Date/heure d&apos;envoi</label>
+        <name>sndDSlsT</name>
+    </customLabels>
+    <customLabels>
+        <label>Prévisualiser l&apos;envoi</label>
+        <name>sndPreview</name>
+    </customLabels>
+    <customLabels>
+        <label>Destinataires de l&apos;envoi</label>
+        <name>sndRecips</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoyer l’e-mail de test à :</label>
+        <name>sndTstEmTo</name>
+    </customLabels>
+    <customLabels>
+        <label>Critères de recherche</label>
+        <name>srchCrit</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous utilisez une version incorrecte pour votre intégration. Elle doit être égale ou supérieure à 5.0. Pour vérifier la version utilisée, recherchez « Package installé » dans la case « Rechercher dans toute la configuration ».</label>
+        <name>sse100</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème lors de l&apos;initialisation de la synchronisation de vos abonnés.</label>
+        <name>sse101</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous avez tenté d&apos;envoyer à des rapports/campagnes qui n&apos;existent plus. Vérifiez la définition de votre envoi, puis réessayez l&apos;envoi.</label>
+        <name>sse102</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous avez tenté de synchroniser les abonnés de plusieurs bases de données à la fois. Cette opération n&apos;est pas prise en charge.</label>
+        <name>sse103</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous avez tenté de synchroniser les abonnés à l&apos;aide d&apos;un canal que nous ne prenons pas en charge.</label>
+        <name>sse105</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que le canal avec lequel vous avez tenté de synchroniser vos abonnés n&apos;est pas pris en charge par la version de votre intégration.</label>
+        <name>sse106</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vos identifiants Utilisateur du suivi Salesforce sont périmés dans Marketing Cloud. Pour cette raison, la connexion à Salesforce a échoué. Vous pouvez mettre ces identifiants à jour en accédant à « E-mail &gt; Admin &gt; Intégration Salesforce » dans Marketing Cloud. Une fois ces identifiants mis à jour, réessayez votre envoi.</label>
+        <name>sse110</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que nous avons été désynchronisés durant la synchronisation de vos abonnés, et nous avons perdu la trace de l&apos;e-mail que nous envoyons.</label>
+        <name>sse111</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème d&apos;exclusion de certaines adresses e-mail de cet envoi et nous avons dû arrêter la synchronisation.</label>
+        <name>sse120</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de récupération de la configuration de vos extensions de données dans Marketing Cloud et nous avons dû arrêter l&apos;envoi.</label>
+        <name>sse121</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de synchronisation de vos abonnés et nous avons dû arrêter l&apos;envoi.</label>
+        <name>sse126</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème avec vos attributs mappés et nous avons dû arrêter l&apos;envoi.</label>
+        <name>sse127</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème avec certains champs requis et nous avons dû arrêter l&apos;envoi.</label>
+        <name>sse129</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons détecté un problème dans les informations du compte et nous avons dû arrêter l&apos;envoi. Vérifiez ce compte dans Salesforce, puis réessayez l&apos;envoi.</label>
+        <name>sse130</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de récupération des données de la piste/du contact dans Salesforce. Assurez-vous que les identifiants sont à jour, confirmez votre accès au désabonnement des e-mails, puis réessayez l&apos;envoi.</label>
+        <name>sse131</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de récupération des informations du propriétaire et nous avons dû arrêter l&apos;envoi. Vérifiez le champ « Propriétaire » dans les détails du compte, puis réessayez l&apos;envoi.</label>
+        <name>sse132</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de récupération de l&apos;ID de propriétaire et nous avons dû arrêter l&apos;envoi. Vérifiez le champ « Propriétaire » dans les détails du compte, puis réessayez l&apos;envoi.</label>
+        <name>sse136</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de récupération de la taille du lot spécifiée pour cet envoi. Nous avons utilisé à la place la taille par défaut.</label>
+        <name>sse138</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème de traitement d&apos;une ou de plusieurs exclusions et nous avons dû arrêter l&apos;envoi.</label>
+        <name>sse142</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème avec les rapports/campagnes et nous avons dû arrêter l&apos;envoi.</label>
+        <name>sse143</name>
+    </customLabels>
+    <customLabels>
+        <label>Un rapport ou une campagne source au moins doit être fourni en tant que liste d&apos;abonnés.</label>
+        <name>sse150</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons détecté un problème avec votre intégration côté Marketing Cloud. Assurez-vous que les comptes suivants sont correctement intégrés à Salesforce : (1) l&apos;unité fonctionnelle que vous essayez de synchroniser (2), le compte Enterprise 2.0 dans lequel réside l&apos;unité fonctionnelle que vous essayez de synchroniser, (3) le compte source de l&apos;envoi.</label>
+        <name>sse151</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous avez tenté d&apos;envoyer à une ou plusieurs campagnes qui n&apos;existent plus. Vérifiez la définition de votre envoi, puis réessayez l&apos;envoi.</label>
+        <name>sse225</name>
+    </customLabels>
+    <customLabels>
+        <label>Nous avons rencontré un problème d&apos;utilisation du champ « Nom du propriétaire » que vous avez fourni. Vérifiez ce champ, puis réessayez l&apos;envoi.</label>
+        <name>sse229</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous avez tenté d&apos;utiliser des campagnes ou des rapports qui n&apos;existent plus. Vérifiez la définition de votre envoi, puis réessayez l&apos;envoi.</label>
+        <name>sse250</name>
+    </customLabels>
+    <customLabels>
+        <label>Il semble que vous avez désigné au moins un rapport ou une campagne à la fois en tant que source et exclusion. Vérifiez la définition de votre envoi, puis réessayez l&apos;envoi.</label>
+        <name>sse251</name>
+    </customLabels>
+    <customLabels>
+        <label>[E100] La version de l&apos;intégration fournie n&apos;est pas valide/reconnue.</label>
+        <name>ssse100</name>
+    </customLabels>
+    <customLabels>
+        <label>[E101] Nous n&apos;avons pas pu créer un agent de synchronisation Salesforce. Contactez le support Salesforce.</label>
+        <name>ssse101</name>
+    </customLabels>
+    <customLabels>
+        <label>[E102] L&apos;envoi déclenché a tenté de transmettre plusieurs contacts. Une seule source d&apos;intégration peut être définie par requête de synchronisation. L&apos;envoi déclenché a été désactivé et doit être corrigé avant d&apos;être réactivé. Contactez le support Salesforce.</label>
+        <name>ssse102</name>
+    </customLabels>
+    <customLabels>
+        <label>[E103] Une seule source d&apos;intégration peut être définie par requête de synchronisation.</label>
+        <name>ssse103</name>
+    </customLabels>
+    <customLabels>
+        <label>[E105] Le canal d&apos;intégration fourni n&apos;est pas valide/reconnu.</label>
+        <name>ssse105</name>
+    </customLabels>
+    <customLabels>
+        <label>[E106] Le canal d&apos;intégration de la version donnée n&apos;est pas reconnu.</label>
+        <name>ssse106</name>
+    </customLabels>
+    <customLabels>
+        <label>[E110] Impossible de se connecter à Salesforce en raison d&apos;identifiants Salesforce non valides.</label>
+        <name>ssse110</name>
+    </customLabels>
+    <customLabels>
+        <label>[E127] Une exception s&apos;est produire lors d&apos;une tentative de chargement d&apos;attributs mappés.</label>
+        <name>ssse127</name>
+    </customLabels>
+    <customLabels>
+        <label>[E101] Nous n&apos;avons pas pu charger les champs requis pour cette synchronisation. Contactez le support Marketing Cloud pour résoudre ce problème.</label>
+        <name>ssse129</name>
+    </customLabels>
+    <customLabels>
+        <label>[E130] Nous avons détecté une erreur dans les informations du compte &lt;contact/lead name&gt;. Vérifiez les détails du compte. Si cette erreur persiste, contactez le support Salesforce.</label>
+        <name>ssse130</name>
+    </customLabels>
+    <customLabels>
+        <label>[E131] Nous avons rencontré une erreur lors de la récupération des informations du contact ou de la piste dans Salesforce. Vérifiez les identifiants du contact ou de la piste, et assurez-vous d&apos;avoir accès au désabonnement des e-mails. Si cette erreur persiste, contactez le support Marketing Cloud.</label>
+        <name>ssse131</name>
+    </customLabels>
+    <customLabels>
+        <label>[E132] Nous avons détecté une erreur dans le champ « Propriétaire » de &lt;contact/lead name&gt;. Vérifiez les détails du compte. Si cette erreur persiste, contactez le support Salesforce.</label>
+        <name>ssse132</name>
+    </customLabels>
+    <customLabels>
+        <label>[E136] L&apos;ID de compte d&apos;un contact ou d&apos;une piste n&apos;a pas été récupéré dans Salesforce. Les champs de propriétaire sont requis pour cette synchronisation.</label>
+        <name>ssse136</name>
+    </customLabels>
+    <customLabels>
+        <label>[E150] Un champ obligatoire est manquant dans le compte.</label>
+        <name>ssse150</name>
+    </customLabels>
+    <customLabels>
+        <label>[E151] L&apos;ID de membre associé à cette synchronisation n&apos;a pas été correctement intégré à Salesforce depuis Marketing Cloud.</label>
+        <name>ssse151</name>
+    </customLabels>
+    <customLabels>
+        <label>[E202] L&apos;adresse e-mail de l&apos;abonné n&apos;est pas valide.</label>
+        <name>ssse202</name>
+    </customLabels>
+    <customLabels>
+        <label>[E203] Un champ obligatoire est manquant dans le contact ou la piste.</label>
+        <name>ssse203</name>
+    </customLabels>
+    <customLabels>
+        <label>[E229] Le champ de nom du propriétaire fourni n&apos;est pas valide.</label>
+        <name>ssse229</name>
+    </customLabels>
+    <customLabels>
+        <label>[E230] Le champ d&apos;e-mail du propriétaire fourni n&apos;est pas valide.</label>
+        <name>ssse230</name>
+    </customLabels>
+    <customLabels>
+        <label>Statique</label>
+        <name>static</name>
+    </customLabels>
+    <customLabels>
+        <label>Statut</label>
+        <name>status</name>
+    </customLabels>
+    <customLabels>
+        <label>Liste d’abonnés</label>
+        <name>subList</name>
+    </customLabels>
+    <customLabels>
+        <label>Objet :</label>
+        <name>subj_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Objet</label>
+        <name>subject</name>
+    </customLabels>
+    <customLabels>
+        <label>Soumettre</label>
+        <name>submit</name>
+    </customLabels>
+    <customLabels>
+        <label>Engagement des abonnés</label>
+        <name>subsEngt</name>
+    </customLabels>
+    <customLabels>
+        <label>Champ Contact/Piste</label>
+        <name>subsField</name>
+    </customLabels>
+    <customLabels>
+        <label>abonné</label>
+        <name>subscriber</name>
+    </customLabels>
+    <customLabels>
+        <label>Abonnés</label>
+        <name>subscribers</name>
+    </customLabels>
+    <customLabels>
+        <label>Destinataire du ticket de support</label>
+        <name>supTicRecp</name>
+    </customLabels>
+    <customLabels>
+        <label>Requête de support</label>
+        <name>suprtReq</name>
+    </customLabels>
+    <customLabels>
+        <label>La requête de synchronisation de l&apos;abonné a échoué.</label>
+        <name>syncSbFail</name>
+    </customLabels>
+    <customLabels>
+        <label>[Triggered Send Error] [Salesforce] &quot;{0}&quot; a échoué</label>
+        <name>tSEmailSubject</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;exécution de l&apos;envoi déclenché a échoué.</label>
+        <name>tSExecutionError</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre envoi déclenché à {1}, &quot;{0},&quot; a échoué et a été désactivé. L&apos;erreur suivante a été renvoyée :</label>
+        <name>tSFailDeactivate</name>
+    </customLabels>
+    <customLabels>
+        <label>L&apos;envoi déclenché a été tenté 6 fois et a échoué. Vérifiez les paramètres de l&apos;Envoi déclenché, les configurations d&apos;intégration et les autorisations de Marketing Cloud pour résoudre les problèmes.</label>
+        <name>tSFailMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre envoi déclenché à {1}, &quot;{0},&quot; a échoué après six tentatives. L&apos;erreur suivante a été renvoyée :</label>
+        <name>tSFailRetry</name>
+    </customLabels>
+    <customLabels>
+        <label>Votre envoi déclenché à {1}, &quot;{0},&quot; a échoué. L&apos;erreur suivante a été renvoyée :</label>
+        <name>tSFailStop</name>
+    </customLabels>
+    <customLabels>
+        <label>Les envois déclenchés peuvent être modifiés en suivant le lien Envois déclenchés sous l&apos;onglet Envois par e-mail dans Sales Cloud. Pour en savoir plus, visitez</label>
+        <name>tSHelpMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>Autoriser uniquement les administrateurs à créer des envois déclenchés</label>
+        <name>tSOnlyAdm</name>
+    </customLabels>
+    <customLabels>
+        <label>Notez que les futurs e-mails de cette définition d&apos;envoi déclenché continueront d&apos;être traités.</label>
+        <name>tSProcess</name>
+    </customLabels>
+    <customLabels>
+        <label>Autoriser les administrateurs et les utilisateurs standard à créer des envois déclenchés</label>
+        <name>tSbothAdmUsr</name>
+    </customLabels>
+    <customLabels>
+        <label>Audience cible</label>
+        <name>targetAud</name>
+    </customLabels>
+    <customLabels>
+        <label>Test créé</label>
+        <name>testCrtd</name>
+    </customLabels>
+    <customLabels>
+        <label>E-mail test envoyé.</label>
+        <name>testEmSent</name>
+    </customLabels>
+    <customLabels>
+        <label>Gestion des tests</label>
+        <name>testManagement</name>
+    </customLabels>
+    <customLabels>
+        <label>Test modifié</label>
+        <name>testMod</name>
+    </customLabels>
+    <customLabels>
+        <label>Échec de l&apos;envoi test.</label>
+        <name>testSdFail</name>
+    </customLabels>
+    <customLabels>
+        <label>Envoi test</label>
+        <name>testSend</name>
+    </customLabels>
+    <customLabels>
+        <label>Tests envoyés</label>
+        <name>testsSent</name>
+    </customLabels>
+    <customLabels>
+        <label>Engagement temporel</label>
+        <name>timeEngt</name>
+    </customLabels>
+    <customLabels>
+        <label>À</label>
+        <name>to</name>
+    </customLabels>
+    <customLabels>
+        <label>À</label>
+        <name>toDate</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de dossiers à afficher trop important. Utilisez l&apos;option de recherche</label>
+        <name>tooManyFolds</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre de rapports à afficher trop important. Assurez-vous que votre dossier ne dépasse pas 1000 rapports</label>
+        <name>tooManyRepts</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total de rebonds :</label>
+        <name>totBncs_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total de clics</label>
+        <name>totClicks</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total d&apos;éléments livrés</label>
+        <name>totDel</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total d&apos;éléments livrés :</label>
+        <name>totDel_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total de tâches</label>
+        <name>totJobs</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total d’ouvertures</label>
+        <name>totOpens</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total d&apos;ouvertures :</label>
+        <name>totOpens_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Nombre total d&apos;éléments envoyés :</label>
+        <name>totSent_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Total</label>
+        <name>total</name>
+    </customLabels>
+    <customLabels>
+        <label>Propriétaire de l&apos;envoi déclenché</label>
+        <name>trigSendOwner</name>
+    </customLabels>
+    <customLabels>
+        <label>Déclencher l&apos;envoi quand</label>
+        <name>triggerSendWhen</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi depuis :</label>
+        <name>trkAsOf_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Détails de suivi</label>
+        <name>trkDetail</name>
+    </customLabels>
+    <customLabels>
+        <label>Détails de suivi &gt;&gt;</label>
+        <name>trkDetails</name>
+    </customLabels>
+    <customLabels>
+        <label>Expiration de l&apos;abonnement au suivi :</label>
+        <name>trkExp_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Détails du lien de suivi</label>
+        <name>trkLinkDet</name>
+    </customLabels>
+    <customLabels>
+        <label>Préférences de suivi</label>
+        <name>trkPrefs</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivre les événements d&apos;envoi</label>
+        <name>trkSentEvt</name>
+    </customLabels>
+    <customLabels>
+        <label>Suivi de Marketing Cloud en attente...</label>
+        <name>trkWait</name>
+    </customLabels>
+    <customLabels>
+        <label>Notez que les futurs e-mails de cette définition d&apos;envoi déclenché ne seront plus traités. Modifiez la définition de votre envoi déclenché avant de le réactiver afin d&apos;éviter d&apos;autres erreurs.</label>
+        <name>tsNotProcess</name>
+    </customLabels>
+    <customLabels>
+        <label>Test A</label>
+        <name>tstA</name>
+    </customLabels>
+    <customLabels>
+        <label>Test B</label>
+        <name>tstB</name>
+    </customLabels>
+    <customLabels>
+        <label>Groupe test</label>
+        <name>tstGroup</name>
+    </customLabels>
+    <customLabels>
+        <label>Type de test</label>
+        <name>tstType</name>
+    </customLabels>
+    <customLabels>
+        <label>Utiliser deux lignes d&apos;objet</label>
+        <name>twoSubjects</name>
+    </customLabels>
+    <customLabels>
+        <label>Texte uniquement</label>
+        <name>txtOnly</name>
+    </customLabels>
+    <customLabels>
+        <label>Le nom d&apos;utilisateur est requis.</label>
+        <name>unReqd</name>
+    </customLabels>
+    <customLabels>
+        <label>Défaire</label>
+        <name>undo</name>
+    </customLabels>
+    <customLabels>
+        <label>Abonnés non engagés</label>
+        <name>unengagSub</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur inattendue</label>
+        <name>unexError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unfiledreportsfolder --></label>
+        <name>unfiledreportsfolder</name>
+    </customLabels>
+    <customLabels>
+        <label>Unique</label>
+        <name>unique</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux de clics uniques</label>
+        <name>uniqueCtr</name>
+    </customLabels>
+    <customLabels>
+        <label>Erreur inconnue.</label>
+        <name>unkError</name>
+    </customLabels>
+    <customLabels>
+        <label>Inconnu</label>
+        <name>unknwn</name>
+    </customLabels>
+    <customLabels>
+        <label>Clics uniques</label>
+        <name>unqClicks</name>
+    </customLabels>
+    <customLabels>
+        <label>Ouvertures uniques</label>
+        <name>unqOpens</name>
+    </customLabels>
+    <customLabels>
+        <label>Ouvertures uniques :</label>
+        <name>unqOpens_c</name>
+    </customLabels>
+    <customLabels>
+        <label>Taux de désabonnements</label>
+        <name>unsubRate</name>
+    </customLabels>
+    <customLabels>
+        <label>Désabonné</label>
+        <name>unsubbed</name>
+    </customLabels>
+    <customLabels>
+        <label>Monter</label>
+        <name>up</name>
+    </customLabels>
+    <customLabels>
+        <label>Utiliser l&apos;objet A</label>
+        <name>useSubjectA</name>
+    </customLabels>
+    <customLabels>
+        <label>Utiliser l&apos;objet B</label>
+        <name>useSubjectB</name>
+    </customLabels>
+    <customLabels>
+        <label>Utilisateur</label>
+        <name>user</name>
+    </customLabels>
+    <customLabels>
+        <label>Identifiants utilisateur</label>
+        <name>userCreds</name>
+    </customLabels>
+    <customLabels>
+        <label>Nom d’utilisateur</label>
+        <name>username</name>
+    </customLabels>
+    <customLabels>
+        <label>Avertissement</label>
+        <name>warning</name>
+    </customLabels>
+    <customLabels>
+        <label>s&apos;est réabonné avec succès.</label>
+        <name>wasResub</name>
+    </customLabels>
+    <customLabels>
+        <label>s&apos;est désabonné avec succès.</label>
+        <name>wasUnsub</name>
+    </customLabels>
+    <customLabels>
+        <label>Ordinateur de bureau</label>
+        <name>web</name>
+    </customLabels>
+    <customLabels>
+        <label>Par semaine</label>
+        <name>weekly</name>
+    </customLabels>
+    <customLabels>
+        <label>Le propriétaire de l&apos;envoi par e-mail</label>
+        <name>whoOwnEm</name>
+    </customLabels>
+    <customLabels>
+        <label>Le propriétaire de l&apos;envoi déclenché</label>
+        <name>whoOwnTrig</name>
+    </customLabels>
+    <customLabels>
+        <label>Le déclencheur de l&apos;événement</label>
+        <name>whoTrigEv</name>
+    </customLabels>
+    <customLabels>
+        <label>Vainqueur</label>
+        <name>winner</name>
+    </customLabels>
+    <customLabels>
+        <label>Lorsqu&apos;un vainqueur est déclaré</label>
+        <name>winnerIsDeclared</name>
+    </customLabels>
+    <customLabels>
+        <label>Par an</label>
+        <name>yearly</name>
+    </customLabels>
+    <customLabels>
+        <label>Oui</label>
+        <name>yes</name>
+    </customLabels>
+    <customTabs>
+        <label>ExactTarget</label>
+        <name>ExactTargetPhoenix</name>
+    </customTabs>
+    <customTabs>
+        <label>Envoyer les analyses</label>
+        <name>Send_Analytics</name>
+    </customTabs>
+    <reportTypes>
+        <description><!-- Users with or without Email Sends --></description>
+        <label><!-- Users with or without Email Sends --></label>
+        <name>Users_with_or_without_Email_Sends</name>
+        <sections>
+            <label><!-- Email Sends (Owner) --></label>
+            <name>Email Sends (Owner)</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+</Translations>

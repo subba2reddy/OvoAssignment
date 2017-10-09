@@ -1,0 +1,220 @@
+<apex:page controller="SMSOverviewControllerExtension" showheader="true" sidebar="false">
+
+                <!-- Javascript to enable/disable debug console -->
+                <!-- Go look at Wikipedia's entry on Konami Code for more info -->
+<!--        <script type="text/javascript" src="https://konami-js.googlecode.com/svn/trunk/konami.js"></script>
+        <script type="text/javascript">
+        konami = new Konami()
+        konami.code = function()
+        {
+                enableDebug();
+                }
+                                        
+        konami.load()
+        
+        </script>
+
+        <apex:pageMessages id="errors" />
+        <apex:form >
+                <apex:sectionheader title="SMS Overview" id="sectionheader" />
+
+                <apex:pageBlock title="Search" id="search" rendered="true">
+                        <script type="text/javascript">
+                                            function doSearch()
+                                            {
+                                                /*
+                                                 childnodes hack because the autocomplete input box
+                                                 now has a generated id that we can't reference.
+                                                 Very fragile code, sorry!
+                                                 
+                                                 Node 0 = the label
+                                                 Node 1 = <BR> tag
+                                                 Node 2 = The input field we need the value from
+                                                */      
+                                                        searchServer(
+                                                                document.getElementById("MarketTD").childNodes[2].value,
+                                                                document.getElementById("IndustryTD").childNodes[2].value,
+                                                                document.getElementById("SectorTD").childNodes[2].value
+                                                        );
+
+                                            }
+                                        </script>
+
+                        <apex:actionFunction name="searchServer" action="{!runSearch}"
+                                rerender="errors, debug, search, results, deals, overview">
+                                <apex:param name="market" value="" />
+                                <apex:param name="industry" value="" />
+                                <apex:param name="sector" value="" />
+                        </apex:actionFunction>
+
+                        <apex:actionFunction name="enableDebug" action="{!debugOn}" rerender="debug, search, results, deals, overview" />
+                        
+                        <table cellpadding="2" cellspacing="2">
+                       
+                                <tr>
+
+                                        <td id="MarketTD" style="font-weight: bold;">Market<br />
+                                                <apex:selectList size="1" id="MarketList" value="{!market}">
+                                                        <apex:selectOption itemvalue="All" itemLabel="--All--"></apex:selectOption>
+                                                        <apex:selectOptions value="{!MarketList}"/>
+                                                </apex:selectList> 
+                                        </td>
+                                        
+                                        <td id="IndustryTD" style="font-weight: bold;">Industry<br />
+                                                <apex:selectList size="1" id="IndustryList" value="{!industry}">
+                                                <apex:selectOption itemvalue="All" itemLabel="--All--"></apex:selectOption>
+                                                        <apex:selectOptions value="{!IndustryList}"/>
+                                                        <apex:actionSupport event="onchange" action="{!populateSectorList}" rerender="search"/>
+                                                </apex:selectList> 
+                                        </td>
+                                        
+                                        <td id="SectorTD" style="font-weight: bold;">Sector<br />
+                                                <apex:selectList size="1" id="SectorList" value="{!sector}">
+                                                        <apex:selectOption itemvalue="All" itemLabel="--All--" ></apex:selectOption>
+                                                        <apex:selectOptions value="{!SectorList}"/>
+                                                </apex:selectList>                                                
+                                        </td>  
+                                        
+                                        <td align="center" valign="bottom"><input type="button"
+                                                class="btn" id="btnSearch" value="Search" onclick="doSearch();" />
+                                        </td>
+                                        
+                                </tr>
+                                
+                        </table>
+                        
+                        <apex:pageBlock title="Debug" id="debug" rendered="{!isDebug}">
+                                <apex:outputText value="{!debug}" />
+                        </apex:pageBlock>
+                        
+                        <apex:pageBlock id="searchResults" mode="edit" rendered="{!NOT(ISNULL(companies))}">
+                                <apex:pageBlockTable value="{!companies}" var="thecompany"
+                                        id="companyTable" title="Companies" width="100%">
+
+                                        <apex:Column width="20%">
+                                                <apex:facet name="header">Company Name</apex:facet>
+
+                                                <apex:outputText value="{!thecompany.Name}"></apex:outputText>
+                                                <apex:facet name="footer">Total</apex:facet>
+                                        </apex:Column>
+                                        
+                                         <apex:Column >
+                                            <apex:facet name="header">Total USD Gross</apex:facet>
+                                            <apex:outputText value="{0,number,$#,###.00}"><apex:param value="{!thecompany.Total_USD_Gross__c}" /> </apex:outputText>
+                                            <apex:facet name="footer"><apex:outputText value="{0,number,$#,###.00}"><apex:param value="{!TotalUSDGross}" /></apex:outputText></apex:facet>
+                                        </apex:Column>
+                                        
+                                        <apex:Column >
+                                            <apex:facet name="header">Total USD Net</apex:facet>
+                                            <apex:outputText value="{0,number,$#,###.00}"><apex:param value="{!thecompany.Total_USD_Net__c}" /> </apex:outputText>
+                                             <apex:facet name="footer"><apex:outputText value="{0,number,$#,###.00}"><apex:param value="{!TotalUSDNet}" /></apex:outputText></apex:facet>
+                                        </apex:Column>
+
+                                        <apex:Column >
+                                                <apex:commandButton value="Show deal overview"
+                                                        action="{!ShowDeals}" rerender="results,debug,overview,deals">
+                                                        <apex:param name="companyID" value="{!thecompany.ID}"
+                                                                assignTo="{!CompanyID}" />
+                                                </apex:commandButton>
+                                        </apex:Column>
+                                </apex:pageBlockTable>
+                        </apex:pageBlock>
+                </apex:pageBlock>
+
+
+
+                <apex:pageBlock id="overview" mode="edit" rendered="true">
+                        <table width="100%" border="0">
+
+                                <tr>
+
+                                        <td valign="top"><apex:pageBlock id="results"
+                                                title="Overview for {!deal.Event_to_Deal__r.Client_Company__r.Name}"
+                                                rendered="{!NOT(ISNULL(clientcompany))}">
+
+                                                <apex:pageBlockSection columns="1">
+                                                        <img src="{!dealGraph}" style="display: block; margin-left: auto; margin-right: auto;" />
+                                                </apex:pageBlockSection>        
+                                                                                                
+                                                <apex:pageBlockSection columns="2">
+                                                        <apex:image url="{!mapGraph}" />
+                                                        <!-- 
+                                                        <apex:image url="http://chart.googleapis.com/chart?chf=bg,s,F8F8F8&chxt=x,y,x&chxl=1:|Becks|Budweiser|Costs|Carlsberg|InBev|Gaymers|2:|USD+Gross&chxp=2,2000000&chbh=a&chs=450x450&cht=bhg&chco=0000FF|FF0000|0000FF|0000FF|0000FF|0000FF&chds=a&chd=t:2064719,2384129,4500919,-280490,34719,3955&chdlp=b&chg=-1,0,0,4&chma=|10&chtt=Competitor+Comparison" />
+                                                         -->
+<!--                                                         <apex:image url="{!competitorGraph}" />
+                                                </apex:pageBlockSection>
+                                                
+                                        </apex:pageBlock> <apex:pageBlock title="Deals for {!market}" id="deals"
+                                                rendered="{!NOT(ISNULL(clientcompany))}">
+
+                                                <apex:pageBlockTable value="{!deals}" var="thedeal" id="dealTable"
+                                                        title="Deals" width="100%">
+                                                                                                                
+                                                        <apex:Column width="20%">
+                                                                <apex:facet name="header">Description</apex:facet>
+                                                                <apex:outputLink value="{!baseURL}/{!thedeal.Event_to_Deal__r.ID}">{!thedeal.Event_to_Deal__r.Name}</apex:outputLink>
+                                                        </apex:Column>
+                                                         
+                                                        <apex:Column >
+                                                                <apex:facet name="header">Asset</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event__r.Event_Type__c}" />                                                      
+                                                        </apex:Column>
+                                                        
+                                                        <apex:Column >
+                                                                <apex:facet name="header">Event</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event__r.Name}" />
+                                                        </apex:Column> 
+                                                        
+                                                        <apex:column >
+                                                                <apex:facet name="header">Company</apex:facet>
+                                                                <apex:outputLink value="{!baseURL}/{!thedeal.Event_to_Deal__r.Client_Company__r.ID}">{!thedeal.Event_to_Deal__r.Client_Company__r.Name}</apex:outputLink>
+                                                        </apex:column>
+
+                                                        <apex:column >
+                                                                <apex:facet name="header">Brand</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event_to_Deal__r.ClientBrand__c}" />
+                                                        </apex:column>
+
+                                                        <apex:column >
+                                                                <apex:facet name="header">Market</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event_to_Deal__r.LNOperation__c}" />
+                                                        </apex:column>
+
+                                                                                                                <apex:column >
+                                                                <apex:facet name="header">Year</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event_to_Deal__r.Year__c}" />
+                                                        </apex:column>
+                                                        
+                                                        <apex:column >
+                                                                <apex:facet name="header">Duration</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event_to_Deal__r.Deal_Duration__c}" />
+                                                        </apex:column>
+
+                                                        <apex:column style="text-align:right"
+                                                                headerClass="CurrencyElement">
+                                                                <apex:facet name="header">Total Gross (USD)</apex:facet>
+                                                                <apex:outputField value="{!thedeal.Total_USD_Gross__c}"
+                                                                        style="text-align:right" />
+                                                        </apex:column>
+
+                                                        <apex:column >
+                                                                <apex:facet name="header">Activation</apex:facet>
+                                                                <apex:outputText value="{!thedeal.Event_to_Deal__r.Deal_Activation__c}" />
+                                                        </apex:column>
+
+                                                        <apex:column >
+                                                                <apex:facet name="header">LNE Contact Name</apex:facet>
+                                                                <apex:outputField value="{!thedeal.Event_to_Deal__r.LN_Executive__c}"></apex:outputField>
+                                                        </apex:column>
+
+
+                                                </apex:pageBlockTable>
+
+
+                                        </apex:pageBlock></td>
+                                </tr>
+                        </table>
+                </apex:pageBlock>
+        </apex:form>
+-->
+</apex:page>

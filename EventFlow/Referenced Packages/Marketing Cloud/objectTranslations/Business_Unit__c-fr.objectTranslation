@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Unité commerciale</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Unités commerciales</value>
+    </caseValues>
+    <fields>
+        <label>ID d’unité commerciale</label>
+        <name>BusinessUnitIDx__c</name>
+    </fields>
+    <fields>
+        <label>ID d’unité commerciale</label>
+        <name>Business_Unit_ID2__c</name>
+    </fields>
+    <fields>
+        <label>ID d’unité commerciale</label>
+        <name>Business_Unit_ID__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l’unité commerciale</label>
+        <name>Business_Unit_Name__c</name>
+    </fields>
+    <fields>
+        <label>Image du bouton</label>
+        <name>Button_Image__c</name>
+    </fields>
+    <fields>
+        <label>Activé</label>
+        <name>Enabled__c</name>
+    </fields>
+    <fields>
+        <label>Est MID compte parent</label>
+        <name>IsParentAccountMID__c</name>
+    </fields>
+    <fields>
+        <label>Activé</label>
+        <name>PreSaved__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Business Unit Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom de l’unité commerciale</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Détail au niveau global des liens</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Détails au niveau global des liens</value>
+    </caseValues>
+    <fields>
+        <label>ID de lien Marketing Cloud</label>
+        <name>ExactTargetLinkID__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time this link was last clicked --></help>
+        <label>Dernier cliqué</label>
+        <name>Last_Clicked__c</name>
+    </fields>
+    <fields>
+        <label>URL du lien</label>
+        <name>LinkURL__c</name>
+    </fields>
+    <fields>
+        <help><!-- The aggregate number of times this link has been clicked --></help>
+        <label>Nombre total de clics</label>
+        <name>NumberOfTotalClicks__c</name>
+    </fields>
+    <fields>
+        <help><!-- The aggregate unique number of times this link has been clicked (unique means one click per subscriber) --></help>
+        <label>Nombre de clics uniques</label>
+        <name>NumberOfUniqueClicks__c</name>
+    </fields>
+    <fields>
+        <label>Définition d’envoi</label>
+        <name>Send_Definition__c</name>
+        <relationshipLabel>Détails au niveau global des liens</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Envoi déclenché</label>
+        <name>TriggeredSendDefinition__c</name>
+        <relationshipLabel>Détails au niveau global des liens</relationshipLabel>
+    </fields>
+    <fields>
+        <label>ID de lien unique</label>
+        <name>Unique_Link_ID__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Aggregate Link Level Detail Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom du lien</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

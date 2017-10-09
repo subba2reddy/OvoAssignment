@@ -1,0 +1,458 @@
+<apex:page controller="PQQController" tabStyle="PQQ__tab" showHeader="true" sidebar="false">
+<style>
+   .colstyle {width:33%}
+</style>
+
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages />  
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save Changes"/>
+                <apex:commandButton action="{!submit}" value="Submit Questionnaire" rendered="{!IF(CONTAINS(pqq.Status__c,'Submitted'), false, true)}"/>
+            </apex:pageBlockButtons>
+            
+            <p>Completion of this PQQ will allow you to become an approved contractor and enable you to work at and/or supply the following festivals:</p>
+            <p>Download, RHK, Wireless, Marlay Park Concerts, Malahide Castle, Lovebox, Citadel, Latitude, Longitude, Punchestown Music Festival, Wilderness, V North, V South, Creamfields, Reading, Leeds, Electric Picnic, and BBC Hyde Park Events, and any other festivals organised by Festival Republic Limited or its affiliate companies, for the purposes of this document known as <b>"The Festivals"</b>.</p>
+            <p>Completion and submission of this PQQ does not constitute an offer of engagement. Details and references will be checked. Any false or misleading information will disqualify the applicant/organisation.</p><br/>
+            <p><b>Part 1: Pre-Qualification Questionnaire</b> <br />We require you to complete Part 1 prior to being considered for our 2017 events</p>
+            <p><b>Part 2: Event H&amp;S Documentation</b> <br />After completion of Part 1 and subject to an offer of work at one or more of The Festivals you will be required to submit further health and safety documentation relevant to your work.</p>
+            <br />
+            
+            <apex:pageBlockSection title="Part 2: Event H&S Documentation" columns="1" rendered="{!IF(CONTAINS(pqq.Status__c,'Submitted'), true, false)}">
+                <p>If you have received a confirmation of work for one or more of The Festivals you are required to submit the following documents relevant to your work. If several of the listed documents are contained within one document please tick all relevant boxes and declare this in the comments section. If you are unsure what you are required to submit please e-mail - Health.And.Safety@FestivalRepublic.com.</p>
+
+                <p>You can complete this page at any time prior to the submission deadline which is <b>1 month prior to your arrival date on site</b>. Subject to the conditions of your purchase order, payments may be delayed or withheld until ALL your required H&amp;S documents have been submitted.</p>
+                
+                <!-- <p><b>Mandatory:</b></p> -->
+                <!-- <apex:inputField value="{!pqq.Risk_Assessment__c}"/> -->
+                <!-- <apex:inputField value="{!pqq.Method_statement__c}"/> -->
+                <p><b>Mandatory if relevant to your work on site:</b></p>
+                <apex:inputField value="{!pqq.Event_Method_Statement__c}"/>
+                <apex:inputField value="{!pqq.Event_Risk_Assessment__c}"/>
+                <apex:inputField value="{!pqq.COSHH_Policy__c}"/>
+                <apex:inputField value="{!pqq.Environmental_Sustainability_Policy__c}"/>
+                <apex:inputField value="{!pqq.Work_at_Height__c}"/>
+                <apex:inputField value="{!pqq.Fire_Risk_Assessment__c}"/>
+                <apex:inputField value="{!pqq.Flame_Certificates__c}"/>
+                <apex:inputField value="{!pqq.LOLER_certificates__c}"/>
+                <apex:inputField value="{!pqq.Manual_Handling_Policy__c}"/>
+                <apex:inputField value="{!pqq.Structural_Drawings_Calculations__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Adverse Weather Plan (including wind action plan)" for="Adverse_Weather_Plan__c"/>
+                    <apex:inputField value="{!pqq.Adverse_Weather_Plan__c}" id="Adverse_Weather_Plan__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!pqq.Other__c}"/>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Comments" for="Event_H_S_Documentation_Comments__c"/>
+                    <apex:inputField value="{!pqq.Event_H_S_Documentation_Comments__c}" id="Event_H_S_Documentation_Comments__c" style="width: 600px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Contact Information" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Your Name" for="Name__c"/>
+                    <apex:inputField value="{!pqq.Name__c}" id="Name__c" required="true" style="width: 300px;"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!pqq.Position__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Email__c}" required="true" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Office_Number__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Postal_Address__c}" required="true" style="width: 300px; height: 90px;"/>
+                <apex:inputField value="{!pqq.Mobile_Number__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Name_of_Day_to_Day_contact__c}" required="true" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Contact_Office_Number__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Contact_Position__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Contact_Mobile_Number__c}" style="width: 300px;"/>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Organisation Details" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel escape="false" value="Trading Name<BR/>(referred to hereafter as the Organisation)" for="Trading_Name__c"/>
+                    <apex:inputField value="{!pqq.Trading_Name__c}" id="Trading_Name__c" required="true" style="width: 300px;"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!pqq.Company_Registration_Number__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Registered_Name__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Date_of_Registration__c}"/>
+                <apex:inputField value="{!pqq.Registered_Address__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.VAT_Registration_Number__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Name_of_Parent_Company__c}" style="width: 300px;"/>
+                <apex:inputField value="{!pqq.Parent_Company_Registration_Number__c}" style="width: 300px;"/>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="If the Organisation is a member of a group of companies, please give the name and addresses of all UK/Irish group companies" for="Name_Addresses_All_UK_Group_Companies__c"/>
+                    <apex:inputField value="{!pqq.Name_Addresses_All_UK_Group_Companies__c}" id="Name_Addresses_All_UK_Group_Companies__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                
+                <apex:inputField value="{!pqq.Is_the_Organisation__c}" required="true"/>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Please describe the structure under which you are submitting this PQQ" for="Structure_Under_Which_Submitting_PQQ__c"/>
+                    <apex:inputField value="{!pqq.Structure_Under_Which_Submitting_PQQ__c}" id="Structure_Under_Which_Submitting_PQQ__c" required="true"/>
+                </apex:pageBlockSectionItem>
+                        
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Please provide details of sub-contractors that will be used  NB: All subcontractors will be required to complete this PQQ and the sub-contractor's appointment will only be permitted once approval has been provided by Festival Republic. " for="Details_of_Subcontractors__c"/>
+                    <apex:inputField value="{!pqq.Details_of_Subcontractors__c}" id="Details_of_Subcontractors__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Give a brief description of the Organisation's business and the main products or services offered" for="Primary_Business_Activity__c"/>
+                    <apex:inputField value="{!pqq.Primary_Business_Activity__c}" id="Primary_Business_Activity__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                        
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Legal" columns="1">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation been convicted of any health and safety offence or served with any Enforcement Notice (including a Fee for Intervention Notice)? If yes, please provide full details of the incident, enforcement action and notices serviced, including copy notices." for="H_S_Offences__c"/>
+                    <apex:inputField value="{!pqq.H_S_Offences__c}" id="H_S_Offences__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation attended any industrial tribunals or other proceedings in the last 3 years (including equal opportunities, discrimination, sexual harassment, unfair dismissal, minimum wage legislation)? If yes, please provide full details." for="Industrial_Tribunals__c"/>
+                    <apex:inputField value="{!pqq.Industrial_Tribunals__c}" id="Industrial_Tribunals__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                    
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Have any of the Organisation’s directors or senior staff ever been convicted of any serious criminal offence (excluding motoring)?" for="Criminal_Offences__c"/>
+                    <apex:inputField value="{!pqq.Criminal_Offences__c}" id="Criminal_Offences__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Is the Organisation currently involved in any investigation or litigation? If yes, please provide full details." for="Litigation__c"/>
+                    <apex:inputField value="{!pqq.Litigation__c}" id="Litigation__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Does the Organisation have any obligations under the Modern Slavery Act 2015 or other applicable regulations (Ireland)? If yes, please provide full details of steps taken to ensure compliance with the Modern Slavery Act 2015 or other applicable regulations (Ireland)." for="Modern_Slavery_Act_2015__c"/>
+                    <apex:inputField value="{!pqq.Modern_Slavery_Act_2015__c}" id="Modern_Slavery_Act_2015__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+            
+            </apex:pageBlockSection>
+
+            
+            <apex:pageBlockSection title="References (Organisations who have worked for Festival Republic in the past 12 months do not need to complete this section unless specifically asked to do so)" columns="1">
+            <p>Please provide details of two recent relevant contracts which the Organisation has been awarded for the provision of the goods or services similar to those offered to The Festivals.</p>
+            <apex:panelGrid columns="3" id="g1" columnClasses="colstyle" width="100%">
+                <apex:outputText value="Contact Name, Telephone Number & Email Address" id="f1" style="font-weight: bold;"/>
+                <apex:outputText value="Start & End Dates of Contract" id="f2" style="font-weight: bold;"/>
+                <apex:outputText value="Approx Value £" id="f3" style="font-weight: bold;"/>
+                <apex:inputField value="{!pqq.Reference_1__c}" id="f4" style="width: 300px; height: 100px;"/>
+                <apex:inputField value="{!pqq.Ref1_Start_End_Dates_of_Contract__c}" id="f5"/>
+                <apex:inputField value="{!pqq.Ref1_Approx_Value__c}" id="f6"/>
+                <apex:inputField value="{!pqq.Reference_2__c}" id="f7" style="width: 300px; height: 100px;"/>
+                <apex:inputField value="{!pqq.Ref2_Start_End_Dates_of_Contract__c}" id="f8"/>
+                <apex:inputField value="{!pqq.Ref2_Approx_Value__c}" id="f9"/>
+            </apex:panelGrid>
+            <p>Festival Republic reserves the right to seek detailed references from any or all of the referees provided. Permission to do so is assumed unless the Organisation states otherwise above.</p>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Financial Information (Organisations who have worked for Festival Republic in the past 12 months do not need to complete this section unless specifically asked to do so)" columns="1">
+                
+                <p><b>Please state the Organisation’s total annual turnover for the last 2 years.</b></p>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Last Year" for="Annual_Turnover_Last_Year__c"/>
+                    <apex:inputField value="{!pqq.Annual_Turnover_Last_Year__c}" id="Annual_Turnover_Last_Year__c"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Previous Year" for="Annual_Turnover_Previous_Year__c"/>
+                    <apex:inputField value="{!pqq.Annual_Turnover_Previous_Year__c}" id="Annual_Turnover_Previous_Year__c"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Name, address and telephone number of the Organisation’s bank, from which a financial reference may be sought" for="Bank__c"/>
+                    <apex:inputField value="{!pqq.Bank__c}" id="Bank__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation met all its obligations to pay its creditors and staff during the past year?" for="Met_Obligations_To_Pay_Creditors_Staff__c"/>
+                    <apex:inputField value="{!pqq.Met_Obligations_To_Pay_Creditors_Staff__c}" id="Met_Obligations_To_Pay_Creditors_Staff__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation ever had a winding up order or similar order or ruling made against it?" for="Winding_Up_Order_or_Similar__c"/>
+                    <apex:inputField value="{!pqq.Winding_Up_Order_or_Similar__c}" id="Winding_Up_Order_or_Similar__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation met the terms of its banking facilities and loan agreements (if any) during the past year?" for="Met_the_terms_of_its_banking_facilities__c"/>
+                    <apex:inputField value="{!pqq.Met_the_terms_of_its_banking_facilities__c}" id="Met_the_terms_of_its_banking_facilities__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <p>Festival Republic may require the Organisation to provide in an electronic format at short notice the following documents (within 5 days of request). It is not required now, but please tick to confirm your willingness to provide such information: </p>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="A statement of turnover, profit and loss and cash flow for the most recent year of trading" for="Turnover_profit_and_loss_and_cash_flow__c"/>
+                    <apex:inputField value="{!pqq.Turnover_profit_and_loss_and_cash_flow__c}" id="Turnover_profit_and_loss_and_cash_flow__c"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Parent company and/or other guarantees of performance and financial standing" for="Financial_Standing__c"/>
+                    <apex:inputField value="{!pqq.Financial_Standing__c}" id="Financial_Standing__c"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="A certified copy of the Organisation’s most recently audited accounts (for the last two years if applicable)" for="Audited_Accounts__c"/>
+                    <apex:inputField value="{!pqq.Audited_Accounts__c}" id="Audited_Accounts__c"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Does the Organisation (or senior staff) have any financial or family connections with any person employed by Festival Republic or any affiliate company (including Live Nation)" for="Financial_or_Family_Connections__c"/>
+                    <apex:inputField value="{!pqq.Financial_or_Family_Connections__c}" id="Financial_or_Family_Connections__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                    
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="People Management" columns="1">
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="What steps does the Organisation take to ensure staff are competent and safe to carry out the proposed work?" for="Ensure_staff_are_competent__c"/>
+                    <apex:inputField value="{!pqq.Ensure_staff_are_competent__c}" id="Ensure_staff_are_competent__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Outline the Organisations' training and induction processes." for="Training_and_induction_processes__c"/>
+                    <apex:inputField value="{!pqq.Training_and_induction_processes__c}" id="Training_and_induction_processes__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Who is responsible for training within the Organisation?" for="Who_is_responsible_for_training__c"/>
+                    <apex:inputField value="{!pqq.Who_is_responsible_for_training__c}" id="Who_is_responsible_for_training__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="What, if any, recognised employee involvement scheme is followed e.g. Investors in People?" for="Employee_involvement_scheme__c"/>
+                    <apex:inputField value="{!pqq.Employee_involvement_scheme__c}" id="Employee_involvement_scheme__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Please give details of trade or professional association membership." for="Professional_association_membership__c"/>
+                    <apex:inputField value="{!pqq.Professional_association_membership__c}" id="Professional_association_membership__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+            
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Insurance" columns="3">
+            
+                <p><b>Please provide a copy of the Organisation’s current:</b></p>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Proof of public/product liability insurance to a minimum of £5million" for="Public_Product_Liability_Insurance_5M__c"/>
+                    <apex:inputField value="{!pqq.Public_Product_Liability_Insurance_5M__c}" id="Public_Product_Liability_Insurance_5M__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="From" for="Public_Product_Liability_Insurance_FROM__c"/>
+                    <apex:inputField value="{!pqq.Public_Product_Liability_Insurance_FROM__c}" id="Public_Product_Liability_Insurance_FROM__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="To" for="Public_Product_Liability_Insurance_TO__c"/>
+                    <apex:inputField value="{!pqq.Public_Product_Liability_Insurance_TO__c}" id="Public_Product_Liability_Insurance_TO__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Proof of employers liability insurance to a minimum of £10million" for="Employers_Liability_Insurance_10M__c"/>
+                    <apex:inputField value="{!pqq.Employers_Liability_Insurance_10M__c}" id="Employers_Liability_Insurance_10M__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="From" for="Employers_Liability_Insurance_FROM__c"/>
+                    <apex:inputField value="{!pqq.Employers_Liability_Insurance_FROM__c}" id="Employers_Liability_Insurance_FROM__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="To" for="Employers_Liability_Insurance_TO__c"/>
+                    <apex:inputField value="{!pqq.Employers_Liability_Insurance_TO__c}" id="Employers_Liability_Insurance_TO__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Professional Indemnity Insurance (If applicable)" for="Professional_Indemnity_Insurance__c"/>
+                    <apex:inputField value="{!pqq.Professional_Indemnity_Insurance__c}" id="Professional_Indemnity_Insurance__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Medical Malpractice Insurance (If applicable)" for="Medical_Malpractice_Insurance__c"/>
+                    <apex:inputField value="{!pqq.Medical_Malpractice_Insurance__c}" id="Medical_Malpractice_Insurance__c"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+            
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Quality Assurance" columns="1">
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Please outline the system of quality assurance within the Organisation" for="System_of_quality_assurance__c"/>
+                    <apex:inputField value="{!pqq.System_of_quality_assurance__c}" id="System_of_quality_assurance__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Is the Organisation accredited under ISO 9001 or any equivalent standard?" for="Accredited_ISO_9001_or_any_equivalent__c"/>
+                    <apex:inputField value="{!pqq.Accredited_ISO_9001_or_any_equivalent__c}" id="Accredited_ISO_9001_or_any_equivalent__c" required="true"/>
+                </apex:pageBlockSectionItem>
+            
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Health & Safety" columns="2">
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Does the Organisation have an appointed person responsible for H&S?" for="Appointed_person_responsible_for_H_S__c"/>
+                    <apex:inputField value="{!pqq.Appointed_person_responsible_for_H_S__c}" id="Appointed_person_responsible_for_H_S__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Name & relevant qualification/experience:" for="Name_relevant_qualification_experience__c"/>
+                    <apex:inputField value="{!pqq.Name_relevant_qualification_experience__c}" id="Name_relevant_qualification_experience__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="How has the Organisation assessed risks arising from work at festival sites?" for="Assessed_risks_arising_from_work__c"/>
+                    <apex:inputField value="{!pqq.Assessed_risks_arising_from_work__c}" id="Assessed_risks_arising_from_work__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Does the Organisation provide staff with work Method Statements? " for="Provide_staff_with_work_Method_Statement__c"/>
+                    <apex:inputField value="{!pqq.Provide_staff_with_work_Method_Statement__c}" id="Provide_staff_with_work_Method_Statement__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Could the Organisations' activities present risk to other site users or the public?" for="Activities_present_risk__c"/>
+                    <apex:inputField value="{!pqq.Activities_present_risk__c}" id="Activities_present_risk__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Who will be responsible for the Organisation’s H&S management on site?" for="Responsible_for_H_S_management_on_site__c"/>
+                    <apex:inputField value="{!pqq.Responsible_for_H_S_management_on_site__c}" id="Responsible_for_H_S_management_on_site__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Will the Organisation carry out work which is deemed construction under the CDM 2015 Regulations or other applicable regulations (Ireland)?" for="Carry_out_work_which_deemed_construction__c"/>
+                    <apex:inputField value="{!pqq.Carry_out_work_which_deemed_construction__c}" id="Carry_out_work_which_deemed_construction__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="What first aid arrangements will the Organisation make for their staff whilst working at The Festivals?" for="First_aid_arrangements__c"/>
+                    <apex:inputField value="{!pqq.First_aid_arrangements__c}" id="First_aid_arrangements__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="How does the Organisation ensure that sub-contractors are competent to undertake works or services?" for="Ensure_sub_contractors_are_competent__c"/>
+                    <apex:inputField value="{!pqq.Ensure_sub_contractors_are_competent__c}" id="Ensure_sub_contractors_are_competent__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation suffered any accidents reportable under RIDDOR in the last 3 years?" for="Accidents_reportable_under_RIDDOR__c"/>
+                    <apex:inputField value="{!pqq.Accidents_reportable_under_RIDDOR__c}" id="Accidents_reportable_under_RIDDOR__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <!-- duplicate question? -->
+                <!-- <apex:pageBlockSectionItem > -->
+                <!--    <apex:outputLabel value="How does the Organisation ensure that its staff are competent to undertake works or services?" for="Ensure_staff_are_competent__c"/> -->
+                <!--    <apex:inputField value="{!pqq.Ensure_staff_are_competent__c}" id="Ensure_staff_are_competent__c" style="width: 255px;"/> -->
+                <!-- </apex:pageBlockSectionItem> -->
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Health & Safety Documentation" columns="3">
+            
+                <p><b>Please upload copies of:</b></p>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Health and Safety Policy (Required for organisations employing 5 or more persons)" for="Company_H_S_Policy__c"/>
+                    <apex:inputField value="{!pqq.Company_H_S_Policy__c}" id="Company_H_S_Policy__c" style="width: 255px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Risk Assessments" for="Risk_Assessment__c"/>
+                    <apex:inputField value="{!pqq.Risk_Assessment__c}" id="Risk_Assessment__c" style="width: 255px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Method Statements" for="Method_statement__c"/>
+                    <apex:inputField value="{!pqq.Method_statement__c}" id="Method_statement__c" style="width: 255px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <p>At the point of Contract, Contractors may be required to provide additional, event-specific documents</p>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                
+                <p>Food businesses only:</p>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem > <!-- empty section item --> </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Please provide evidence of registration as a Food Business." for="Registration_as_a_Food_Business__c"/>
+                    <apex:inputField value="{!pqq.Registration_as_a_Food_Business__c}" id="Registration_as_a_Food_Business__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation been involved in court action or served with any Notice relating food hygiene in the last 3 years?" for="Notice_relating_food_hygiene__c"/>
+                    <apex:inputField value="{!pqq.Notice_relating_food_hygiene__c}" id="Notice_relating_food_hygiene__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+            
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Environmental" columns="1">
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Does the Organisation have an environmental policy?" for="Environmental_policy_management_system__c"/>
+                    <apex:inputField value="{!pqq.Environmental_policy_management_system__c}" id="Environmental_policy_management_system__c" required="true"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Does the Organisation have an accredited Environmental Management System in place?" for="Environmental_management_system__c"/>
+                    <apex:inputField value="{!pqq.Environmental_management_system__c}" id="Environmental_management_system__c" required="true"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="What is the Organisation position with respect to the ISO 14001 environmental standards?" for="Position_with_respect_to_the_ISO_14001__c"/>
+                    <apex:inputField value="{!pqq.Position_with_respect_to_the_ISO_14001__c}" id="Position_with_respect_to_the_ISO_14001__c" required="true"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Has the Organisation had any Notice served or been found in breach of any environmental legislation in the last 3 years?" for="Breach_of_any_environmental_legislation__c"/>
+                    <apex:inputField value="{!pqq.Breach_of_any_environmental_legislation__c}" id="Breach_of_any_environmental_legislation__c" style="width: 300px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Your Comments" columns="1">
+            
+                <p>Please use this space to provide any further information you wish to be considered in evaluating this PQQ.</p>
+            
+                <apex:pageBlockSectionItem >
+                    <!-- <apex:outputLabel value="" for="Comments__c"/> -->
+                    <apex:inputField value="{!pqq.Comments__c}" id="Comments__c" style="width: 600px; height: 100px;"/>
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Declaration" columns="1">
+                <p>I declare that to the best of my knowledge the answers submitted in this PQQ (and any supporting information) are correct and I have authority to submit such answers and related documentation on behalf of the Organisation.</p>
+
+                <p>I understand that the information will be used in evaluating the Organisation's suitability to supply goods or services to one or more of The Festivals and, if chosen by Festival Republic as an approved contractor, the answers and documentation provided shall form part of the Organisation’s contract with Festival Republic or the applicable affiliate company of Festival Republic. The Organisation acknowledges and agrees that Festival Republic’s discretion as to whether or not the Organisation (and any of its subcontractors) will be appointed is absolute.</p>
+
+                <p>This PQQ is not an offer. Nothing in this questionnaire obliges Festival Republic or its affiliate companies to enter into any contract with the Organisation at any time.</p>
+
+                <p>This application relates only to the named company in this questionnaire. In consideration for being considered to provide the services to Festival Republic, the Organisation acknowledges that Festival Republic is acting on behalf of itself and its affiliate companies (which without limitation include Live Nation (Music) UK Limited, Maztec Limited and Roseclaim Limited) and agrees that, if it is appointed to provide services in relation to The Festivals: (a) it will not subcontract any of its services without the prior written consent of Festival Republic; and (b) it shall procure that no sub-contractor it appoints will further sub-contract its services without the prior written consent of Festival Republic.</p>
+            
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="By ticking this box I declare that all the information given is correct and I have the authority to sign this document on behalf of the company" for="Declaration__c"/>
+                    <apex:inputField value="{!pqq.Declaration__c}" id="Declaration__c"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <p style="color: red; font-weight: bold; text-align: center; font-size: 16px;">Save the form before uploading documents to avoid the information being lost!</p>
+        
+        </apex:pageBlock>
+    </apex:form>
+    <apex:relatedList subject="{!pqq}" list="CombinedAttachments" title="Document Upload - Please attach any documents that have been requested" />
+</apex:page>

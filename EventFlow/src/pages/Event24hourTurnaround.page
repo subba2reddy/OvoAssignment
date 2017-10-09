@@ -1,0 +1,13 @@
+<apex:page standardController="Event__c"  sidebar="false" showHeader="false" standardStylesheets="false">
+	<head>
+        <apex:slds />
+    </head>
+    <!--style type="text/css">
+        body{font-weight: bold;}
+    </style--> 
+	<body class='slds-scope'>
+        <p class='slds-text-color_error'>
+			If you need a 24 hour turnaround please also flag this to EP in person or via email.                 
+        </p>
+    </body>
+</apex:page>

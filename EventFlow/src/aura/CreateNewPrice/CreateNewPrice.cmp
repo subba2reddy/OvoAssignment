@@ -1,0 +1,222 @@
+<aura:component controller="PriceListController" implements="force:lightningQuickActionWithoutHeader,force:appHostable,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <aura:attribute name="newPrice" type="Object"/>
+    <aura:attribute name="simpleNewPrice" type="Price__c"/>
+    <aura:attribute name="newPriceError" type="String"/>
+    <aura:attribute name="priceLevels" type="Price_Levels__c[]" />
+    <aura:attribute name="priceId" type="Id" />
+    <aura:attribute name="facilityFee" type="integer" />
+    
+    <!-- Event to update pricing component when a new price is saved -->
+    <aura:registerEvent name="updatePrices" type="c:pricesUpdate"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <force:recordData aura:id="priceRecordCreator" 
+                      layoutType="FULL"
+                      targetRecord="{!v.newPrice}"
+                      targetFields="{!v.simpleNewPrice}"
+                      targetError="{!v.newPriceError}" />
+    
+    <force:recordData aura:id="recordHandler"
+                      recordId="{!v.priceId}"
+                      layoutType="FULL"
+                      targetRecord="{!v.newPrice}"
+                      targetFields="{!v.simpleNewPrice}"
+                      targetError="{!v.newPriceError}"
+                      mode="EDIT"
+                      recordUpdated="{!c.handleRecordUpdated}"
+                      />
+    
+    <!-- Display Lightning Data Service errors >
+    <aura:if isTrue="{!not(empty(v.newPriceError))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.newPriceError}
+            </ui:message>
+        </div>
+    </aura:if-->
+    <!-- Changes by Boyai for Modal header not visible issue -->
+    <aura:attribute name="cssStyle" type="String" />
+    <style>
+        {!v.cssStyle}
+    </style>
+    
+     <!-- End of Changes by Boyai -->
+    
+    <!-- Display the new Price form -->
+    
+    <div  style="height: 100%;">
+        <section  class="slds-modal slds-fade-in-open slds-modal_large slds-slide-down-cancel" role='dialog'>
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-modal__close" title="Close" onclick="{!c.closeMe}">
+                        <lightning:icon class="white slds-icon_small" iconName="utility:close"/> 
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Price Type</h2>
+                </header>
+                
+                <div class="slds-modal__content slds-p-around_medium" > 
+                    <div class="slds-form slds-form_compound" >
+                        <fieldset class="slds-form-element">
+                            <div class='slds-form-element__group' >
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:select name="priceType" label="Price Type" value="{!v.simpleNewPrice.Price_Type__c}" >
+                                            <option value="">choose one...</option>
+                                            <option value="A-TYPE">A-TYPE</option>
+                                            <option value="J-TYPE">J-TYPE</option>
+                                            <option value="G-TYPE">G-TYPE</option>
+                                            <option value="K-TYPE">K-TYPE</option>
+                                            <option value="L-TYPE">L-TYPE</option>
+                                            <option value="M-TYPE">M-TYPE</option>
+                                            <option value="V-TYPE">V-TYPE</option>
+                                            <option value="COMP">COMP</option>
+                                            <option value="B-TYPE">B-TYPE</option>
+                                            <option value="N-TYPE">N-TYPE</option>
+                                            <option value="T-TYPE">T-TYPE</option>
+                                            <option value="W-TYPE">W-TYPE</option>
+                                        </lightning:select>
+                                    </div>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <label class="slds-form-element__label" for="salesChannel">Sales Channel</label>
+                                        <div>
+                                            <ui:inputSelect aura:id='salesChannel' multiple="true"  >
+                                                <ui:inputSelectOption text="Outlets" label="Outlets" />
+                                                <ui:inputSelectOption text="Online" label="Online"/>
+                                                <ui:inputSelectOption text="Primary Box Office" label="Primary Box Office"/>
+                                                <ui:inputSelectOption text="Secondary Box Office" label="Secondary Box Office"/>
+                                                <ui:inputSelectOption text="Phone" label="Phone"/>
+                                                <ui:inputSelectOption text="IVR" label="IVR"/>
+                                                <ui:inputSelectOption text="NOTAP" label="NOTAP"/>
+                                            </ui:inputSelect>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="passwordServerId" label="Password Server ID"
+                                                         value="{!v.simpleNewPrice.Password_Server_ID__c}" />
+                                    </div>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="DID" label="DID"
+                                                         value="{!v.simpleNewPrice.DID__c}" />
+                                    </div>
+                                </div>
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="offerTypeNumber" label="Offer Type Number"
+                                                         value="{!v.simpleNewPrice.Offer_Type_Number__c}" />
+                                    </div>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="cosell" label="Cosell"
+                                                         value="{!v.simpleNewPrice.Cosell__c}" />
+                                    </div>
+                                </div>
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="description" label="Description"
+                                                         value="{!v.simpleNewPrice.Description__c}" />
+                                    </div>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="displayPriority" type="number" label="Display Priority" maxlength="2"
+                                                         value="{!v.simpleNewPrice.Display_Priority__c}" />
+                                    </div>
+                                </div>
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="mask" label="Mask"
+                                                         value="{!v.simpleNewPrice.Mask__c}" />
+                                    </div>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="maskLevel" type="number" label="Mask Level" maxlength="2" messageWhenTypeMismatch="please input number only" 
+                                                         value="{!v.simpleNewPrice.Mask_Level__c}" />
+                                    </div>
+                                </div>
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="qualifier" label="Qualifier/Qualifiers"
+                                                         value="{!v.simpleNewPrice.Qualifier_Qualifiers__c}" />
+                                    </div>
+                                    <div class='slds-form-element slds-size_1-of-2'>
+                                        <lightning:input name="secondarySettleCode" type="number"  label="Secondary Settle Code" maxlength="18"
+                                                         value="{!v.simpleNewPrice.Secondary_Settle_Code__c}" />
+                                    </div>
+                                </div>                
+                                <div class='slds-form-element__row'>
+                                    <div class='slds-form-element slds-size_1-of-1'>
+                                        <lightning:textarea name="offerInfo" label="Offer Info"
+                                                            value="{!v.simpleNewPrice.Offer_Info__c}" />
+                                    </div>
+                                </div>                        
+                            </div>
+                            
+                        </fieldset>
+                        <br></br>
+                        <!-- table to input prices -->
+                        <div>
+                            <ui:scrollerWrapper class="scrollerSize">
+                                <table class="slds-table slds-no-row-hover slds-table--cell-buffer"  role="grid"  >
+                                    <thead >
+                                        <tr id="{!'price' + v.recordId}" ></tr>
+                                        <td>PRICE</td>
+                                        <td><ui:inputText aura:id="price-0" class="currencyLength" value="{!v.priceLevels[0].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-1" class="currencyLength" value="{!v.priceLevels[1].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-2" class="currencyLength" value="{!v.priceLevels[2].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-3" class="currencyLength" value="{!v.priceLevels[3].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-4" class="currencyLength" value="{!v.priceLevels[4].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-5" class="currencyLength" value="{!v.priceLevels[5].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-6" class="currencyLength" value="{!v.priceLevels[6].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-7" class="currencyLength" value="{!v.priceLevels[7].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-8" class="currencyLength" value="{!v.priceLevels[8].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-9" class="currencyLength" value="{!v.priceLevels[9].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-10" class="currencyLength" value="{!v.priceLevels[10].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>
+                                        <td><ui:inputText aura:id="price-11" class="currencyLength" value="{!v.priceLevels[11].Price__c}" change="{!c.setFacilityFee}"></ui:inputText>  </td>                            
+                                        <!--tr id="{!'facilityFee' + v.recordId}" ></tr>
+                                        <td>Facility Fee</td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[0].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[1].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[2].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[3].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[4].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[5].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[6].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[7].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[8].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[9].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[10].Facility_fee__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[11].Facility_fee__c}"></ui:inputCurrency>  </td-->
+                                        <tr id="{!'serviceCharge' + v.recordId}" ></tr>
+                                        <td>Service Charge</td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[0].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[1].Service_Charge__c}"></ui:inputCurrency>  </td>               
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[2].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[3].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[4].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[5].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[6].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[7].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[8].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[9].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[10].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                        <td><ui:inputCurrency class="currencyLength" value="{!v.priceLevels[11].Service_Charge__c}"></ui:inputCurrency>  </td>
+                                    </thead>
+                                </table>
+                                <br></br>
+                            </ui:scrollerWrapper>
+                        </div>
+                        
+                        <footer class="slds-modal__footer"> 
+                            <button class="slds-button slds-button_brand" onclick="{!c.closeMe}">Cancel</button>
+                            <button type="button" class="slds-button slds-button_brand" onclick="{!c.handleSave}">Save</button>
+                        </footer>    
+                        
+                     </div>
+                </div>
+             </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+</aura:component>

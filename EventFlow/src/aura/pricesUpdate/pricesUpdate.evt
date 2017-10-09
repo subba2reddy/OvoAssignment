@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event to update pricing component">
+    <aura:attribute name="price" type="Price__c"/>
+</aura:event>

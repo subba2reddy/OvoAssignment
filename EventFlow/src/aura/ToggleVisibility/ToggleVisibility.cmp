@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+	
+    <lightning:button variant="brand" label="Show" onClick="{!c.showComponent}" /> 
+    <lightning:button variant="brand" label="Hide" onClick="{!c.HideComponent}" />
+    
+	<div aura:id="xxx" >
+    	<p>Subba Reddy</p>
+    </div>
+</aura:component>

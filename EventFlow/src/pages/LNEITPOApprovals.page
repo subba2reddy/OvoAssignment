@@ -1,0 +1,4 @@
+<apex:page ><apex:pageBlock ><br /><p><b>PO Approvals have now moved to the Home tab!</b></p>
+<p>A list of PO’s requiring your approval can be found in the <b>Items to Approve</b> section.</p>
+<p>For further assistance please contact <a href="mailto:ukapplicationsupport@livenation.co.uk?Subject=PO%20Force">
+Application Support</a>.</p><br /></apex:pageBlock></apex:page>

@@ -1,0 +1,1 @@
+<aura:event type="APPLICATION" description="Notify Performance saved to master class"/>

@@ -1,0 +1,6 @@
+<apex:page standardController="Event__c" sidebar="false" showHeader="false" standardStylesheets="false" >
+    <style type="text/css">
+        body{font-weight: bold;}
+    </style> 
+    Please ensure you have selected the correct ATP setting   
+</apex:page>

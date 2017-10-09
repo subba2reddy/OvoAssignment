@@ -1,0 +1,4 @@
+<apex:page standardController="case">
+    <chatter:follow entityId="{!case.id}"/>
+    <chatter:followers entityId="{!case.id}"/>
+</apex:page>

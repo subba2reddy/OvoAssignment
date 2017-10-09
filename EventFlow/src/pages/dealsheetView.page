@@ -1,0 +1,391 @@
+<apex:page standardController="Deal_Sheet__c">
+<style>
+    .lbltd { color:rgb(74,74,86); font-weight: 700; font-family: Arial,Helvetica,sans-serif; font-size: 10.9167px; text-align: right; padding-bottom: 5px; padding-left: 2px; padding-right: 10px; padding-top: 5px; border-bottom-color: rgb(236, 236, 236); border-bottom-style: solid; border-bottom-width: 1px; }
+    .lbltdl { color:rgb(74,74,86); font-weight: 700; font-family: Arial,Helvetica,sans-serif; font-size: 10.9167px; text-align: left; padding-bottom: 5px; padding-left: 2px; padding-right: 10px; padding-top: 5px; border-bottom-color: rgb(236, 236, 236); border-bottom-style: solid; border-bottom-width: 1px; }
+    .fldtd { font-family: Arial,Helvetica,sans-serif; font-size: 12px; padding-bottom: 5px; padding-left: 10px; padding-right: 2px; padding-top: 5px; border-bottom-color: rgb(236, 236, 236); border-bottom-style: solid; border-bottom-width: 1px; }
+    .fldtdr { text-align: right; font-family: Arial,Helvetica,sans-serif; font-size: 12px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px; padding-top: 5px; border-bottom-color: rgb(236, 236, 236); border-bottom-style: solid; border-bottom-width: 1px; }
+    p.padding { padding-top:5px; padding-bottom:10px; padding-right:10px; padding-left:10px; }
+</style>
+        
+        <apex:form >
+        <apex:pageBlock title="{!Deal_Sheet__c.Name}"> 
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!edit}" value="Edit"/>
+                <apex:commandButton value="Generate Deal Sheet" onclick="openConga()"/>
+                    <Script Language="JavaScript">
+                    function openConga() { window.open('{!URLFOR($Action.Deal_Sheet__c.Deal_Sheet_Btn,Id)}', '','scrollbars=no,menubar=no,height=200,width=400,resizable=yes, toolbar=no,location=no,status=no'); }
+                    </Script>
+                <apex:commandButton value="Generate Legal Contract" onclick="openConga2()"/>
+                    <Script Language="JavaScript">
+                    function openConga2() { window.open('{!URLFOR($Action.Deal_Sheet__c.Deal_Sheet_Btn2,Id)}', '','scrollbars=no,menubar=no,height=200,width=400,resizable=yes, toolbar=no,location=no,status=no'); }
+                    </Script>
+                <apex:commandButton value="Generate Legal Contract & Deal Sheet (Zip File)" onclick="openConga3()"/>
+                    <Script Language="JavaScript">
+                    function openConga3() { window.open('{!URLFOR($Action.Deal_Sheet__c.Deal_Sheet_Btn3,Id)}', '','scrollbars=no,menubar=no,height=200,width=400,resizable=yes, toolbar=no,location=no,status=no'); }
+                    </Script>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Opportunity__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Name_of_Client__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Client_Type__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Client_Status__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Client_Status_Other__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Registered_Address__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Company_Reg_No__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Bank_Account_Name__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Account_Number__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Sort_Code__c}"/> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Self-billing Required? (If yes, enter VAT number)" for="VAT_Number__c"/>
+                    <apex:outputField value="{!Deal_Sheet__c.VAT_Number__c}" id="VAT_Number__c"/> 
+                </apex:pageBlockSectionItem>
+                <apex:outputField value="{!Deal_Sheet__c.Invoicer_Details__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        </apex:form>
+        
+        
+        <apex:pageBlock title="A. Agreement Type">
+            <apex:pageBlockSection columns="1" >
+                <apex:outputField value="{!Deal_Sheet__c.Agreement_Type__c}"/> 
+                <apex:outputField value="{!Deal_Sheet__c.Category__c}"/> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="If OTHER, please specify" for="Other_Category__c"/>
+                    <apex:outputField value="{!Deal_Sheet__c.Other_Category__c}" id="Other_Category__c"/> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+
+        <apex:pageBlock title="B. Term">
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd" colspan="3">Commencement Date</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Commencement_Date__c}"/></td>
+                    <td class="lbltdl" colspan="2">(Date of first on-sale)</td>
+                </tr>
+                <tr>
+                    <td class="lbltd" colspan="2">Contract Term</td>
+                    <td class="fldtd" colspan="4"><apex:outputField value="{!Deal_Sheet__c.Contract_Term__c}"/></td>
+                </tr>                  
+                <tr>
+                    <td class="lbltd" colspan="2">Fixed Term:</td>
+                    <td class="lbltd">Term</td><td colspan="3" class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Term__c}"/></td>
+                 </tr>
+                <tr>
+                    <td class="lbltd" colspan="2">Rolling:</td>
+                    <td class="lbltd">Initial Term</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Initial_Term__c}"/></td>
+                    <td class="lbltd">Extension Term</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Extension_Term__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd" colspan="2">Event Only:</td>
+                    <td class="lbltd">Event Name</td><td colspan="4" class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Event_Name__c}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                    <td class="lbltd">Event Date</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Event_Date__c}"/></td>
+                    <td class="lbltd">To</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Event_Date_To__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Event</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Event__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Venue</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Venue__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Venue Address</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Venue_Address__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Exclusive?</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Exclusivity__c}"/></td>
+                    <td class="lbltd">Minimum Allocation</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Minimum_Allocation__c}"/></td>
+                    <td class="lbltd">Venue accepts TM tickets only</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Venue_accepts_TM_tickets_only__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Advertising Obligation/Arrangements</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Advertising_Obligation_Arrangements__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Platinum Seating</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Platinum_Seating__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Upsells</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Upsells__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Hospitality Tickets</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Hospitality_Tickets__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Special Offers</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Special_Offers__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Upsells/Packages additional information</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Upsells_Packages_additional_information__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Ticket Stock</td>
+                    <td class="fldtd" colspan="5"><apex:outputField value="{!Deal_Sheet__c.Ticket_Stock__c}"/></td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="C. Sales Channel">
+            <apex:pageBlockSection columns="2">
+                <apex:outputField value="{!Deal_Sheet__c.Sales_Channel__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Bespoke_Telephone_Number__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Group_Size__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+
+        <apex:pageBlock title="D. Handling Options">
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd">COBO</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.COBO__c}"/></td>
+                    <td class="lbltd">Ticketfast</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Ticketfast__c}"/></td>
+                    <td class="lbltd">Post Out</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Post_Out__c}"/></td>
+                </tr>
+            </table>
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd">Special Delivery</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Special_Delivery__c}"/></td>
+                    <td class="lbltd">FedEx</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.FedEx__c}"/></td>
+                    <td class="lbltd">Standard Intl Post Out</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Standard_Intl_Post_Out__c}"/></td>
+                </tr>
+                <tr>
+                     <td class="lbltd">TM duplicate tickets permitted</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.TM_duplicate_tickets_permitted__c}"/></td>
+                    <td class="lbltd">Venue Duplicate Tickets Permitted</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Venue_duplicate_tickets_permitted__c}"/></td>
+                    <td class="lbltd">OFP Rebate</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.OPF_Rebate__c}"/></td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="E. Price Structure">
+            <apex:relatedList list="Customer_Service_Charges__r" />
+            
+            <br />
+            
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Rebate_Settlement__c}"/>
+            </apex:pageBlockSection>
+            
+            <br />
+            
+            <apex:relatedList list="Inside_Commissions__r" />
+            
+            <br />
+
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Facility_Fee__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.If_yes_provide_more_details_to_finance__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="F. Non-Standard Deals">
+            <p class="padding"><apex:outputField value="{!Deal_Sheet__c.Non_Standard_Deals__c}"/></p>
+        </apex:pageBlock>        
+        
+        
+        <apex:pageBlock title="G. Payment Terms">
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd">Maturity?</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Maturity__c}"/></td>
+                    <td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Last Weeks Sales (LWS)</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Last_Weeks_Sales__c}"/></td>
+                    <td class="lbltd">Financial Guarantee Received</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Financial_Guarantee_received__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">If no guarantee</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.no_guarantee__c}"/></td>
+                    <td class="lbltd">approval by Financial Director required</td><td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.approval_by_FD_payment_terms__c}"/></td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="H. Standard Fees">
+            <apex:pageBlockSection columns="2">
+                <apex:outputField value="{!Deal_Sheet__c.Cancellation_Fees__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Pre_Print_Fees__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="I. Box Office Services">
+            <table width="70%" border="0">
+                <tr>
+                    <td colspan="2" class="fldtdr">Temporary: </td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.TM_Managed__c}"/></td><td class="lbltdl">TM Managed</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Client_Managed__c}"/></td><td class="lbltdl">Client Managed</td>
+                </tr>
+                <tr>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Permanent__c}"/></td><td class="lbltdl">Permanent</td>
+                    <td>&nbsp;</td><td>&nbsp;</td>
+                    <td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.System__c}"/></td><td class="lbltdl">System</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.eEntry__c}"/></td><td class="lbltdl">eEntry</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.AccessManager__c}"/></td><td class="lbltdl">AccessManager</td>
+                </tr>
+                <tr>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Free_Staff__c}"/></td><td class="lbltdl">Free Staff</td>
+                    <td>&nbsp;</td><td>&nbsp;</td>
+                    <td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Staff_Cashier__c}"/></td><td class="lbltdl">Staff Cashier</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Staff_Cashier_Recharge_per_hour__c}"/></td><td class="lbltdl">Recharge per hour</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Staff_Cashier_Fixed_Charge__c}"/></td><td class="lbltdl">Fixed Charge</td>
+                </tr>
+                <tr>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Staff_Manager__c}"/></td><td class="lbltdl">Staff Manager</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Staff_Manager_Recharge_per_hour__c}"/></td><td class="lbltdl">Recharge per hour</td>
+                    <td class="fldtdr"><apex:outputField value="{!Deal_Sheet__c.Staff_Manager_Fixed_Charge__c}"/></td><td class="lbltdl">Fixed Charge</td>
+                </tr>
+            </table>
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd">Will there be cash on the door?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Will_there_be_cash_on_the_door__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">If yes, how will cash be accounted for?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.If_yes_how_will_cash_be_accounted_for__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Will TM be responsible for providing a float?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.TM_responsible_for_providing_a_float__c}"/></td>
+                </tr>  
+                <tr>
+                    <td class="lbltd">Are securicor provisions needed?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Are_Securicor_provisions_needed__c}"/></td>
+                </tr>  
+                <tr>
+                    <td class="lbltd">Will service charges be payable on the door?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Services_charges_payable_on_the_door__c}"/></td>
+                </tr>  
+                <tr>
+                    <td class="lbltd">If yes, will these service charges be retained by TM?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.If_yes_services_charges_retained_by_TM__c}"/></td>
+                </tr>  
+                <tr>
+                    <td class="lbltd">If yes, will TM pay rebates on these service charges?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.If_yes_TM_pay_rebates_service_charges__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Will box office fees be deductible from BO settlements?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.BO_fees_deductible_from_settlements__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">If yes, will TM pay rebates on these inside fees</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.If_yes_TM_pay_rebates_on_inside_fees__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Should finance be made aware of any other info?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Finance_be_made_aware_of_any_other_info__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Additional Information</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Additional_Information__c}"/></td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="J. For Full System Contracts">
+             <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Terminals_with_PCI_Postcode_Retrieval__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.PCI_Application_onto_Client_PC__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Thermal_Ticket_Printers__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Report_Printers__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Chip_and_Pin_Pads__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Hand_held_Scanners__c}"/>
+            </apex:pageBlockSection>
+         </apex:pageBlock>
+         
+         
+        <apex:pageBlock title="K. Products">        
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Products__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.tmA_Usage_Fees__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.tmM_Usage_Fees__c}"/>
+            </apex:pageBlockSection>
+            
+            <br />
+            
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd">Responsible for installation and running costs of Data line?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Responsible_for_Data_line__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd">Merchant Services:  Client on Ticketmaster merchant chain?</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Merchant_Services__c}"/></td>
+                </tr>
+            </table>
+            <table width="70%" border="0">
+                <tr>
+                    <td class="lbltd"><apex:outputField value="{!Deal_Sheet__c.CCAN__c}"/></td>
+                    <td class="lbltdl">CCAN (Credit Card Authorisation Network)</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.CCAN_Limit__c}"/></td>
+                    <td class="lbltdl">Limit</td>
+                    <td class="lbltd">Approved by FD</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Approved_by_FD__c}"/></td>
+                </tr>
+                <tr>
+                    <td class="lbltd"><apex:outputField value="{!Deal_Sheet__c.Temporary_Bank_to_TM__c}"/></td>
+                    <td class="lbltdl" colspan="5">Temporary - Bank to TM.</td>
+                </tr>
+                <tr>
+                    <td class="lbltd" colspan="2">Commission/charge to client</td>
+                    <td class="fldtd"><apex:outputField value="{!Deal_Sheet__c.Commission_charge_to_client__c}"/></td>
+                    <td class="fldtd" colspan="3"><apex:outputField value="{!Deal_Sheet__c.VAT_to_Client__c}"/></td>
+                </tr>
+            </table>
+            
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Notes__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.System_Fees__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.One_off_Equipment_Charges__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Monthly_Charge__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Annual_Charge__c}"/>
+             </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="L. GMI Sales">
+                <apex:pageBlockSection columns="1" >
+                <apex:outputField value="{!Deal_Sheet__c.GMI_Sales__c}"/> 
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Exclusive? " for="GMI_Sales_Exclusive__c"/>
+                    <apex:outputField value="{!Deal_Sheet__c.GMI_Sales_Exclusive__c}" id="GMI_Sales_Exclusive__c"/> 
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Commission" for="GMI_Commission__c"/>
+                    <apex:outputField value="{!Deal_Sheet__c.GMI_Commission__c}" id="GMI_Commission__c"/> 
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        
+        <apex:pageBlock title="Signature">
+            <apex:pageBlockSection columns="1">
+                <apex:outputField value="{!Deal_Sheet__c.Deal_Maker__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Date__c}"/>
+                <apex:outputField value="{!Deal_Sheet__c.Account_Manager_assigned__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:relatedList list="ActivityHistories" />
+
+
+</apex:page>

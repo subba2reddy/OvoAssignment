@@ -1,0 +1,53 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId" controller="EvtFlowAUTypeFileCtrl">
+    <aura:attribute name="dateBased" type="boolean" default="false"/>
+    <aura:attribute name="dateDisabled" type="boolean" default="true"/>
+    <aura:attribute name="processComplete" type="boolean" default="false"/>
+    <aura:attribute name="showMessage" type="boolean" default="false"/>
+    <aura:attribute name="alertHeader" type="String"/>
+    <aura:attribute name="alertMessage" type="String"/>
+    <ui:inputCheckbox label="Generate AUT with Date Range" class="inLineCheckbox" value="{!v.dateBased}" change="{!c.chkChange}"/>
+    <br/>
+    <lightning:card >
+        <div class="slds-grid slds-wrap slds-grid_pull-padded">
+            <div id='dates'>
+                <lightning:layout class='slds-m-xx-large'>
+                    <div class='slds-p-left_large'> From </div>
+                    <div class='slds-p-left_x-small'> 
+                        <ui:inputDate aura:id='startDate'  displayDatePicker='true' disabled="{!v.dateDisabled}"/>
+                    </div>
+                    <div class='slds-p-left_large' align='right'> To </div>
+                    <div class='slds-p-left_x-small' align='right'> 
+                        <ui:inputDate aura:id='endDate'  displayDatePicker='true' disabled="{!v.dateDisabled}"/>
+                    </div>
+                </lightning:layout>
+            </div>
+        </div>
+    </lightning:card>
+    <aura:renderif isTrue="{!v.processComplete}">
+        <div role="status" class="slds-spinner slds-spinner_medium">
+            <span class="slds-assistive-text">Loading</span>
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+    </aura:renderif>
+    <aura:renderif isTrue="{!v.showMessage}">
+        <section aura:id="msgModal" role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-modal_prompt">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-theme_alert-texture" aura:id="header">
+                    <!-- classes inserted dynamically - slds-theme_success slds-theme_error -->
+                    <h2 class="slds-text-heading_medium" id="prompt-heading-id">{!v.alertHeader}</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>{!v.alertMessage}</p>
+                </div>
+                <footer class="slds-modal__footer slds-theme_default">
+                    <ui:button class="slds-button slds-button_neutral" label="Okay" press="{!c.closeAlertModal}"/>
+                </footer>
+            </div>
+        </section>	
+    </aura:renderif>
+    <br/><br/>
+    <div align="right">
+    <ui:button label="Generate Files" press="{!c.startFileCreation}"/>
+    </div>    
+</aura:component>

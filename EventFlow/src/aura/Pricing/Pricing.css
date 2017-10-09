@@ -1,0 +1,9 @@
+.THIS .inlineSelect {
+    display: inline-block;
+    width:15rem;
+}
+
+.THIS .currencyLength{
+    width: 7rem;
+    left: 1rem;
+}

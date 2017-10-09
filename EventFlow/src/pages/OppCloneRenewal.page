@@ -1,0 +1,5 @@
+<apex:page standardController="Opportunity"
+     extensions="oppCloneRenewalController"
+     action="{!oppCloneRenewal}">
+     <apex:pageMessages />
+</apex:page>

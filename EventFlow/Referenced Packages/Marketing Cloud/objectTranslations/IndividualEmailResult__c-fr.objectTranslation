@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Résultat au niveau individuel d’un e-mail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Résultats au niveau individuel d’un e-mail</value>
+    </caseValues>
+    <fields>
+        <label>Cliqué</label>
+        <name>Clicked__c</name>
+    </fields>
+    <fields>
+        <label>ID de contact</label>
+        <name>Contact_ID__c</name>
+    </fields>
+    <fields>
+        <label>Contact</label>
+        <name>Contact__c</name>
+        <relationshipLabel>Résultats au niveau individuel d’un e-mail</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The date and time when this subscriber’s email address bounced --></help>
+        <label>Date de rebond</label>
+        <name>DateBounced__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time when the subscriber opened the email --></help>
+        <label>Date d’ouverture</label>
+        <name>DateOpened__c</name>
+    </fields>
+    <fields>
+        <label>Date d’envoi</label>
+        <name>DateSent__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time when the subscriber unsubscribed --></help>
+        <label>Date de désabonnement</label>
+        <name>DateUnsubscribed__c</name>
+    </fields>
+    <fields>
+        <label>E-mail</label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label>Adresse de l’expéditeur</label>
+        <name>FromAddress__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l’expéditeur</label>
+        <name>FromName__c</name>
+    </fields>
+    <fields>
+        <help><!-- The email sent to this subscriber  was rejected due to permanent conditions (this typically results when &quot;user unknown&quot; or &quot;domain not found&quot; errors occur) --></help>
+        <label>Rebond définitif</label>
+        <name>HardBounce__c</name>
+    </fields>
+    <fields>
+        <label>ID de piste</label>
+        <name>Lead_ID__c</name>
+    </fields>
+    <fields>
+        <label>Piste</label>
+        <name>Lead__c</name>
+        <relationshipLabel>Résultats au niveau individuel d’un e-mail</relationshipLabel>
+    </fields>
+    <fields>
+        <label>ID de fusion</label>
+        <name>MergeId__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total number of times this subscriber clicked on the links on this email --></help>
+        <label>Nombre total de clics</label>
+        <name>NumberOfTotalClicks__c</name>
+    </fields>
+    <fields>
+        <help><!-- The unique number of times this subscriber clicked on the links on this email (unique means one click per link) --></help>
+        <label>Nombre de clics uniques</label>
+        <name>NumberOfUniqueClicks__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether the subscriber opened the email or not --></help>
+        <label>Ouvert</label>
+        <name>Opened__c</name>
+    </fields>
+    <fields>
+        <help><!-- The unique identifier of the email send. You may be asked to reference this number when calling Marketing Cloud support if the need arises. --></help>
+        <label>Définition d’envoi</label>
+        <name>SendDefinition__c</name>
+        <relationshipLabel>Résultats au niveau individuel d’un e-mail</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The email sent was rejected due to a seemingly temporary condition, such as a full inbox, after the system retries unsuccessfully to send the email every 15 minutes for 72 hours. A subscriber will be set to Held status after three soft bounces --></help>
+        <label>Rebond temporaire</label>
+        <name>SoftBounce__c</name>
+    </fields>
+    <fields>
+        <label>Ligne d’objet</label>
+        <name>SubjectLine__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time the last tracking update was received by Salesforce --></help>
+        <label>Suivi depuis</label>
+        <name>Tracking_As_Of__c</name>
+    </fields>
+    <fields>
+        <label>Envoi déclenché</label>
+        <name>TriggeredSendDefinition__c</name>
+        <relationshipLabel>Résultats au niveau individuel d’un e-mail</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Individual Email Result Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Email Image --></label>
+            <section>Email Image</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom de l’e-mail</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label>Demander un suivi immédiat</label>
+        <name>Request_Tracking_Immediately</name>
+    </webLinks>
+</CustomObjectTranslation>

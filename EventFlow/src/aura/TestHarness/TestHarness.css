@@ -1,0 +1,9 @@
+.THIS .data-row:hover {
+ background-color:#54698d;
+ color:white;
+ cursor:pointer;
+}
+.THIS .data-row.selectedRow{
+  background-color:#54698d;
+  color:white;
+ }

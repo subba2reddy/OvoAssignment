@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" >
+	<div class="slds">
+    <div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="modaldialog">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header slds-theme--info">
+                <lightning:buttonIcon iconName="utility:close" alternativeText="Close" onclick="{!c.hidePopup}"/>
+                <h2 class="slds-text-heading--medium">Your Title</h2>
+            </div>
+            <div class="slds-modal__content slds-p-around--medium">
+                <div class="c-container">
+                    <lightning:layout horizontalAlign="space">
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            <lightning:select name="Price Type" label="Price Type" >
+                                <option value="A-TYPE">A-TYPE</option>
+                                <option value="J-TYPE">J-TYPE</option>
+                                <option value="G-TYPE">G-TYPE</option>
+                                <option value="K-TYPE">K-TYPE</option>
+                                <option value="L-TYPE">L-TYPE</option>
+                                <option value="M-TYPE">M-TYPE</option>
+                                <option value="V-TYPE">V-TYPE</option>
+                                <option value="COMP">COMP</option>
+                                <option value="B-TYPE">B-TYPE</option>
+                                <option value="N-TYPE">N-TYPE</option>
+                                <option value="T-TYPE">T-TYPE</option>
+                                <option value="W-TYPE">W-TYPE</option>
+                            </lightning:select>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <lightning:layout horizontalAlign="space">
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</aura:component>

@@ -1,0 +1,200 @@
+<aura:component controller="PriceListController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <ltng:require styles="/resource/slick/slick.css,/resource/slick/slick-theme.css"	
+                  scripts="/resource/jquery,/resource/slick/slick.min.js"
+                  />
+    
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    
+    <aura:attribute name="PriceRecords" type="Price__c[]"/>  
+    <aura:attribute name="actions" type="String[]"/>
+    <aura:attribute name="isFacilityFee" type="Boolean" default="false" />
+    <aura:attribute name="isRestorationLevy" type="Boolean" default="false" />
+    <aura:attribute name="LevyOption" type="String"  />
+    <aura:attribute name="facilityFee"  type="integer" />
+    <aura:attribute name="restorationLevy"  type="integer" />
+    
+    <!-- event handler to handle pricing update -->
+    <aura:handler name="updatePrices" event="c:pricesUpdate" action="{!c.doInit}"/> 
+
+    <!-- Event to update pricing component when a new price is saved -->
+    <aura:registerEvent name="updateFacilityFee" type="c:facilityFeeUpdate"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <!--    <aura:handler name="init" value="{!this}" action="{!c.createItems}" /> -->
+    
+    <!--<aura:dependency resource="markup://force:createRecord" type="EVENT" /> 
+    <aura:handler name="handleCreate" event="force:createRecord" action="{!c.refresh}" /> 
+    <aura:handler name="handleSaveSuccess" event="force:showToast" action="{!c.navigateToMyComponent}" /> -->
+    <aura:registerEvent name="deletePriceItem" type="c:deletePriceItem"/>
+    <aura:handler name="deletePriceItem" event="c:deletePriceItem" action="{!c.deleteEvent}" />
+    
+    <!--aura:attribute name="newPrice" type="Object"/>
+    <aura:attribute name="simpleNewPrice" type="Object"/>
+    <aura:attribute name="newPriceError" type="String"/-->
+    
+    <!--force:recordData aura:id="priceRecordCreator"
+                      layoutType="FULL"
+                      targetRecord="{!v.newPrice}"
+                      targetFields="{!v.simpleNewPrice}"
+                      targetError="{!v.newPriceError}" /-->
+    
+    <!-- table-->
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                    <h2 class="slds-text-heading--medium" >
+                        <b>Pricing</b>
+                    </h2>
+                </div>
+            </header>
+            <div class="slds-no-flex">
+                <ui:button label="New Price Type" press="{!c.createRecordBtn}" /> 
+            </div>
+        </div>
+        <footer class="slds-card__footer">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label" for="{!('Levy-'+v.recordId)}" >Levy</label>
+                <select class="inlineSelect slds-input" id="{!('Levy-'+v.recordId)}" onchange="{!c.onLevy}" name="selectProblems">
+                    <option value="" >Select Levy</option>
+                    <option value="Restoration Levy(Inside)">Restoration Levy(Inside)</option>
+                    <option value="Facility Fee(Outside)">Facility Fee(Outside)</option>
+                </select>
+                
+                <!-- <ui:inputSelect aura:id="select-01" change="{!c.onLevy}" class="inlineSelect slds-input">
+                    <ui:inputSelectOption text="Select Levy"  />
+                    <ui:inputSelectOption text="Restoration Levy(Inside)" />
+                    <ui:inputSelectOption text="Facility Fee(Outside)" />
+                </ui:inputSelect>-->
+                
+                <!-- start of change 
+                 &nbsp; &nbsp;
+                    <ui:inputCurrency class="currencyLength" value="{!v.facilityFee}"></ui:inputCurrency> 
+                    &nbsp; &nbsp;
+                    <ui:button label="Apply Facility Fee" press="{!c.applyFacilityFee}"/> 
+                 end of change -->
+                 
+                <aura:if isTrue="{!v.isFacilityFee}">
+                    &nbsp; &nbsp;
+                    <ui:inputCurrency class="currencyLength" value="{!v.facilityFee}"></ui:inputCurrency> 
+                    &nbsp; &nbsp;
+                    <ui:button label="Apply Facility Fee" press="{!c.applyFacilityFee}"/>
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.isRestorationLevy}">
+                            &nbsp; &nbsp;
+                            <ui:inputCurrency class="currencyLength" value="{!v.restorationLevy}"></ui:inputCurrency> 
+                            &nbsp; &nbsp;
+                            <ui:button label="Set Restoration Levy" press="{!c.handleRestorationLevy}"/>
+                        </aura:if>
+                     </aura:set>
+                </aura:if>
+ 				
+            </div>
+        </footer>    
+    </article>
+    
+    <div class='slds'>
+        
+        <aura:iteration items="{!v.PriceRecords}" var="PriceRecord"> 
+            <div class='slds-box'>
+                <lightning:card variant='narrow'>
+                    <aura:set attribute="title">
+                        <b>{!PriceRecord.Price_Type__c}</b>
+                    </aura:set>
+                    <aura:set attribute='actions'>
+                        <lightning:button variant="bare" value="{!PriceRecord}" onclick="{!c.editPrice}">
+                            <lightning:icon iconName="utility:edit" title="Edit Price" size="small"/>
+                        </lightning:button>
+                        <lightning:button variant="bare" value="{!PriceRecord}" onclick="{!c.deleteEvent}">
+                            <lightning:icon iconName="utility:delete" title="Delete Price" size="small"/>
+                        </lightning:button>
+                    </aura:set>
+                </lightning:card>
+                <div class="slds-grid slds-grid_pull-padded-medium">
+                    <!-- Start of Left Section -->
+                    <div class="slds-col slds-p-horizontal_medium slds-size_1-of-3">
+                        <div class="slds-grid_vertical slds-wrap">
+                            
+                            <dl class="slds-dl_inline">
+                                <!--dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Price Type : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8">
+                                    <input type="text" id="priceType" value="{!PriceRecord.Price_Type__c}"  class="slds-input"/>
+                                </dd-->
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Description  </dt>
+                                <!--dd class="slds-box slds-p-right_xx-large slds-box_xx-small slds-dl_inline__detail slds-text-color_weak slds-p-left_x-large slds-size_6-of-8 ">  
+                                    {!PriceRecord.Description__c}
+                                </dd-->
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8">
+                                    <input type="text" id="Description" value="{!PriceRecord.Description__c}" class="slds-input" />
+                                </dd>
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Sales Channel  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="SalesChannel" value="{!PriceRecord.Sales_Channel__c}"  class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Display Priority  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="DisplayPriority" value="{!PriceRecord.Display_Priority__c}"  class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Offer Type Num  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="OfferTypeNumber" value="{!PriceRecord.Offer_Type_Number__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Password Server  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="PasswordServer" value="{!PriceRecord.Password_Server_ID__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Qualifier/s  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="Qualifier" value="{!PriceRecord.Qualifier_Qualifiers__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Mask  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="Mask" value="{!PriceRecord.Mask__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Mask Level  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="MaskLevel" value="{!PriceRecord.Mask_Level__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">DID  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="DID" value="{!PriceRecord.DID__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Cosell  </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="Cosell" value="{!PriceRecord.Cosell__c}" class="slds-input"/>
+                                </dd>        
+                            </dl>                       
+                        </div>
+                    </div>
+                    <!-- End of Left Section -->
+                    
+                    <!-- Start of Right Section -->
+                    <div class="slds-col slds-p-horizontal_medium slds-size_2-of-3">
+                        <div class="slds-grid_vertical slds-wrap">
+                            <div aura:id="container" class="slds-grid slds-theme--default">	
+                                <!--c:PriceLevels recordId="{!PriceRecord.Id}" /-->
+                                <c:NewPriceLevels recordId="{!PriceRecord.Id}" aura:id="childLevels"/>
+                            </div>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <div class='slds-form-element'>
+                                <label for='offerInfo' class='slds-align_absolute-center' style='font-size:15px'>Offer Info </label>
+                                <textarea id='offerInfo' rows='6' cols='150' class='slds-textarea'>
+                                    {!PriceRecord.Offer_Info__c}
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Right Section--> 
+                </div>
+            </div>
+            <br/>
+        </aura:iteration>  
+        
+        <div aura:id="ModalDialogPlaceholder" />
+        
+    </div>
+    
+</aura:component>

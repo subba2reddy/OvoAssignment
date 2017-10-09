@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Liaison d’e-mail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Liaisons d’e-mails</value>
+    </caseValues>
+    <fields>
+        <label>Campagnes exclues</label>
+        <name>ExcludedCampaigns__c</name>
+    </fields>
+    <fields>
+        <label>Rapports exclus</label>
+        <name>ExcludedReports__c</name>
+    </fields>
+    <fields>
+        <label>Campagnes exclues</label>
+        <name>Excluded_Campaigns__c</name>
+    </fields>
+    <fields>
+        <label>Rapports exclus</label>
+        <name>Excluded_Reports__c</name>
+    </fields>
+    <fields>
+        <label>Campagnes incluses</label>
+        <name>IncludedCampaigns__c</name>
+    </fields>
+    <fields>
+        <label>Rapports inclus</label>
+        <name>IncludedReports__c</name>
+    </fields>
+    <fields>
+        <label>Listes d’abonnés incluses</label>
+        <name>IncludedSubscriberLists__c</name>
+    </fields>
+    <fields>
+        <label>Campagnes incluses</label>
+        <name>Included_Campaigns__c</name>
+    </fields>
+    <fields>
+        <label>Rapports inclus</label>
+        <name>Included_Reports__c</name>
+    </fields>
+    <fields>
+        <label>Listes d’abonnés incluses</label>
+        <name>Included_Subscriber_Lists__c</name>
+    </fields>
+    <fields>
+        <label>ID d’e-mail</label>
+        <name>emailId__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l’e-mail</label>
+        <name>emailName__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Numéro de liaison d’e-mail</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

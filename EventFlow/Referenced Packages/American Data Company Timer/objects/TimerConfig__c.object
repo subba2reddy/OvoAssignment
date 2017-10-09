@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RequireBillingType__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Require Billing Type</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RequireDescription__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Require Description</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RequireSubject__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Require Subject</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RequireWorkType__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Require Work Type</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ShowBillingType__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Show Billing Type</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ShowDescription__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Show Description</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ShowSubject__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Show Subject</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ShowWorkType__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Show Work Type</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Timer Config</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{000}</displayFormat>
+        <label>Timer Config Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Timer Configs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>BillingTypeVisibleWhenRequired</fullName>
+        <active>true</active>
+        <description>&quot;Show Billing Type&quot; must be selected if &quot;Require Billing Type&quot; is selected.</description>
+        <errorConditionFormula>AND( RequireBillingType__c, NOT( ShowBillingType__c ) )</errorConditionFormula>
+        <errorDisplayField>ShowBillingType__c</errorDisplayField>
+        <errorMessage>Billing Type field must be visible if it is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>DescriptionVisibleWhenRequired</fullName>
+        <active>true</active>
+        <description>&quot;Show Description&quot; must be selected if &quot;Require Description&quot; is selected.</description>
+        <errorConditionFormula>AND( RequireDescription__c, NOT( ShowDescription__c ) )</errorConditionFormula>
+        <errorDisplayField>ShowDescription__c</errorDisplayField>
+        <errorMessage>Description field must be visible if it is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SubjectVisibleWhenRequired</fullName>
+        <active>true</active>
+        <description>&quot;Show Subject&quot; must be selected if &quot;Require Subject&quot; is selected.</description>
+        <errorConditionFormula>AND( RequireSubject__c, NOT( ShowSubject__c ) )</errorConditionFormula>
+        <errorDisplayField>ShowSubject__c</errorDisplayField>
+        <errorMessage>Subject field must be visible if it is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>WorkTypeVisibleWhenRequired</fullName>
+        <active>true</active>
+        <description>&quot;Show Work Type&quot; must be selected if &quot;Require Work Type&quot; is selected.</description>
+        <errorConditionFormula>AND( RequireWorkType__c, NOT( ShowWorkType__c ) )</errorConditionFormula>
+        <errorDisplayField>ShowWorkType__c</errorDisplayField>
+        <errorMessage>Work Type field must be visible if it is required.</errorMessage>
+    </validationRules>
+</CustomObject>

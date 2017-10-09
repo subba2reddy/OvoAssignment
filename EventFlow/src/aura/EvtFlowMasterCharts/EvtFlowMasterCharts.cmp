@@ -1,0 +1,117 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" controller="EvtFlowMasterChartCtrl">
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" /> 
+    <aura:attribute name="MasterCharts" type="Master_Charts__c[]" />
+    <aura:attribute name="curMasterChart" type="Master_Charts__c"/>
+    <aura:handler event="c:savePerformanceEvent" action="{!c.doInit}"/>
+    
+    <!-- Start of Master Chart Picklist -->
+    <lightning:card >
+         <div class="slds-grid slds-wrap slds-grid_pull-padded">
+             <div class="slds-p-horizontal_small slds-size_1-of-3">
+                 <div class="inDDLB"> 
+                     <dl class="slds-dl_inline">
+                         <dt class="slds-dl_inline__label slds-m-top_xx-small slds-size_1-of-4">MASTERCHART :</dt>
+                         <dd class="slds-dl_inline__detail slds-m-bottom_medium slds-size_3-of-4">  
+                             <ui:inputSelect aura:id="selMasterCharts" change="{!c.handleSelect}" >
+                                 <aura:iteration items="{!v.MasterCharts}" var="MasterChart">
+                                     <ui:inputSelectOption text="{!MasterChart.Name}" label="{!MasterChart.Name}"/>
+                                 </aura:iteration>
+                             </ui:inputSelect>
+                         </dd>
+                     </dl>
+                 </div>
+             </div>
+       	</div>
+    </lightning:card>
+    <!-- End of Master Chart Picklist -->
+    
+    <div class="slds-grid slds-grid_pull-padded-medium">
+      <!-- Start of Text Lines -->
+      <div class="slds-col slds-p-horizontal_medium slds-size_1-of-2">
+          <div class="slds-grid_vertical slds-wrap">
+          <div class="slds-p-horizontal_medium slds-p-vertical_small slds-text-heading_small ">TEXT LINES</div>
+           <dl class="slds-dl_inline">
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 1 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8">
+               	   <input type="text" id="{!('txtline1-'+v.recordId)}" value="{!v.curMasterChart.TXT_Line_1__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 2 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('txtline2-'+v.recordId)}" value="{!v.curMasterChart.TXT_Line_2__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 3 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('txtline3-'+v.recordId)}" value="{!v.curMasterChart.TXT_Line_3__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 4 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('txtline4-'+v.recordId)}" value="{!v.curMasterChart.TXT_Line_4__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 5 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('txtline5-'+v.recordId)}" value="{!v.curMasterChart.TXT_Line_5__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+           </dl>                       
+        </div>
+      </div>
+      <!-- End of Text Lines -->
+        
+      <!-- Start of Ext Comm Lines -->
+      <div class="slds-col slds-p-horizontal_medium slds-size_1-of-2">
+          <div class="slds-grid_vertical slds-wrap">
+          <div class="slds-p-horizontal_medium slds-p-vertical_small slds-text-heading_small ">EXTCOM LINES</div>
+           <dl class="slds-dl_inline">
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 1 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8">
+                   <input type="text" id="{!('extline1-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_1__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>            
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 2 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline2-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_2__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>            
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 3 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline3-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_3__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 4 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline4-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_4__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 5 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline5-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_5__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 6 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline6-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_6__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 7 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline7-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_7__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 8 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline8-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_8__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>        
+               <dt class="slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_1-of-8 slds-m-top_xx-small">LINE 9 : </dt>
+               <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_7-of-8"> 
+                   <input type="text" id="{!('extline9-'+v.recordId)}" value="{!v.curMasterChart.EXTCOM_Line_9__c}" onkeyup="{!c.handleKeyUp}" class="slds-input"/>
+               </dd>                       
+           </dl>                      
+        </div>
+      </div>
+      <!-- End of Ext Comm Lines --> 
+	</div>
+    <BR/><BR/>
+    <!-- Start of Save card -->
+    <lightning:card >
+         <div class="slds-grid slds-grid_pull-padded slds-grid_align-end">
+              <div class="slds-col slds-p-horizontal_large slds-size_1-of-6 ">
+                 <ui:button label="Save" press="{!c.saveMC}" class="slds-p-horizontal_large slds-size_5-of-6"/>
+              </div>
+       	</div>
+    </lightning:card>
+    <!-- End of Master Chart Picklist -->
+
+</aura:component>

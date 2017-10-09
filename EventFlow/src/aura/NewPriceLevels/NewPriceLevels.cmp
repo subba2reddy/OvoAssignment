@@ -1,0 +1,69 @@
+<aura:component controller="PriceLevelsController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <ltng:require scripts="/resource/jquery"/>
+    
+     <!-- event handler to handle facility fee update -->
+    <aura:handler name="updateFacilityFee" event="c:facilityFeeUpdate" action="{!c.handleUpdateFacilityFee}"/>
+    
+    <!-- expose a method -->
+    <aura:method name="updPriceLevel" action="{!c.doInit}" access="PUBLIC">
+        <!-- <aura:attribute name="eventID" type="String"/> -->
+    </aura:method>
+    
+    <aura:attribute type="string" name="priceId" default="{!'price' + v.recordId}"/>
+    <aura:attribute name="priceLevels" type="Price_Levels__c[]" />
+    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-no-row-hover" style="width:100%"   >
+        <!--head>
+            <tr id="{!'price' + v.recordId}" ></tr>
+            <tr id="{!'facilityFee' + v.recordId}" ></tr>
+            <tr id="{!'serviceCharge' + v.recordId}" ></tr>
+        </thead-->
+        <tbody >
+            <tr ></tr>
+            <td class="slds-border_left" style="width:22%">Price</td>
+            <!--td class="columnWidth"><ui:outputText value="{isNaN(!v.priceLevels[0].Price__c) ? '!v.priceLevels[0].Price__c' : '!v.priceLevels[0].Price__c'}"  /></td-->
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[0].Price__c}"  aura:id="txtCol0"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[1].Price__c}"  aura:id="txtCol1"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[2].Price__c}"  aura:id="txtCol2"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[3].Price__c}"  aura:id="txtCol3"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[4].Price__c}"  aura:id="txtCol4"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[5].Price__c}"  aura:id="txtCol5"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[6].Price__c}"  aura:id="txtCol6"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[7].Price__c}"  aura:id="txtCol7"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[8].Price__c}"  aura:id="txtCol8"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[9].Price__c}"  aura:id="txtCol9"/></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[10].Price__c}"  aura:id="txtCol10"/></td> 
+            <td class="columnWidth slds-border_right"><ui:outputCurrency value="{!v.priceLevels[11].Price__c}"  aura:id="txtCol11"/></td>
+            <tr  ></tr>
+            <td class="slds-border_left" >Facility Fee</td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[0].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[1].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[2].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[3].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[4].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[5].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[6].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[7].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[8].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[9].Facility_fee__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[10].Facility_fee__c}"  /></td>
+            <td class="columnWidth slds-border_right"><ui:outputCurrency value="{!v.priceLevels[11].Facility_fee__c}"  /></td>
+            <tr ></tr>
+            <td class="slds-border_left">Service Charge</td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[0].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[1].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[2].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[3].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[4].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[5].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[6].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[7].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[8].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[9].Service_Charge__c}"  /></td>
+            <td class="columnWidth"><ui:outputCurrency value="{!v.priceLevels[10].Service_Charge__c}"  /></td>
+            <td class="columnWidth slds-border_right"><ui:outputCurrency value="{!v.priceLevels[11].Service_Charge__c}"  /></td>
+        </tbody>
+        
+    </table>
+</aura:component>

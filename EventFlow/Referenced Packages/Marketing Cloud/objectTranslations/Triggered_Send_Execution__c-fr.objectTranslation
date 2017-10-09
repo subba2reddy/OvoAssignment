@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Exécution d’envoi déclenché</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Exécutions d’envois déclenchés</value>
+    </caseValues>
+    <fields>
+        <label>ID d’unité commerciale</label>
+        <name>Business_Unit_ID__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l’expéditeur</label>
+        <name>FromName__c</name>
+    </fields>
+    <fields>
+        <label>Message</label>
+        <name>Message__c</name>
+    </fields>
+    <fields>
+        <label>ID de destinataire</label>
+        <name>RecipientId__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de tentatives</label>
+        <name>Retry_Count__c</name>
+    </fields>
+    <fields>
+        <label>Date/Heure planifiée</label>
+        <name>Scheduled_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label>Statut</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requeued</masterLabel>
+            <translation><!-- Requeued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scheduled</masterLabel>
+            <translation><!-- Scheduled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Envoi déclenché</label>
+        <lookupFilter>
+            <errorMessage><!-- Trggered Send must be active in order to be selected. --></errorMessage>
+        </lookupFilter>
+        <name>Triggered_Send__c</name>
+        <relationshipLabel>Exécutions d’envois déclenchés</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Triggered Send Execution Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom d’exécution d’envoi déclenché</nameFieldLabel>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

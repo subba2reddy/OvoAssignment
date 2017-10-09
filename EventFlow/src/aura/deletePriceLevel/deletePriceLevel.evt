@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="priceLevel" type="Price_Levels__c"/>
+</aura:event>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Configuration de membre de campagne</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Configurations de membres de campagne</value>
+    </caseValues>
+    <fields>
+        <help><!-- If this box is checked, Campaign Member Status or Activity Field will be updated depending on the value of  the UpdateStatusOrActivity field. --></help>
+        <label>Connecteur de membre de campagne activé</label>
+        <name>CampaignMemberIntegrationEnabled__c</name>
+    </fields>
+    <fields>
+        <label>Mettre à jour le statut ou l’activité</label>
+        <name>UpdateStatusOrActivity__c</name>
+    </fields>
+    <fields>
+        <label>Événement cliqué mappé avec</label>
+        <name>mapClickedTo__c</name>
+    </fields>
+    <fields>
+        <label>Rebond définitif mappé avec</label>
+        <name>mapHardBounceTo__c</name>
+    </fields>
+    <fields>
+        <label>Événement ouvert mappé avec</label>
+        <name>mapOpenedTo__c</name>
+    </fields>
+    <fields>
+        <label>Événement envoyé mappé avec</label>
+        <name>mapSentTo__c</name>
+    </fields>
+    <fields>
+        <label>Rebond temporaire mappé avec</label>
+        <name>mapSoftBounceTo__c</name>
+    </fields>
+    <fields>
+        <label>Événement désabonné mappé avec</label>
+        <name>mapUnsubscribedTo__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Nom de configuration de membre de campag</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,12 @@
+<aura:component controller="PriceLevelsController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <ltng:require scripts="/resource/jquery"/>
+    
+    <table class="slds-table slds-table--bordered slds-table_col-bordered slds-no-row-hover slds-table--cell-buffer"  role="grid"  >
+        <thead >
+            <tr id="price" ></tr>
+            <tr id="facilityFee" ></tr>
+            <tr id="serviceCharge" ></tr>
+        </thead>
+    </table>
+</aura:component>

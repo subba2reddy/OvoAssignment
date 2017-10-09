@@ -1,0 +1,55 @@
+<apex:page tabStyle="Account" controller="massAccountUpdateCon">
+<apex:sectionHeader title="Accounts Mass Update"></apex:sectionHeader>
+<apex:form >
+<apex:pageBlock title="" id="pageBlock">
+  <!-- This block will show the search textbox and the Search button -->
+  <apex:pageBlockButtons location="top">
+    <B><apex:outputText value="Account Name:"/></B>
+    <apex:inputText value="{!keywords}" style="height:15px;"></apex:inputText>
+    <apex:commandButton value="Search" action="{!ViewData}" id="theButton" rerender="pageBlock" status="status"></apex:commandButton>
+  </apex:pageBlockButtons>
+  <!-- To show page level messages -->
+  <apex:pageMessages ></apex:pageMessages>
+
+  <!-- The below tag will provide a javascript method which when is called in turn will call a controller's method -->
+  <apex:actionFunction action="{!UpdateRecords}" name="updateRecords" rerender="pageBlock" status="status"></apex:actionFunction>
+
+  <!-- This table contains columns which have inputfield components -->
+  <apex:pageBlockTable value="{!accounts}" var="a" rendered="{!NOT(ISNULL(accounts))}">
+     <apex:column >
+       <apex:facet name="header">Name</apex:facet>
+       <apex:outputText value="{!a.Name}"></apex:OutputText>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Account Owner</apex:facet>
+       <apex:outputText value="{!a.OwnerId}"></apex:outputText>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Account Type</apex:facet>
+       <apex:outputText value="{!a.Account_Type__c}"></apex:outputText>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Genre</apex:facet>
+       <apex:outputText value="{!a.Genre__c}"></apex:outputText>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Ticketing</apex:facet>
+       <apex:outputText value="{!a.Ticketing__c}"></apex:outputText>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Additional Systems</apex:facet>
+       <apex:outputText value="{!a.Additional_Systems__c}"></apex:outputText>
+     </apex:column>
+     <apex:column >
+       <apex:facet name="header">Exclusive</apex:facet>
+       <apex:outputText value="{!a.Exclusive__c}"></apex:outputText>
+     </apex:column>
+     
+  </apex:pageBlockTable>
+
+</apex:pageBlock>
+
+<!-- The action status to show when the AJAX postback is working. -->
+<apex:actionStatus id="status" startText="Requesting..."/>
+</apex:form>
+</apex:page>

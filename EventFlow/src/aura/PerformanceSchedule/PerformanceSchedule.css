@@ -1,0 +1,25 @@
+.THIS .sample{
+    color: Red;
+    
+}
+
+.THIS .standard{
+    color: black;
+}
+
+.THIS .scrollerSize {
+    height: 380px;
+}
+
+.THIS .buttonStyle {
+    background-color:white;
+    color:rgb(22, 50, 92);
+}
+
+.THIS .selectedRow *{
+    color:rgb(0, 95, 178);
+}
+
+.THIS .tr {
+    height:0px;
+}

@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name="strHeader" type="String"/>
+    <aura:attribute name="strInformation" type="String"/>
+    <aura:attribute name="strClass" type="String"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+    <section aura:id="msgModal" role="alertdialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-modal_prompt">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header slds-theme_alert-texture" aura:id="header">
+                <!-- classes inserted dynamically - slds-theme_success slds-theme_error -->
+                <h2 class="slds-text-heading_medium" id="prompt-heading-id">{!v.strHeader}</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p>{!v.strInformation}</p>
+            </div>
+            <footer class="slds-modal__footer slds-theme_default">
+                <ui:button class="slds-button slds-button_neutral" label="Okay" press="{!c.closeAlertModal}"/>
+            </footer>
+        </div>
+    </section>	
+</aura:component>

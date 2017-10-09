@@ -1,0 +1,64 @@
+<aura:component controller="PriceLevelsController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId">
+	<aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="PriceLevels" type="Price_Levels__c[]" />
+    <aura:attribute name="PLactions" type="String[]"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+<!--    <aura:handler name="init" value="{!this}" action="{!c.createItems}" />  -->	
+    <aura:registerEvent name="deletePriceLevel" type="c:deletePriceLevel"/>
+    <aura:handler name="deletePriceLevel" event="c:deletePriceLevel" action="{!c.deleteEvent}" />
+
+    
+    <!-- table-->
+
+  <div class="slds-card__body slds-align--absolute-center slds-p-left--xx-large slds-p-top--medium slds-p-bottom--medium">
+    <table class="slds-table slds-table--bordered slds-no-row-hover slds-table--cell-buffer"  role="grid"  >
+      <thead class="slds-theme--shade">
+        <tr class="slds-text-title--caps">
+          <th scope="col">
+            <div class="slds-truncate" title="Price">Price</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="FacilityFee">Facility Fee</div>
+          </th>
+          <th scope="col">
+            <div class="slds-truncate" title="ServiceCharge">Service Charge</div>
+          </th>
+	      <div>
+   	    	<ui:button label="New" press="{!c.createRecordBtn}" /> 
+	      </div>
+        </tr>
+      </thead>
+      
+      <aura:iteration items="{!v.PriceLevels}" var="PriceLevel">  
+        <tbody>
+        <tr class="slds-hint-parent">
+          <th scope="row">
+            <div class="slds-truncate" title="Price">
+                <ui:outputCurrency value="{!PriceLevel.Price__c}"/> 
+            </div>
+          </th>
+          <td>
+            <div class="slds-truncate" title="FacilityFee">
+                <ui:outputCurrency value="{!PriceLevel.Facility_fee__c}"/></div>
+          </td>
+          <td>
+            <div class="slds-truncate" title="ServiceCharge">
+                <ui:outputCurrency value="{!PriceLevel.Service_Charge__c}"/></div>
+          </td>
+          <td class="slds-theme--default">
+              <lightning:buttonMenu value="{!PriceLevel}" alternativeText="Edit/Delete"  onselect="{! c.handleMenuSelect }" >
+                  <aura:iteration var="PLaction" items="{! v.PLactions }">
+                      <lightning:menuItem aura:id="actionMenuItems" label="{! PLaction.label }" value="{! PLaction.value }" class="slds-transition-show"/>
+                  </aura:iteration>
+              </lightning:buttonMenu> 
+      	  </td>            
+        </tr>
+      </tbody>
+    </aura:iteration>  
+        
+    </table>
+  </div>
+        <!-- table-->     
+        		
+</aura:component>

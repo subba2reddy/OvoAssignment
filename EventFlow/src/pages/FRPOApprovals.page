@@ -1,0 +1,68 @@
+<apex:page controller="massApprovePOCon">
+<apex:sectionHeader title="FR PO Mass Approval"/>
+<apex:form >
+<apex:pageBlock mode="edit" id="results">
+<apex:pageBlockTable value="{!pos}" var="po" rendered="{!NOT(ISNULL(pos))}">
+
+<script type="text/javascript">
+function doSearch()
+{
+    searchServer();
+}
+</script>
+
+<apex:actionFunction name="searchServer" action="{!runSearch}" rerender="results,debug"/>
+
+<apex:column >
+    <apex:facet name="header">Action</apex:facet>
+    <apex:commandButton value="Approve"  action="{!ApprovePO}" rerender="results,debug">
+        <apex:param name="PurchaseOrderID" value="{!po.ID}" assignTo="{!PurchaseOrderID}"/>
+    </apex:commandButton>
+    <apex:commandButton value="Reject"  action="{!RejectPO}" rerender="results,debug">
+        <apex:param name="PurchaseOrderID" value="{!po.ID}" assignTo="{!PurchaseOrderID}"/>
+    </apex:commandButton>
+    
+</apex:column>
+
+<apex:column >
+                <apex:facet name="header">
+                    <apex:commandLink value="PO Number" action="{!toggleSort}" rerender="results,debug">
+                        <apex:param name="sortField" value="PO_Number__c" assignTo="{!sortField}"/>
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputField value="{!po.PO_Number__c}"/>
+            </apex:column>
+
+<apex:column >
+                <apex:facet name="header">
+                    <apex:commandLink value="System PO Number" action="{!toggleSort}" rerender="results,debug">
+                        <apex:param name="sortField" value="Name" assignTo="{!sortField}"/>
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputField value="{!po.Name}"/>
+</apex:column>
+            
+<apex:column >
+                <apex:facet name="header">
+                    <apex:commandLink value="Description" action="{!toggleSort}" rerender="results,debug">
+                        <apex:param name="sortField" value="PO_Description__c" assignTo="{!sortField}"/>
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputField value="{!po.PO_Description__c}"/>
+</apex:column>
+
+<apex:column >
+                <apex:facet name="header">
+                    <apex:commandLink value="Gross Total" action="{!toggleSort}" rerender="results,debug">
+                        <apex:param name="sortField" value="Gross_Total__c" assignTo="{!sortField}"/>
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputField value="{!po.Gross_Total__c}"/>
+</apex:column>
+            
+</apex:pageBlockTable>
+
+  
+</apex:pageBlock>
+</apex:form>
+</apex:page>

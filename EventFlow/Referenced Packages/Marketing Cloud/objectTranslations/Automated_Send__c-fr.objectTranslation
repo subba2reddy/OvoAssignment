@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Envoi déclenché</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Envois déclenchés</value>
+    </caseValues>
+    <fields>
+        <label>Action</label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label>Actif</label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label>Date/heure du workflow de sauvegarde</label>
+        <name>BackupWorkflow__c</name>
+    </fields>
+    <fields>
+        <label>Taux de rebond</label>
+        <name>Bounce_Rate_del__c</name>
+    </fields>
+    <fields>
+        <label>Unité commerciale</label>
+        <name>Business_Unit__c</name>
+        <relationshipLabel><!-- Triggered Sends --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Taux de clics</label>
+        <name>Click_Through_Rate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Contact/Lead Field is used to identify the intended recipient of the email. This must be a Lookup field to the Contact or Lead Object for the respective object used in the Triggered Send Definition. If creating a Triggered Send on the Contact or Lead --></help>
+        <label>Champ Contact/Piste</label>
+        <name>Contact_Lead_FIeld__c</name>
+    </fields>
+    <fields>
+        <label>ID de conversation</label>
+        <name>ConversationId__c</name>
+    </fields>
+    <fields>
+        <label>Date d’envoi</label>
+        <name>DateSent__c</name>
+    </fields>
+    <fields>
+        <label>Date Heure</label>
+        <name>DateTime__c</name>
+    </fields>
+    <fields>
+        <label>Date</label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label>Taux de délivrabilité</label>
+        <name>Deliverability_Rate__c</name>
+    </fields>
+    <fields>
+        <label>ID d’e-mail</label>
+        <name>EmailId__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l’e-mail</label>
+        <name>EmailName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Field Criteria can be used to further refine if a Triggered Send should be sent.  Criteria is evaluated when the selected Object Event occurs --></help>
+        <label>Critères de champ</label>
+        <name>Filter__c</name>
+    </fields>
+    <fields>
+        <label>E-mail de l’expéditeur</label>
+        <name>FromEmail__c</name>
+    </fields>
+    <fields>
+        <label>Nom de l’expéditeur</label>
+        <name>FromName__c</name>
+    </fields>
+    <fields>
+        <label>Heures de retard</label>
+        <name>Hours_Delayed__c</name>
+    </fields>
+    <fields>
+        <label>Suivi individuel désactivé</label>
+        <name>Individual_Tracking_Disabled__c</name>
+    </fields>
+    <fields>
+        <label>Destinataires des notifications</label>
+        <name>NotificationRecipients__c</name>
+    </fields>
+    <fields>
+        <label>Notifier le propriétaire en cas d&apos;erreur</label>
+        <name>Notify_Owner_On_Error__c</name>
+    </fields>
+    <fields>
+        <label>Notifier l&apos;utilisateur actif en cas d&apos;erreur</label>
+        <name>Notify_Running_User_On_Error__c</name>
+    </fields>
+    <fields>
+        <label>Nombre non cliqués</label>
+        <name>NumberNotClicked__c</name>
+    </fields>
+    <fields>
+        <label>Nombre d’envois</label>
+        <name>NumberSent__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de désabonnés</label>
+        <name>NumberUnsubscribed__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de rebonds</label>
+        <name>Number_Bounced__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de livraisons</label>
+        <name>Number_Delivered__c</name>
+    </fields>
+    <fields>
+        <label>Nombre non ouverts</label>
+        <name>Number_Not_Opened__c</name>
+    </fields>
+    <fields>
+        <label>Nombre d’e-mails non délivrables existants</label>
+        <name>NumberofExistingUndeliverables__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de désabonnements existants</label>
+        <name>NumberofExistingUnsubscribes__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de rebonds définitifs</label>
+        <name>NumberofHardBounces__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de rebonds temporaires</label>
+        <name>NumberofSoftBounces__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de transferts des abonnés</label>
+        <name>NumberofSubscribersForwardingEmail__c</name>
+    </fields>
+    <fields>
+        <label>Nombre total de clics</label>
+        <name>NumberofTotalClicks__c</name>
+    </fields>
+    <fields>
+        <label>Nombre total d’ouvertures</label>
+        <name>NumberofTotalOpens__c</name>
+    </fields>
+    <fields>
+        <label>Nombre de clics uniques</label>
+        <name>NumberofUniqueClicks__c</name>
+    </fields>
+    <fields>
+        <label>Nombre d’ouvertures uniques</label>
+        <name>NumberofUniqueOpens__c</name>
+    </fields>
+    <fields>
+        <help><!-- Object which the Triggered Send is based off of --></help>
+        <label>Objet</label>
+        <name>Object__c</name>
+    </fields>
+    <fields>
+        <label>Taux d’ouvertures</label>
+        <name>Open_Rate__c</name>
+    </fields>
+    <fields>
+        <label>Destinataires inscrits</label>
+        <name>RecipientsOptedIn__c</name>
+    </fields>
+    <fields>
+        <label>ID de classification d’envoi</label>
+        <name>SendClassificationId__c</name>
+    </fields>
+    <fields>
+        <label>Nom de la classification d’envoi</label>
+        <name>SendClassificationName__c</name>
+    </fields>
+    <fields>
+        <label>ID de profil de l’expéditeur</label>
+        <name>SenderProfileId__c</name>
+    </fields>
+    <fields>
+        <label>Objet</label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <label>Abonné au suivi</label>
+        <name>Subscribed_For_Tracking__c</name>
+    </fields>
+    <fields>
+        <label>Champ de l’abonné</label>
+        <name>Subscriber_Field__c</name>
+    </fields>
+    <fields>
+        <label>Suivi uniquement</label>
+        <name>TrackingOnly__c</name>
+    </fields>
+    <fields>
+        <help><!-- Object event that will trigger the evaluation of the Triggered Send.  Options are for when a new record for respective object is created, existing record is updated, or both created and updated --></help>
+        <label>Déclencher l’envoi quand</label>
+        <name>Trigger_send_when__c</name>
+    </fields>
+    <fields>
+        <label>Taux de désabonnements</label>
+        <name>Unsubscribe_Rate__c</name>
+    </fields>
+    <fields>
+        <label>ID de définition d’envoi déclenché</label>
+        <name>etTriggeredSendDefId__c</name>
+    </fields>
+    <fields>
+        <label>Inclut des envois retardés</label>
+        <name>hasDelayedSends__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Active Send Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Email Information --></label>
+            <section>Email Information</section>
+        </sections>
+        <sections>
+            <label><!-- Tracking Information --></label>
+            <section>Tracking Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Inactive Send Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Email Information --></label>
+            <section>Email Information</section>
+        </sections>
+        <sections>
+            <label><!-- Tracking Information --></label>
+            <section>Tracking Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Nom de l’envoi déclenché</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Active --></label>
+        <name>Active</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Inactive --></label>
+        <name>Inactive</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage>Les heures de retard ne peuvent pas dépasser 720.</errorMessage>
+        <name>HoursDelayedMax</name>
+    </validationRules>
+    <webLinks>
+        <label>Activer</label>
+        <name>Activate</name>
+    </webLinks>
+    <webLinks>
+        <label>Désactiver</label>
+        <name>Deactivate</name>
+    </webLinks>
+</CustomObjectTranslation>

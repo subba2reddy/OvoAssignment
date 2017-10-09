@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event to update facility fee" >
+    <aura:attribute name="facilityFee" type="String"/>
+    <aura:attribute name="eventId" type="Id" />
+</aura:event>

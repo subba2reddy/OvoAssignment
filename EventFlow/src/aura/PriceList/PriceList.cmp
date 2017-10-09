@@ -1,0 +1,169 @@
+<aura:component controller="PriceListController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
+    
+    <ltng:require styles="/resource/slick/slick.css,/resource/slick/slick-theme.css"	
+                  scripts="/resource/jquery,/resource/slick/slick.min.js"
+                  afterScriptsLoaded="{!c.doInit}"/>
+    
+    <aura:attribute name="PriceRecords" type="Price__c[]"/>  
+    <aura:attribute name="actions" type="String[]"/>
+    
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <!--    <aura:handler name="init" value="{!this}" action="{!c.createItems}" /> -->
+    
+    <!--<aura:dependency resource="markup://force:createRecord" type="EVENT" /> 
+    <aura:handler name="handleCreate" event="force:createRecord" action="{!c.refresh}" /> 
+    <aura:handler name="handleSaveSuccess" event="force:showToast" action="{!c.navigateToMyComponent}" /> -->
+    <aura:registerEvent name="deletePriceItem" type="c:deletePriceItem"/>
+    <aura:handler name="deletePriceItem" event="c:deletePriceItem" action="{!c.deleteEvent}" />
+    
+    <!--aura:attribute name="newPrice" type="Object"/>
+    <aura:attribute name="simpleNewPrice" type="Object"/>
+    <aura:attribute name="newPriceError" type="String"/-->
+   
+    
+    
+    <!--force:recordData aura:id="priceRecordCreator"
+                      layoutType="FULL"
+                      targetRecord="{!v.newPrice}"
+                      targetFields="{!v.simpleNewPrice}"
+                      targetError="{!v.newPriceError}" /-->
+    
+    
+    <!-- table-->
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                <div class="slds-media__figure"></div>
+                <div>
+                    <h2 class="slds-text-heading--medium" >
+                        <b>Prices</b>
+                    </h2>
+                </div>
+            </header>
+            <div>
+                <ui:button label="New Price Type" press="{!c.createRecordBtn}" /> 
+            </div>
+        </div>
+    </article>
+    
+    <div class="carousel">
+        
+        <aura:iteration items="{!v.PriceRecords}" var="PriceRecord"> 
+            <div class='slds-box'>
+                <lightning:card variant='narrow'>
+                    <aura:set attribute="title">
+                        <b>{!PriceRecord.Price_Type__c}</b>
+                    </aura:set>
+                    <aura:set attribute='actions'>
+                        <lightning:button variant="bare" value="{!index}" >
+                            <lightning:icon iconName="utility:edit" title="Delete Price" size="small"/>
+                        </lightning:button>
+                        <lightning:button variant="bare" value="{!PriceRecord}" onclick="{!c.deleteEvent}">
+                            <lightning:icon iconName="utility:delete" title="Edit Price" size="small"/>
+                        </lightning:button>
+                    </aura:set>
+                </lightning:card>
+                <div class="slds-grid slds-grid_pull-padded-medium">
+                    <!-- Start of Text Lines -->
+                    <div class="slds-col slds-p-horizontal_medium slds-size_1-of-3">
+                        <div class="slds-grid_vertical slds-wrap">
+                            
+                            <dl class="slds-dl_inline">
+                                <!--dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Price Type : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8">
+                                    <input type="text" id="priceType" value="{!PriceRecord.Price_Type__c}"  class="slds-input"/>
+                                </dd-->
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Description : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8">
+                                    <input type="text" id="Description" value="{!PriceRecord.Description__c}"  class="slds-input" />
+                                </dd>
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Sales Channel : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="SalesChannel" value="{!PriceRecord.Sales_Channel__c}"  class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Display Priority : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="DisplayPriority" value="{!PriceRecord.Display_Priority__c}"  class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Offer Type Num : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="OfferTypeNumber" value="{!PriceRecord.Offer_Type_Number__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Password Server : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="PasswordServer" value="{!PriceRecord.Password_Server__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Qualifier/s : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="Qualifier" value="{!PriceRecord.Qualifier_Qualifiers__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Mask : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="Mask" value="{!PriceRecord.Mask__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Mask Level : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="MaskLevel" value="{!PriceRecord.Mask_Level_c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">DID : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="DID" value="{!PriceRecord.DID__c}" class="slds-input"/>
+                                </dd>        
+                                <dt class="slds-box slds-box_xx-small slds-dl_inline__label slds-text-color_weak slds-text-align_right slds-p-left_x-large slds-p-right_xxx-small slds-p-vertical_xx-small slds-size_2-of-8 slds-m-top_xx-small">Cosell : </dt>
+                                <dd class="slds-dl_inline__detail slds-p-right_xx-large slds-p-left_xxx-small slds-p-vertical_xxx-small slds-size_6-of-8"> 
+                                    <input type="text" id="Cosell" value="{!PriceRecord.Cosell__c}" class="slds-input"/>
+                                </dd>        
+                            </dl>                       
+                        </div>
+                    </div>
+                    <!-- End of Left Section -->
+                    
+                    <!-- Start of Right Section -->
+                    <div class="slds-col slds-p-horizontal_medium slds-size_2-of-3">
+                        <div class="slds-grid_vertical slds-wrap">
+                            <div class="slds-grid slds-theme--default">	
+                                <c:PriceLevels recordId="{!PriceRecord.Id}" />
+                            </div>
+
+                            <div class='slds-form-element'>
+                                <label for='offerInfo' class='slds-align_absolute-center' style='font-size:15px'>Offer Info </label>
+                                <textarea id='offerInfo' rows='6' cols='150' class='slds-textarea'>
+                                	{!PriceRecord.Offer_Info__c}
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Right --> 
+                </div>
+            </div>
+            <br/>
+        </aura:iteration>  
+        
+    </div>
+    
+    <div class="slds">
+        <div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="modaldialog">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header slds-theme--info">
+                    <header class="slds-modal__header ">
+                        <h2 class="slds-text-heading_medium slds-hyphenate">New Price</h2>
+                    </header>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div>
+                        <p>{!v.body}</p>
+                    </div>
+                </div>
+                <footer class='slds-modal__footer'>
+                    <lightning:button label="Cancel" onclick="{!c.handleCancel}"
+                                      variant="neutral" />
+                    <lightning:button label="Save" onclick="{!c.handleSavePrice}"
+                                      variant="brand" />
+                </footer>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slds-backdrop slds-backdrop--hide" aura:id="backdrop"></div>
+    
+</aura:component>

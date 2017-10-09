@@ -1,0 +1,11 @@
+<apex:page >
+
+<style type="text/css">
+ .msg{ color: #FF6600; font-weight: bold; font-size:22px; }
+</style>
+
+<apex:image value="{!$Resource.important_img}"/>
+<br  />
+<apex:outputText styleClass="msg" value="This dashboard is currently undergoing maintenance – please check back soon!" />
+
+</apex:page>
