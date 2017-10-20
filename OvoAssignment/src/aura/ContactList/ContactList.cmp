@@ -1,0 +1,78 @@
+<aura:component controller="ContactListController" implements="flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name='Contacts' type='Contact[]' />
+    
+    <aura:handler name='init' action='{!c.doInit}' value='{!this}' /> 
+    
+    <div aura:id="ContactsTable">
+
+        <table class='slds-table slds-table_bordered slds-table_cell-buffer' >
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope='col' >
+                        <div class='slds-truncate' title='NAME'>
+                             NAME
+                        </div>
+                    </th>
+                    <th scope='col'>
+                        <div class='slds-truncate' title='PHONE'>
+                            PHONE
+                        </div>
+                    </th>
+                    <th scope='col'>
+                        <div class='slds-truncate' title='EMAIL'>
+                            EMAIL
+                        </div>
+                    </th>
+                    <th scope='col'>
+                        <div class='slds-truncate' title='ACCOUNT NAME'>
+                            ACCOUNT NAME
+                        </div>
+                    </th>
+                    <th scope="col" >
+                        <div class='slds-truncate' title='FRIENDLY/STANDARD'>
+                            FRIENDLY/UNFRIENDLY
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <aura:iteration items='{!v.Contacts}' var='contact' > 
+                <tbody>
+                    <tr class='slds-hint-parent slds-line-height_reset'>
+                        <td role='gridcell' class='slds-cell-edit'>
+                            <div class='slds-truncate' >
+                                {!contact.Name}
+                            </div>
+                        </td>
+                        <td role='gridcell' class='slds-cell-edit'>
+                            <div class='slds-truncate'>
+                                {!contact.Phone}
+                            </div>
+                        </td>
+                        <td role='gridcell' class='slds-cell-edit'>
+                            <div class='slds-truncate'>
+                                {!contact.Email}
+                            </div>
+                        </td>
+                        <td role='gridcell' class='slds-cell-edit'>
+                            <div class='slds-truncate'>
+                                {!contact.Account.Name}
+                            </div>
+                        </td>
+                        <td role='gridcell' class='slds-cell-edit'>
+                            <div class='slds-truncate'>
+                                <ui:inputCheckbox value="{!contact.friendly}"></ui:inputCheckbox>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </aura:iteration> 
+        </table> 
+        
+    </div>
+    
+    <div class="slds-docked-form-footer">
+        <lightning:button label='Update Loyalty Status' onclick="{!c.updateLoyaltyStatus}" />
+    </div>
+    
+</aura:component>
